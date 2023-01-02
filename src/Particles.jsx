@@ -1,21 +1,38 @@
 import * as THREE from "three";
-import { useMemo, useState, useRef } from "react";
+import { useMemo, useEffect, useRef } from "react";
 import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
 import "./shaders/dofPointsMaterial";
+import gsap from "gsap";
 
 const Particles = () => {
-  const { focus, speed, blur, fade, pointSize, sizeXY, sizeZ, offsetZ } =
-    useControls("Particles", {
+  const { focus, blur, fade, pointSize, sizeXY, sizeZ, offsetZ } = useControls(
+    "Particles",
+    {
       focus: { value: 50, min: 0, max: 100, step: 0.01 },
-      speed: { value: 0.001, min: 0, max: 1, step: 0.0001 },
       blur: { value: 0.3, min: 0, max: 2, step: 0.0001 },
       fade: { value: 0.9, min: 0, max: 2, step: 0.0001 },
       pointSize: { value: 1, min: 0, max: 3, step: 0.0001 },
       sizeXY: { value: 250, min: 0, max: 1000, step: 0.01 },
       sizeZ: { value: 30, min: 30, max: 10000, step: 0.01 },
       offsetZ: { value: 50, min: 0, max: 800, step: 0.01 },
+    }
+  );
+
+  const animation = { speed: 0.001 };
+
+  useEffect(() => {
+    gsap.to(animation, {
+      duration: 1,
+      speed: 0.6,
     });
+    gsap.to(animation, {
+      duration: 5,
+      speed: 0.001,
+      delay: 1,
+      ease: "power4.out",
+    });
+  }, []);
 
   const renderRef = useRef();
 
@@ -36,7 +53,7 @@ const Particles = () => {
   }, [sizeXY, sizeZ]);
 
   useFrame((state, delta) => {
-    renderRef.current.uniforms.uTimeMovement.value += delta * speed;
+    renderRef.current.uniforms.uTimeMovement.value += delta * animation.speed;
     renderRef.current.uniforms.uTimeTwinkling.value = state.clock.elapsedTime;
     renderRef.current.uniforms.uSizeXY.value = THREE.MathUtils.lerp(
       renderRef.current.uniforms.uSizeXY.value,
