@@ -1,18 +1,22 @@
 import * as THREE from "three";
 import { useMemo, useState, useRef } from "react";
+import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
 import "./shaders/dofPointsMaterial";
 
-const Particles = ({
-  speed,
-  blur,
-  focus,
-  pointSize,
-  fade,
-  sizeXY = 250,
-  sizeZ = 30,
-  ...props
-}) => {
+const Particles = () => {
+  const { focus, speed, blur, fade, pointSize, sizeXY, sizeZ, offsetZ } =
+    useControls("Particles", {
+      focus: { value: 50, min: 0, max: 100, step: 0.01 },
+      speed: { value: 0.001, min: 0, max: 1, step: 0.0001 },
+      blur: { value: 0.3, min: 0, max: 2, step: 0.0001 },
+      fade: { value: 0.9, min: 0, max: 2, step: 0.0001 },
+      pointSize: { value: 1, min: 0, max: 3, step: 0.0001 },
+      sizeXY: { value: 250, min: 0, max: 1000, step: 0.01 },
+      sizeZ: { value: 30, min: 30, max: 10000, step: 0.01 },
+      offsetZ: { value: 50, min: 0, max: 800, step: 0.01 },
+    });
+
   const renderRef = useRef();
 
   const particles = useMemo(() => {
@@ -21,7 +25,7 @@ const Particles = ({
     for (let i = 0; i < count; i++) {
       const x = (Math.random() - 0.5) * sizeXY;
       const y = (Math.random() - 0.5) * sizeXY;
-      const z = (Math.random() - 0.5) * sizeZ - 50;
+      const z = (Math.random() - 0.5) * sizeZ - offsetZ;
 
       let i3 = i * 3;
       particles[i3 + 0] = x;
@@ -31,9 +35,24 @@ const Particles = ({
     return particles;
   }, [sizeXY, sizeZ]);
 
-  useFrame((state) => {
-    renderRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-    renderRef.current.uniforms.uSpeed.value = speed;
+  useFrame((state, delta) => {
+    renderRef.current.uniforms.uTimeMovement.value += delta * speed;
+    renderRef.current.uniforms.uTimeTwinkling.value = state.clock.elapsedTime;
+    renderRef.current.uniforms.uSizeXY.value = THREE.MathUtils.lerp(
+      renderRef.current.uniforms.uSizeXY.value,
+      sizeXY,
+      0.05
+    );
+    renderRef.current.uniforms.uSizeZ.value = THREE.MathUtils.lerp(
+      renderRef.current.uniforms.uSizeZ.value,
+      sizeZ,
+      0.05
+    );
+    renderRef.current.uniforms.uOffsetZ.value = THREE.MathUtils.lerp(
+      renderRef.current.uniforms.uOffsetZ.value,
+      offsetZ,
+      0.05
+    );
     renderRef.current.uniforms.uFocus.value = THREE.MathUtils.lerp(
       renderRef.current.uniforms.uFocus.value,
       focus,
@@ -63,7 +82,7 @@ const Particles = ({
   });
 
   return (
-    <points {...props}>
+    <points>
       <dofPointsMaterial ref={renderRef} />
       <bufferGeometry>
         <bufferAttribute

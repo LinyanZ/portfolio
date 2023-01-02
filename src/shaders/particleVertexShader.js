@@ -1,6 +1,8 @@
 export default /*html*/ `
-  uniform float uTime;
-  uniform float uSpeed;
+  uniform float uTimeMovement;
+  uniform float uSizeXY;
+  uniform float uSizeZ;
+  uniform float uOffsetZ;
   uniform float uFocus;
   uniform float uPointSize;
   uniform vec3 uCameraPos;
@@ -8,6 +10,7 @@ export default /*html*/ `
 
   varying float vDistance;
   varying vec3 vPosition;
+  varying vec3 vRawPosition;
 
   //	Classic Perlin 3D Noise 
   //	by Stefan Gustavson
@@ -85,15 +88,16 @@ export default /*html*/ `
   }
 
   void main() { 
+    vRawPosition = position;
 
     vec3 randomPosition = vec3(0.0, 0.0, 0.0);
-    randomPosition.x = cnoise(vec3(position.yz, uTime * uSpeed));
-    randomPosition.y = cnoise(vec3(position.xz, uTime * uSpeed));
-    randomPosition.z = cnoise(vec3(position.xy, uTime * uSpeed));
+    randomPosition.x = cnoise(vec3(position.yz, uTimeMovement));
+    randomPosition.y = cnoise(vec3(position.xz, uTimeMovement));
+    randomPosition.z = cnoise(vec3(position.xy, uTimeMovement));
 
-    randomPosition.x = (randomPosition.x) * 250.0;
-    randomPosition.y = (randomPosition.y) * 250.0;
-    randomPosition.z = (randomPosition.z) * 30.0 - 50.0;
+    randomPosition.x = (randomPosition.x) * uSizeXY;
+    randomPosition.y = (randomPosition.y) * uSizeXY;
+    randomPosition.z = (randomPosition.z) * uSizeZ - uOffsetZ;
 
     vec4 mvPosition = modelViewMatrix * vec4(randomPosition, 1.0);
     gl_Position = projectionMatrix * mvPosition;

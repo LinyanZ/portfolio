@@ -9,8 +9,11 @@ class DofPointsMaterial extends THREE.ShaderMaterial {
       vertexShader: particleVertexShader,
       fragmentShader: particleFragmentShader,
       uniforms: {
-        uTime: { value: 0 },
-        uSpeed: { value: 0.1 },
+        uTimeMovement: { value: 0 },
+        uTimeTwinkling: { value: 0 },
+        uSizeXY: { value: 250 },
+        uSizeZ: { value: 10000 },
+        uOffsetZ: { value: 600 },
         uFocus: { value: -500 },
         uBlur: { value: 0.3 },
         uFade: { value: 0.9 },
