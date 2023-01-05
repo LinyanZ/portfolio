@@ -1,8 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background: rgb(85, 89, 128);
+}
+
 .canvas-container {
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: radial-gradient(at 5% 100%, rgb(77, 69, 71) 0%, rgba(50,44,55,1) 21%, rgba(35,36,47,1) 54%, rgba(44,45,55,1) 78%, rgb(78, 80, 92) 100%);
+}
+
+.landing-section {
+    position: relative;
+    z-index: 1;
 }
