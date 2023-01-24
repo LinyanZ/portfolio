@@ -7,15 +7,59 @@
 }
 
 .canvas-container {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: radial-gradient(at 5% 100%, rgb(77, 69, 71) 0%, rgba(50,44,55,1) 21%, rgba(35,36,47,1) 54%, rgba(44,45,55,1) 78%, rgb(78, 80, 92) 100%);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    at 5% 100%,
+    rgb(77, 69, 71) 0%,
+    rgba(50, 44, 55, 1) 21%,
+    rgba(35, 36, 47, 1) 54%,
+    rgba(44, 45, 55, 1) 78%,
+    rgb(78, 80, 92) 100%
+  );
+}
+
+.html-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
 
 .landing-section {
-    position: relative;
-    z-index: 1;
+  /* background: linear-gradient(
+    225deg,
+    rgba(214, 214, 214, 0.3) 0%,
+    rgba(253, 253, 253, 0.3) 35%,
+    rgba(234, 234, 234, 0.3) 68%,
+    rgba(216, 216, 216, 0.3) 100%
+  ); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.project-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.project-container {
+  background: radial-gradient(
+    at 30% 70%,
+    rgba(54, 53, 58, 0.3) 0%,
+    rgba(113, 111, 117, 0.3) 100%
+  );
+}
+
+h1 {
+  font-family: "Raleway", sans-serif;
 }

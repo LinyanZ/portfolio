@@ -18,6 +18,7 @@ class DofPointsMaterial extends THREE.ShaderMaterial {
         uBlur: { value: 0.3 },
         uFade: { value: 0.9 },
         uPointSize: { value: 1 },
+        uOpacity: { value: 0 },
         uCameraPos: { value: new THREE.Vector3(0, 0, 0) },
         uCameraLookAt: { value: new THREE.Vector3(0, 0, 0) },
       },

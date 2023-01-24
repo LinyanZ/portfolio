@@ -1,8 +1,9 @@
-import { useControls } from "leva";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import Particles from "./Particles";
+import { Leva, useControls } from "leva";
 import { Perf } from "r3f-perf";
+import Background from "./components/particles/Background";
+import Landing from "./components/Landing";
+import Projects from "./components/Projects";
 
 function App() {
   const { particles } = useControls("Main", {
@@ -11,21 +12,19 @@ function App() {
 
   return (
     <>
-      <div className="landing-section p-10 mx-auto max-w-7xl mt-40 ">
-        <h1 className="text-6xl text-neutral-200 m-4 px-12 py-4 backdrop-blur-md bg-black/40 w-fit">
-          I'M LINYAN ZHU
-        </h1>
-        <h1 className="text-6xl text-neutral-200 m-4 px-12 py-4 backdrop-blur-md bg-black/40 w-fit">
-          WELCOME TO MY PORTFOLIO
-        </h1>
+      <div className="html-container">
+        <Landing />
+        <Projects />
       </div>
       <div className="canvas-container">
         <Canvas>
-          <Perf position="top-left" />
-          <OrbitControls />
-          {particles && <Particles />}
+          {process.env.NODE_ENV === "development" && (
+            <Perf position="top-left" />
+          )}
+          {particles && <Background />}
         </Canvas>
       </div>
+      {process.env.NODE_ENV === "development" && <Leva collapsed={true} />}
     </>
   );
 }

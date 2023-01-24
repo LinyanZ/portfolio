@@ -2,6 +2,7 @@ export default /*html*/ `
 	uniform float uTimeTwinkling;
 	uniform float uBlur;
 	uniform float uFade;
+	uniform float uOpacity;
 
 	varying float vDistance;
 	varying vec3 vPosition;
@@ -21,6 +22,6 @@ export default /*html*/ `
 
 		float twinkling = (sin(uTimeTwinkling + vRawPosition.x) + 1.0) * 0.5;
 
-		gl_FragColor = vec4(vec3(1.0), (1.04 - fade) * blurAmount * twinkling);
+		gl_FragColor = vec4(vec3(1.0), (1.04 - fade) * blurAmount * twinkling * uOpacity);
 	}
 `;

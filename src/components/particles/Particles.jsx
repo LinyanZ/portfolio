@@ -1,48 +1,17 @@
 import * as THREE from "three";
-import { useMemo, useEffect, useRef } from "react";
-import { useControls } from "leva";
+import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import "./shaders/dofPointsMaterial";
-import gsap from "gsap";
+import "../../shaders/dofPointsMaterial";
 
-const Particles = () => {
-  const { focus, blur, fade, pointSize, sizeXY, sizeZ, offsetZ } = useControls(
-    "Particles",
-    {
-      focus: { value: 50, min: 0, max: 100, step: 0.01 },
-      blur: { value: 0.3, min: 0, max: 2, step: 0.0001 },
-      fade: { value: 0.9, min: 0, max: 2, step: 0.0001 },
-      pointSize: { value: 1, min: 0, max: 3, step: 0.0001 },
-      sizeXY: { value: 250, min: 0, max: 1000, step: 0.01 },
-      sizeZ: { value: 30, min: 30, max: 10000, step: 0.01 },
-      offsetZ: { value: 50, min: 0, max: 800, step: 0.01 },
-    }
-  );
-
-  const animation = { speed: 0.001 };
-
-  useEffect(() => {
-    gsap.to(animation, {
-      duration: 1,
-      speed: 0.6,
-    });
-    gsap.to(animation, {
-      duration: 5,
-      speed: 0.001,
-      delay: 1,
-      ease: "power4.out",
-    });
-  }, []);
-
+const Particles = ({ count = 1000, animation }) => {
   const renderRef = useRef();
 
   const particles = useMemo(() => {
-    const count = 1000;
     const particles = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      const x = (Math.random() - 0.5) * sizeXY;
-      const y = (Math.random() - 0.5) * sizeXY;
-      const z = (Math.random() - 0.5) * sizeZ - offsetZ;
+      const x = (Math.random() - 0.5) * animation.sizeXY;
+      const y = (Math.random() - 0.5) * animation.sizeXY;
+      const z = (Math.random() - 0.5) * animation.sizeZ - animation.offsetZ;
 
       let i3 = i * 3;
       particles[i3 + 0] = x;
@@ -50,44 +19,49 @@ const Particles = () => {
       particles[i3 + 2] = z;
     }
     return particles;
-  }, [sizeXY, sizeZ]);
+  }, [animation.sizeXY, animation.sizeZ]);
 
   useFrame((state, delta) => {
     renderRef.current.uniforms.uTimeMovement.value += delta * animation.speed;
     renderRef.current.uniforms.uTimeTwinkling.value = state.clock.elapsedTime;
     renderRef.current.uniforms.uSizeXY.value = THREE.MathUtils.lerp(
       renderRef.current.uniforms.uSizeXY.value,
-      sizeXY,
+      animation.sizeXY,
       0.05
     );
     renderRef.current.uniforms.uSizeZ.value = THREE.MathUtils.lerp(
       renderRef.current.uniforms.uSizeZ.value,
-      sizeZ,
+      animation.sizeZ,
       0.05
     );
     renderRef.current.uniforms.uOffsetZ.value = THREE.MathUtils.lerp(
       renderRef.current.uniforms.uOffsetZ.value,
-      offsetZ,
+      animation.offsetZ,
       0.05
     );
     renderRef.current.uniforms.uFocus.value = THREE.MathUtils.lerp(
       renderRef.current.uniforms.uFocus.value,
-      focus,
+      animation.focus,
       0.05
     );
     renderRef.current.uniforms.uBlur.value = THREE.MathUtils.lerp(
       renderRef.current.uniforms.uBlur.value,
-      blur,
+      animation.blur,
       0.05
     );
     renderRef.current.uniforms.uFade.value = THREE.MathUtils.lerp(
       renderRef.current.uniforms.uFade.value,
-      fade,
+      animation.fade,
       0.05
     );
     renderRef.current.uniforms.uPointSize.value = THREE.MathUtils.lerp(
       renderRef.current.uniforms.uPointSize.value,
-      pointSize,
+      animation.pointSize,
+      0.05
+    );
+    renderRef.current.uniforms.uOpacity.value = THREE.MathUtils.lerp(
+      renderRef.current.uniforms.uOpacity.value,
+      animation.opacity,
       0.05
     );
 
@@ -114,3 +88,19 @@ const Particles = () => {
 };
 
 export default Particles;
+
+// import { useControls } from "leva";
+
+// const { focus, blur, fade, pointSize, sizeXY, sizeZ, offsetZ } = useControls(
+//   "Burst",
+//   {
+//     focus: { value: 50, min: 0, max: 100, step: 0.01 },
+//     blur: { value: 0.3, min: 0, max: 2, step: 0.0001 },
+//     fade: { value: 0.9, min: 0, max: 2, step: 0.0001 },
+//     pointSize: { value: 1, min: 0, max: 3, step: 0.0001 },
+//     sizeXY: { value: 250, min: 0, max: 1000, step: 0.01 },
+//     sizeZ: { value: 30, min: 30, max: 10000, step: 0.01 },
+//     offsetZ: { value: 50, min: 0, max: 800, step: 0.01 },
+//     opacity: { value: 1, min: 0, max: 1, step: 0.001 },
+//   }
+// );
