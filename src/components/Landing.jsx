@@ -1,7 +1,14 @@
+import { useTheme } from "../contexts/themeContext";
+
 function Landing() {
+  const [theme, setTheme] = useTheme();
   return (
     <div className="landing-section">
-      <h1 className="text-center text-8xl text-neutral-200 font-thin">
+      <h1
+        className={`text-center text-8xl text-neutral-200 font-thin ${
+          theme === "dark" ? "" : "text-gray-700"
+        }`}
+      >
         LINYAN ZHU
       </h1>
       <div className="flex w-[600px] my-4">
@@ -15,6 +22,9 @@ function Landing() {
           Projects
         </button>
       </div>
+      <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+        toggle theme
+      </button>
     </div>
   );
 }

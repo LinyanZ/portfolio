@@ -2,9 +2,20 @@ import * as THREE from "three";
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import "../../shaders/dofPointsMaterial";
+import { useTheme } from "../../contexts/themeContext";
 
 const Particles = ({ count = 1000, animation }) => {
+  const [theme] = useTheme();
   const renderRef = useRef();
+
+  const color1 =
+    theme === "dark"
+      ? new THREE.Vector3(1.0, 240.0 / 255.0, 218.0 / 255.0)
+      : new THREE.Vector3(0, 0, 0);
+  const color2 =
+    theme === "dark"
+      ? new THREE.Vector3(1.0, 215.0 / 255.0, 170.0 / 255.0)
+      : new THREE.Vector3(0, 0, 0);
 
   const particles = useMemo(() => {
     const particles = new Float32Array(count * 3);
@@ -70,6 +81,9 @@ const Particles = ({ count = 1000, animation }) => {
     const cameraPos = state.camera.position.clone();
     renderRef.current.uniforms.uCameraPos.value = cameraPos;
     renderRef.current.uniforms.uCameraLookAt.value = lookAt;
+
+    renderRef.current.uniforms.uColor1.value.lerp(color1, 0.05);
+    renderRef.current.uniforms.uColor2.value.lerp(color2, 0.05);
   });
 
   return (

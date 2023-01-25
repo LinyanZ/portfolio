@@ -1,45 +1,38 @@
 import Particles from "./Particles";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
+const defaultAttributes = {
+  speed: 0.001,
+  opacity: 0,
+  blur: 0.3,
+  fade: 0.9,
+  pointSize: 1,
+  sizeXY: 250,
+  focus: 50,
+  sizeZ: 30,
+  offsetZ: 50,
+};
+
 const Background = () => {
-  const burstAnimation = {
-    speed: 0.001,
-    opacity: 0,
-    blur: 0.3,
-    fade: 0.9,
-    pointSize: 1,
-    sizeXY: 250,
+  const burstAnimation = useRef({
+    ...defaultAttributes,
     sizeZ: 10000,
     offsetZ: 600,
     focus: -500,
-  };
-  const backgroundSmallAnimation = {
-    speed: 0.001,
-    opacity: 0,
-    blur: 0.3,
-    fade: 0.9,
-    pointSize: 1,
-    sizeXY: 250,
-    focus: 50,
-    sizeZ: 30,
-    offsetZ: 50,
-  };
-  const backgroundMediumAnimation = {
-    speed: 0.001,
-    opacity: 0,
+  });
+  const smallParticlesAnimation = useRef({
+    ...defaultAttributes,
+  });
+  const mediumParticlesAnimation = useRef({
+    ...defaultAttributes,
     blur: 0.4,
-    fade: 0.9,
-    pointSize: 1,
-    sizeXY: 250,
-    focus: 50,
     sizeZ: 400,
-    offsetZ: 50,
-  };
+  });
 
   function burst() {
     // out-of-focus to focus
-    gsap.to(burstAnimation, {
+    gsap.to(burstAnimation.current, {
       duration: 0.3,
       focus: 50,
       sizeZ: 30,
@@ -47,12 +40,12 @@ const Background = () => {
     });
 
     // movement speed
-    gsap.to(burstAnimation, {
+    gsap.to(burstAnimation.current, {
       duration: 0.5,
       speed: 0.8,
       ease: "power4.out",
     });
-    gsap.to(burstAnimation, {
+    gsap.to(burstAnimation.current, {
       duration: 3,
       speed: 0.002,
       delay: 0.5,
@@ -60,12 +53,11 @@ const Background = () => {
     });
 
     // opacity
-    gsap.to(burstAnimation, {
-      duration: 1,
+    gsap.to(burstAnimation.current, {
+      duration: 2,
       opacity: 1,
-      delay: 0.1,
     });
-    gsap.to(burstAnimation, {
+    gsap.to(burstAnimation.current, {
       duration: 6,
       opacity: 0,
       delay: 2.5,
@@ -73,32 +65,34 @@ const Background = () => {
   }
 
   function background() {
-    gsap.to(backgroundSmallAnimation, {
+    // small particles' opacity and speed
+    gsap.to(smallParticlesAnimation.current, {
       duration: 4,
       opacity: 1,
       delay: 1,
     });
-    gsap.to(backgroundSmallAnimation, {
+    gsap.to(smallParticlesAnimation.current, {
       duration: 0.7,
       speed: 0.8,
     });
-    gsap.to(backgroundSmallAnimation, {
+    gsap.to(smallParticlesAnimation.current, {
       duration: 3,
       speed: 0.001,
       delay: 0.8,
       ease: "power4.out",
     });
 
-    gsap.to(backgroundMediumAnimation, {
+    // medium particles' opacity and speed
+    gsap.to(mediumParticlesAnimation.current, {
       duration: 4,
       opacity: 0.8,
       delay: 1,
     });
-    gsap.to(backgroundMediumAnimation, {
+    gsap.to(mediumParticlesAnimation.current, {
       duration: 0.7,
       speed: 0.8,
     });
-    gsap.to(backgroundMediumAnimation, {
+    gsap.to(mediumParticlesAnimation.current, {
       duration: 3,
       speed: 0.002,
       delay: 0.8,
@@ -113,9 +107,9 @@ const Background = () => {
 
   return (
     <>
-      <Particles count={1000} animation={burstAnimation} />
-      <Particles count={300} animation={backgroundSmallAnimation} />
-      <Particles count={100} animation={backgroundMediumAnimation} />
+      <Particles count={1000} animation={burstAnimation.current} />
+      <Particles count={300} animation={smallParticlesAnimation.current} />
+      <Particles count={100} animation={mediumParticlesAnimation.current} />
     </>
   );
 };

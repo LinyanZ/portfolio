@@ -4,13 +4,12 @@ export default /*html*/ `
 	uniform float uFade;
 	uniform float uOpacity;
 
+	uniform vec3 uColor1;
+	uniform vec3 uColor2;
+
 	varying float vDistance;
 	varying vec3 vPosition;
 	varying vec3 vRawPosition;
-
-	float rand(vec2 co){
-    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
-	}
 
 	void main() {
 		vec2 cxy = 2.0 * gl_PointCoord - 1.0;
@@ -20,8 +19,13 @@ export default /*html*/ `
 		float fade = clamp(vDistance * 0.01, 0.0, 1.0) * uFade;
 		float blurAmount = pow((1.0 - dist), uBlur);
 
-		float twinkling = (sin(uTimeTwinkling + vRawPosition.x) + 1.0) * 0.5;
+		float x = vRawPosition.x + uTimeTwinkling;
+		float part1 = sin(4.0 * x / 6.0);
+		float part2 = abs(sin(0.5 * x));
+		float part3 = 0.2 * sin(13.0 * x / 14.0) + 0.6 * sin(5.0 * x / 14.0) + 0.2 * sin(17.0 * x / 14.0);
+		float twinkling = 1.0 - abs(min(part1, min(part2, part3)));
 
-		gl_FragColor = vec4(vec3(1.0), (1.04 - fade) * blurAmount * twinkling * uOpacity);
+		float colorAlpha = abs(sin(vRawPosition.x));
+		gl_FragColor = vec4(mix(uColor1, uColor2, colorAlpha), (1.04 - fade) * blurAmount * twinkling * uOpacity);
 	}
 `;
