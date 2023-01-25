@@ -6,12 +6,19 @@
   background: rgb(85, 89, 128);
 }
 
+h1 {
+  font-family: "Raleway", sans-serif;
+}
+
 .canvas-container {
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.canvas-container--dark {
   background: radial-gradient(
     at 5% 100%,
     rgb(66, 59, 61) 0%,
@@ -22,7 +29,7 @@
   );
 }
 
-.canvas-container.canvas-container-light {
+.canvas-container--light {
   background: rgb(185, 185, 185);
 }
 
@@ -64,6 +71,29 @@
   );
 }
 
-h1 {
-  font-family: "Raleway", sans-serif;
+.theme-toggler {
+  position: fixed;
+  right: 24px;
+  bottom: 16px;
+  transition: color 0.3s linear;
+}
+
+.theme-toggler--dark {
+  color: rgb(200, 200, 200);
+}
+
+.theme-toggler--dark:hover {
+  color: rgb(255, 255, 255);
+}
+
+.theme-toggler--light {
+  color: black;
+}
+
+.theme-toggler--light:hover {
+  color: rgb(106, 106, 106);
+}
+
+.theme-toggler ion-icon {
+  font-size: 32px;
 }

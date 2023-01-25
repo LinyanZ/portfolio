@@ -1,12 +1,28 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const themeContext = createContext();
 themeContext.displayName = "themeContext";
 
 function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    const previousTheme = window.localStorage.getItem("theme");
+    if (previousTheme != null) setTheme(previousTheme);
+    else window.localStorage.setItem("theme", "dark");
+  }, []);
+
   return (
-    <themeContext.Provider value={[theme, setTheme]}>
+    <themeContext.Provider
+      value={[
+        theme,
+        () => {
+          const nextTheme = theme === "dark" ? "light" : "dark";
+          window.localStorage.setItem("theme", nextTheme);
+          setTheme(nextTheme);
+        },
+      ]}
+    >
       {children}
     </themeContext.Provider>
   );
@@ -20,4 +36,17 @@ function useTheme() {
   return context;
 }
 
-export { ThemeProvider, useTheme };
+function ThemeToggler() {
+  const [theme, setTheme] = useTheme();
+
+  return (
+    <button
+      className={`theme-toggler theme-toggler--${theme}`}
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    >
+      <ion-icon name={theme === "dark" ? "sunny-outline" : "moon-outline"} />
+    </button>
+  );
+}
+
+export { ThemeProvider, useTheme, ThemeToggler };

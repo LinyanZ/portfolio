@@ -1,7 +1,7 @@
 import { useTheme } from "../contexts/themeContext";
 
 function Landing() {
-  const [theme, setTheme] = useTheme();
+  const [theme] = useTheme();
   return (
     <div className="landing-section">
       <h1
@@ -22,9 +22,6 @@ function Landing() {
           Projects
         </button>
       </div>
-      <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-        toggle theme
-      </button>
     </div>
   );
 }
