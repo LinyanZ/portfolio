@@ -1,10 +1,18 @@
 import Project from "./Project";
+import projects from "../resources/projects.json";
 
 function Projects() {
   return (
-    <div className="project-section">
-      <Project />
-    </div>
+    <>
+      {projects.map((project, index) => (
+        <Project
+          title={project.title}
+          index={index}
+          key={project.title}
+          count={projects.length}
+        />
+      ))}
+    </>
   );
 }
 

@@ -5,18 +5,15 @@ import Background from "./components/particles/Background";
 import Landing from "./components/Landing";
 import Projects from "./components/Projects";
 import { useTheme, ThemeToggler } from "./contexts/themeContext";
+import { OrbitControls, Scroll, ScrollControls } from "@react-three/drei";
+import projects from "./resources/projects.json";
 
 function App() {
-  const { particles } = useControls("Main", {
-    particles: { value: true },
-  });
   const [theme] = useTheme();
 
   return (
     <>
       <div className="html-container">
-        <Landing />
-        <Projects />
         <ThemeToggler />
       </div>
       <div className={`canvas-container canvas-container--${theme}`}>
@@ -24,7 +21,12 @@ function App() {
           {process.env.NODE_ENV === "development" && (
             <Perf position="top-left" />
           )}
-          {particles && <Background />}
+          <Background />
+          {/* <OrbitControls /> */}
+          <ScrollControls pages={projects.length}>
+            <Landing />
+            <Projects />
+          </ScrollControls>
         </Canvas>
       </div>
       {process.env.NODE_ENV === "development" && <Leva collapsed={true} />}

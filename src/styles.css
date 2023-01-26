@@ -6,7 +6,17 @@
   background: rgb(85, 89, 128);
 }
 
-h1 {
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+h1,
+h2 {
   font-family: "Raleway", sans-serif;
 }
 
@@ -30,13 +40,12 @@ h1 {
 }
 
 .canvas-container--light {
-  background: rgb(185, 185, 185);
+  background: rgb(214, 214, 214);
 }
 
 .html-container {
-  position: relative;
+  position: absolute;
   z-index: 1;
-  width: 100%;
 }
 
 .landing-section {
@@ -55,45 +64,19 @@ h1 {
   flex-direction: column;
 }
 
-.project-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
+.project-model-container {
+  background: rgba(255, 255, 255, 0.01);
+  width: 1000px;
+  height: 900px;
 }
 
-.project-container {
+.project-description-container {
   background: radial-gradient(
     at 30% 70%,
     rgba(54, 53, 58, 0.3) 0%,
     rgba(113, 111, 117, 0.3) 100%
   );
-}
-
-.theme-toggler {
-  position: fixed;
-  right: 24px;
-  bottom: 16px;
-  transition: color 0.3s linear;
-}
-
-.theme-toggler--dark {
-  color: rgb(200, 200, 200);
-}
-
-.theme-toggler--dark:hover {
-  color: rgb(255, 255, 255);
-}
-
-.theme-toggler--light {
-  color: black;
-}
-
-.theme-toggler--light:hover {
-  color: rgb(106, 106, 106);
-}
-
-.theme-toggler ion-icon {
-  font-size: 32px;
+  width: 600px;
+  height: 900px;
+  backdrop-filter: blur(16px);
 }

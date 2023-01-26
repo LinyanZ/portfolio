@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import "./theme.css";
 
 const themeContext = createContext();
 themeContext.displayName = "themeContext";
@@ -44,7 +45,7 @@ function ThemeToggler() {
       className={`theme-toggler theme-toggler--${theme}`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      <ion-icon name={theme === "dark" ? "sunny-outline" : "moon-outline"} />
+      <ion-icon name="contrast-outline" />
     </button>
   );
 }
