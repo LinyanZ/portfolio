@@ -3,7 +3,7 @@ import { Leva, useControls } from "leva";
 import { Perf } from "r3f-perf";
 import Background from "./components/particles/Background";
 import Landing from "./components/Landing";
-import Projects from "./components/Projects";
+import Projects from "./components/projects/Projects";
 import { useTheme, ThemeToggler } from "./contexts/themeContext";
 import { OrbitControls, Scroll, ScrollControls } from "@react-three/drei";
 import projects from "./resources/projects.json";
@@ -23,8 +23,9 @@ function App() {
           )}
           <Background />
           {/* <OrbitControls /> */}
-          <ScrollControls pages={projects.length}>
-            <Landing />
+
+          <ScrollControls pages={projects.length} damping={0.01}>
+            {/* <Landing /> */}
             <Projects />
           </ScrollControls>
         </Canvas>

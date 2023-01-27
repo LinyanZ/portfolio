@@ -1,5 +1,5 @@
 import { useTheme } from "../contexts/themeContext";
-import { Html } from "@react-three/drei";
+import { Html, Scroll } from "@react-three/drei";
 
 function Landing() {
   const [theme] = useTheme();
@@ -19,7 +19,8 @@ function Landing() {
   }`;
 
   return (
-    <Html fullscreen>
+    <Scroll html>
+      {/* <Html fullscreen> */}
       <div className="landing-section">
         <h1 className={nameStyle}>LINYAN ZHU</h1>
         <div className="flex w-[800px]">
@@ -33,7 +34,8 @@ function Landing() {
           <button className={buttonStyle}>Projects</button>
         </div> */}
       </div>
-    </Html>
+      {/* </Html> */}
+    </Scroll>
   );
 }
 
