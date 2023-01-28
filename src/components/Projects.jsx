@@ -14,6 +14,7 @@ import {
 } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useTheme } from "../contexts/themeContext";
+import Minimap from "./projects/Minimap";
 
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
@@ -54,14 +55,16 @@ function Projects() {
     const numPages = projects.length + 4;
     const pageOffset = 1 / numPages;
     const projectsStartAt = pageOffset * 3;
-    // const projectsFinishAt = projectsStartAt + pageOffset * projects.length;
 
     if (scroll.offset < projectsStartAt) return -1;
-    // if (scroll.offset > projectsFinishAt) return projects.length - 1;
-    return Math.floor((scroll.offset - projectsStartAt) / pageOffset);
+    return Math.min(
+      Math.floor((scroll.offset - projectsStartAt) / pageOffset),
+      projects.length
+    );
   }
 
   useFrame(() => {
+    console.log(scrollOffsetToIndex(), index);
     if (canSwitch && scrollOffsetToIndex() != index) {
       setCanSwitch(false);
 
@@ -114,22 +117,24 @@ function Projects() {
           <h1 className={nameStyle}>Projects</h1>
         </div>
       </Html>
+      <Minimap />
       <Float>
         <group>
-          <Mask id={1} scale={[1, 1, 1]} position={[0, -0.5, 0]}>
-            <planeGeometry args={[1.08 * 2.4, 2.28 * 2.3]} />
+          <Mask id={1} scale={[1, 1, 1]} position={[0, 0, 0]}>
+            {/* <planeGeometry args={[2.08 * 2.4, 2.28 * 2.3]} /> */}
+            <planeGeometry args={[1.08 * 2.4, 2.28 * 2.25]} />
           </Mask>
           {/* <Image url="/test.jpg" position={[0, 0, 0.3]} scale={[4.4, 2.2]} /> */}
-          {/* <mesh position={[0, -0.5, 0.5]}>
-              <planeGeometry args={[1.08 * 2, 2.28 * 2]} />
-              <Suspense fallback={<meshBasicMaterial color="white" />}>
-                <VideoMaterial url="/footprintTracker.mp4" toneMapped={false} />
-              </Suspense>
-            </mesh> */}
+          <mesh position={[0, 0, 0.5]}>
+            <planeGeometry args={[1.08 * 2, 2.28 * 2]} />
+            <Suspense fallback={<meshBasicMaterial color="white" />}>
+              <VideoMaterial url="/footprintTracker.mp4" toneMapped={false} />
+            </Suspense>
+          </mesh>
         </group>
       </Float>
       <Text
-        position={[0, height / 2.8, 0]}
+        position={[0, 3.2, 0]}
         font={"/Raleway-ExtraLight.ttf"}
         fontSize={0.3}
         ref={textRef}

@@ -15,16 +15,14 @@ function App() {
 
   return (
     <>
-      <div className="html-container">
-        <ThemeToggler />
-      </div>
+      <ThemeToggler />
       <div className={`canvas-container canvas-container--${theme}`}>
         <Canvas>
           {process.env.NODE_ENV === "development" && (
             <Perf position="top-left" />
           )}
           <Background />
-          <ScrollControls pages={projects.length + 4} damping={0.01}>
+          <ScrollControls pages={projects.length + 4}>
             <Landing />
             <About />
             <Projects />

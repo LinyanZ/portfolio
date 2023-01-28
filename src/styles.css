@@ -42,11 +42,6 @@ html {
   background: rgb(214, 214, 214);
 }
 
-.html-container {
-  position: absolute;
-  z-index: 1;
-}
-
 .landing-section {
   display: flex;
   justify-content: center;

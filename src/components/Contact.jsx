@@ -1,5 +1,6 @@
 import { useTheme } from "../contexts/themeContext";
 import { Html } from "@react-three/drei";
+import projects from "../data/projects.json";
 
 function Contact() {
   const [theme] = useTheme();
@@ -10,7 +11,11 @@ function Contact() {
 
   return (
     <Html fullscreen>
-      <div className="w-[100vw] h-[100vh] mt-[1000vh] flex justify-center flex-column items-center">
+      <div
+        className={`w-[100vw] h-[100vh] mt-[${
+          projects.length + 4
+        }00vh] flex justify-center flex-column items-center`}
+      >
         <h1 className={nameStyle}>Contact</h1>
       </div>
     </Html>
