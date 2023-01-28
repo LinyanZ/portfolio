@@ -18,7 +18,7 @@ function Lines({ mask, percentage }) {
   useFrame((state, delta) => {
     ref.current.children.forEach((child, index) => {
       const portion = (Math.abs(index - lines.length / 2) / lines.length) * 2;
-      const y = percentage.value > portion ? height / 4 : 0;
+      const y = percentage.value > portion ? height : 0;
       child.scale.y = THREE.MathUtils.damp(child.scale.y, y, 8, delta);
     });
   });

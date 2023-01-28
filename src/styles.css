@@ -6,9 +6,9 @@
   background: rgb(85, 89, 128);
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 :root {
   -ms-overflow-style: none; /* IE and Edge */

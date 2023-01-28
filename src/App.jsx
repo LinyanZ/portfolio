@@ -24,7 +24,7 @@ function App() {
           <Background />
           {/* <OrbitControls /> */}
 
-          <ScrollControls pages={projects.length} damping={0.01}>
+          <ScrollControls pages={projects.length + 3} damping={0.01}>
             {/* <Landing /> */}
             <Projects />
           </ScrollControls>
