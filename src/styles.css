@@ -8,15 +8,14 @@
 
 /* ::-webkit-scrollbar {
   display: none;
-} */
-
-:root {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
-h1,
-h2 {
+:root {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+} */
+
+html {
   font-family: "Raleway", sans-serif;
 }
 
@@ -49,34 +48,79 @@ h2 {
 }
 
 .landing-section {
-  /* background: linear-gradient(
-    225deg,
-    rgba(214, 214, 214, 0.3) 0%,
-    rgba(253, 253, 253, 0.3) 35%,
-    rgba(234, 234, 234, 0.3) 68%,
-    rgba(216, 216, 216, 0.3) 100%
-  ); */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   flex-direction: column;
 }
 
-.project-model-container {
-  background: rgba(255, 255, 255, 0.01);
-  width: 1000px;
-  height: 900px;
+.background-blur {
+  backdrop-filter: blur(16px);
 }
 
-.project-description-container {
+.background-blur--dark {
   background: radial-gradient(
     at 30% 70%,
     rgba(54, 53, 58, 0.3) 0%,
     rgba(113, 111, 117, 0.3) 100%
   );
-  width: 600px;
-  height: 900px;
   backdrop-filter: blur(16px);
+}
+
+.background-blur--light {
+  background: radial-gradient(
+    at 30% 70%,
+    rgba(226, 226, 226, 0.3) 0%,
+    rgba(211, 211, 211, 0.3) 100%
+  );
+  backdrop-filter: blur(16px);
+}
+
+.uni-title,
+.job-title {
+  font-weight: 200;
+  font-size: 1.4rem;
+}
+
+.degree-description,
+.job-description {
+  font-weight: 200;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.degree-description ul,
+.job-description ul {
+  list-style-type: square;
+  font-style: normal;
+}
+
+.tag {
+  font-weight: 200;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem 0.75rem;
+  transition: border-color 0.3s;
+}
+
+.tag--dark {
+  color: rgb(229 229 229);
+  border-color: rgb(163 163 163);
+}
+
+.tag--dark:hover {
+  border-color: rgb(229 229 229);
+}
+
+.tag--light {
+  color: rgb(23 23 23);
+  border-color: rgb(115, 115, 115);
+}
+
+.tag--light:hover {
+  border-color: rgb(23 23 23);
 }

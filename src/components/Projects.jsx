@@ -1,5 +1,5 @@
-import projects from "../../resources/projects.json";
-import Lines from "./Lines";
+import projects from "../data/projects.json";
+import Lines from "./projects/Lines";
 import { Suspense, useRef, useState } from "react";
 import gsap from "gsap";
 import {
@@ -10,8 +10,10 @@ import {
   Image,
   Plane,
   useVideoTexture,
+  Html,
 } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
+import { useTheme } from "../contexts/themeContext";
 
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
@@ -29,6 +31,11 @@ function Projects() {
   const textRef = useRef();
   const [canToggleText, setCanToggleText] = useState(true);
 
+  const [theme] = useTheme();
+  const nameStyle = `text-center leading-[12rem] text-[11rem] font-thin h-48 ${
+    theme === "dark" ? "text-neutral-200" : "text-neutral-700"
+  }`;
+
   function toggleText(show = true, delay = 0, duration = 0.5) {
     if (canToggleText) {
       setCanToggleText(false);
@@ -44,40 +51,45 @@ function Projects() {
   }
 
   function scrollOffsetToIndex() {
-    const numPages = projects.length + 3;
+    const numPages = projects.length + 4;
     const pageOffset = 1 / numPages;
-    const projectsStartAt = pageOffset * 2;
-    const projectsFinishAt = projectsStartAt + pageOffset * projects.length;
+    const projectsStartAt = pageOffset * 3;
+    // const projectsFinishAt = projectsStartAt + pageOffset * projects.length;
 
     if (scroll.offset < projectsStartAt) return -1;
-    if (scroll.offset > projectsFinishAt) return projects.length - 1;
+    // if (scroll.offset > projectsFinishAt) return projects.length - 1;
     return Math.floor((scroll.offset - projectsStartAt) / pageOffset);
   }
 
   useFrame(() => {
-    console.log(scrollOffsetToIndex(), index);
     if (canSwitch && scrollOffsetToIndex() != index) {
-      console.log("start transitioning");
       setCanSwitch(false);
 
-      if (index < 0) {
+      if (index < 0 || index >= projects.length) {
+        // start showing the first project right away
+        setIndex(scrollOffsetToIndex());
         toggleText(true);
         gsap.to(linePercentage.current, {
           value: 1,
           duration: 1,
           onComplete: () => {
-            setIndex(scrollOffsetToIndex());
             setCanSwitch(true);
           },
         });
       } else {
+        // hide the previous project
         toggleText(false);
         gsap.to(linePercentage.current, {
           value: -0.3,
           duration: 1,
           onComplete: () => {
             setIndex(scrollOffsetToIndex());
-            if (scrollOffsetToIndex() >= 0) {
+
+            if (
+              scrollOffsetToIndex() >= 0 &&
+              scrollOffsetToIndex() < projects.length
+            ) {
+              // show the next project
               toggleText(true);
               gsap.to(linePercentage.current, {
                 value: 1,
@@ -97,6 +109,11 @@ function Projects() {
 
   return (
     <>
+      <Html fullscreen>
+        <div className="landing-section mt-[200vh]">
+          <h1 className={nameStyle}>Projects</h1>
+        </div>
+      </Html>
       <Float>
         <group>
           <Mask id={1} scale={[1, 1, 1]} position={[0, -0.5, 0]}>
@@ -118,7 +135,7 @@ function Projects() {
         ref={textRef}
         fillOpacity={0}
       >
-        {projects[Math.max(index, 0)].title}
+        {projects[Math.max(Math.min(index, projects.length - 1), 0)].title}
       </Text>
       <Lines mask={1} percentage={linePercentage.current} />
     </>

@@ -3,10 +3,12 @@ import { Leva, useControls } from "leva";
 import { Perf } from "r3f-perf";
 import Background from "./components/particles/Background";
 import Landing from "./components/Landing";
-import Projects from "./components/projects/Projects";
+import Projects from "./components/Projects";
 import { useTheme, ThemeToggler } from "./contexts/themeContext";
 import { OrbitControls, Scroll, ScrollControls } from "@react-three/drei";
-import projects from "./resources/projects.json";
+import projects from "./data/projects.json";
+import Contact from "./components/Contact";
+import About from "./components/About";
 
 function App() {
   const [theme] = useTheme();
@@ -22,11 +24,11 @@ function App() {
             <Perf position="top-left" />
           )}
           <Background />
-          {/* <OrbitControls /> */}
-
-          <ScrollControls pages={projects.length + 3} damping={0.01}>
-            {/* <Landing /> */}
+          <ScrollControls pages={projects.length + 4} damping={0.01}>
+            <Landing />
+            <About />
             <Projects />
+            <Contact />
           </ScrollControls>
         </Canvas>
       </div>
