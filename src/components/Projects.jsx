@@ -16,6 +16,9 @@ import GamingPC from "./projects/GamingPC";
 import Lines from "./projects/Lines";
 import projects from "../data/projects.json";
 import Laptop from "./projects/Laptop";
+import City from "./projects/City";
+import Monitor from "./projects/Monitor";
+import Plane from "./projects/Plane";
 
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
@@ -120,7 +123,27 @@ function Projects() {
       <Minimap />
       {index === 0 && <Laptop />}
       {index === 1 && <GamingPC />}
-      {index === 4 && <Phone />}
+      {index === 3 && (
+        <>
+          <City />
+          <Monitor />
+        </>
+      )}
+      {index === 4 && (
+        <>
+          <Plane
+            rotation={[Math.PI / 2, -2.1, 0]}
+            start={[10, -4, -5]}
+            end={{ x: -5, y: 2 }}
+          />
+          <Plane
+            rotation={[Math.PI / 2, 1.9, 0]}
+            start={[-5, -3, -5]}
+            end={{ x: 5, y: -1 }}
+          />
+          <Phone />
+        </>
+      )}
       {/* <mesh position={[0, 0, 0.35]}>
           <planeGeometry args={[1.08 * 2, 2.28 * 2]} />
           <Suspense fallback={<meshBasicMaterial color="white" />}>

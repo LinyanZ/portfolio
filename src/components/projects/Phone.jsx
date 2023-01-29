@@ -6,14 +6,24 @@ source: https://sketchfab.com/3d-models/samsung-phone-030019d343df47e598e929a785
 title: Samsung Phone
 */
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
 import { Mask, useGLTF } from "@react-three/drei";
 
 export function Phone() {
   const { nodes } = useGLTF("/models/phone.glb");
+  const ref = useRef();
+
+  useEffect(() => {
+    gsap.to(ref.current.rotation, { x: 0, y: 0, duration: 1 });
+  });
 
   return (
-    <group position={[0, -0.45, 0]}>
+    <group
+      ref={ref}
+      position={[0, -0.45, 0]}
+      rotation={[-Math.PI / 6, -Math.PI / 3, 0]}
+    >
       <Mask id={1} scale={[0.06, 0.06, 0.06]} rotation={[Math.PI / 2, 0, 0]}>
         <bufferGeometry {...nodes["3dphoneuvmap_sides_0"].geometry} />
       </Mask>
