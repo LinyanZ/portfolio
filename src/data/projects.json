@@ -1,23 +1,30 @@
 [
   {
-    "title": "Survey Creator"
+    "title": "Survey Creator",
+    "numLines": 140
   },
   {
-    "title": "Third Person Shooter Game"
+    "title": "Third Person Shooter Game",
+    "numLines": 170
   },
   {
-    "title": "Board Game AI Agent"
+    "title": "Board Game AI Agent",
+    "numLines": 180
   },
   {
-    "title": "Data Visualiser"
+    "title": "Data Visualiser",
+    "numLines": 180
   },
   {
-    "title": "Footprint Tracker"
+    "title": "Footprint Tracker",
+    "numLines": 180
   },
   {
-    "title": "Distributed Whiteboard"
+    "title": "Distributed Whiteboard",
+    "numLines": 180
   },
   {
-    "title": "Portfolio"
+    "title": "Portfolio",
+    "numLines": 0
   }
 ]

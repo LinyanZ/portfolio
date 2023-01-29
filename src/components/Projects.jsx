@@ -1,20 +1,21 @@
-import projects from "../data/projects.json";
-import Lines from "./projects/Lines";
 import { Suspense, useRef, useState } from "react";
 import gsap from "gsap";
 import {
   useScroll,
   Text,
   Float,
-  Mask,
   Image,
-  Plane,
   useVideoTexture,
   Html,
 } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useTheme } from "../contexts/themeContext";
 import Minimap from "./projects/Minimap";
+import Phone from "./projects/Phone";
+import GamingPC from "./projects/GamingPC";
+import Lines from "./projects/Lines";
+import projects from "../data/projects.json";
+import Laptop from "./projects/Laptop";
 
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
@@ -64,7 +65,6 @@ function Projects() {
   }
 
   useFrame(() => {
-    console.log(scrollOffsetToIndex(), index);
     if (canSwitch && scrollOffsetToIndex() != index) {
       setCanSwitch(false);
 
@@ -118,23 +118,17 @@ function Projects() {
         </div>
       </Html>
       <Minimap />
-      <Float>
-        <group>
-          <Mask id={1} scale={[1, 1, 1]} position={[0, 0, 0]}>
-            {/* <planeGeometry args={[2.08 * 2.4, 2.28 * 2.3]} /> */}
-            <planeGeometry args={[1.08 * 2.4, 2.28 * 2.25]} />
-          </Mask>
-          {/* <Image url="/test.jpg" position={[0, 0, 0.3]} scale={[4.4, 2.2]} /> */}
-          <mesh position={[0, 0, 0.5]}>
-            <planeGeometry args={[1.08 * 2, 2.28 * 2]} />
-            <Suspense fallback={<meshBasicMaterial color="white" />}>
-              <VideoMaterial url="/footprintTracker.mp4" toneMapped={false} />
-            </Suspense>
-          </mesh>
-        </group>
-      </Float>
+      {index === 0 && <Laptop />}
+      {index === 1 && <GamingPC />}
+      {index === 4 && <Phone />}
+      {/* <mesh position={[0, 0, 0.35]}>
+          <planeGeometry args={[1.08 * 2, 2.28 * 2]} />
+          <Suspense fallback={<meshBasicMaterial color="white" />}>
+            <VideoMaterial url="/footprintTracker.mp4" toneMapped={false} />
+          </Suspense>
+        </mesh> */}
       <Text
-        position={[0, 3.2, 0]}
+        position={[0, 3, 0]}
         font={"/Raleway-ExtraLight.ttf"}
         fontSize={0.3}
         ref={textRef}
@@ -142,7 +136,7 @@ function Projects() {
       >
         {projects[Math.max(Math.min(index, projects.length - 1), 0)].title}
       </Text>
-      <Lines mask={1} percentage={linePercentage.current} />
+      <Lines index={index} mask={1} percentage={linePercentage.current} />
     </>
   );
 }

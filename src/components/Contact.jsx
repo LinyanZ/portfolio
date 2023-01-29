@@ -12,9 +12,7 @@ function Contact() {
   return (
     <Html fullscreen>
       <div
-        className={`w-[100vw] h-[100vh] mt-[${
-          projects.length + 4
-        }00vh] flex justify-center flex-column items-center`}
+        className={`w-[100vw] h-[100vh] mt-[1100vh] flex justify-center flex-column items-center`}
       >
         <h1 className={nameStyle}>Contact</h1>
       </div>

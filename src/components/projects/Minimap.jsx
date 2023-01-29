@@ -4,8 +4,6 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 
-console.log(projects);
-
 function Minimap() {
   const { width, height } = useThree((state) => state.viewport);
   const ref = useRef();
@@ -27,7 +25,7 @@ function Minimap() {
       const isText = index >= projects.length;
       index = index % projects.length;
 
-      const textOffset = isText ? -1.2 : 0;
+      const textOffset = isText ? -0.35 : 0;
 
       const x =
         currIndexFloat < 0 || currIndexFloat >= projects.length
@@ -64,7 +62,7 @@ function Minimap() {
             key={p.title}
             scale={[0.015, 0.015, 0.015]}
           >
-            {p.title}
+            {`No. ${index + 1}`}
           </Text>
         ))}
       </group>
