@@ -36,23 +36,14 @@ export function Laptop() {
       scale={[2, 2, 2]}
       rotation={[0.2, -0.1 - 0.8, 0]}
     >
-      <Mask
-        id={1}
-        geometry={laptop.bezel.geometry}
-        rotation={[-Math.PI / 2, 0, 0]}
-      >
+      <Mask id={1} rotation={[-Math.PI / 2, 0, 0]}>
         <bufferGeometry {...laptop.bezel.geometry} />
       </Mask>
-      <Mask
-        id={1}
-        geometry={laptop.base.geometry}
-        rotation={[-Math.PI / 2, 0, 0]}
-      >
+      <Mask id={1} rotation={[-Math.PI / 2, 0, 0]}>
         <bufferGeometry {...laptop.base.geometry} />
       </Mask>
       <Mask
         id={1}
-        geometry={laptop.screen.geometry}
         position={[0, -1.2, 0]}
         rotation={[-Math.PI / 2 + 1.2, 0, 0]}
       >

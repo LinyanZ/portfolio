@@ -1,15 +1,15 @@
 [
   {
     "title": "Survey Creator",
-    "numLines": 140
+    "numLines": 132
   },
   {
     "title": "Third Person Shooter Game",
-    "numLines": 170
+    "numLines": 172
   },
   {
     "title": "Board Game AI Agent",
-    "numLines": 180
+    "numLines": 152
   },
   {
     "title": "Data Visualiser",
@@ -17,14 +17,10 @@
   },
   {
     "title": "Footprint Tracker",
-    "numLines": 100
-  },
-  {
-    "title": "Distributed Whiteboard",
-    "numLines": 180
+    "numLines": 102
   },
   {
     "title": "Portfolio",
-    "numLines": 0
+    "numLines": 66
   }
 ]

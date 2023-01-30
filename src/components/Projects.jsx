@@ -19,6 +19,8 @@ import Laptop from "./projects/Laptop";
 import City from "./projects/City";
 import Monitor from "./projects/Monitor";
 import Plane from "./projects/Plane";
+import Board from "./projects/Board";
+import User from "./projects/User";
 
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
@@ -121,35 +123,39 @@ function Projects() {
         </div>
       </Html>
       <Minimap />
-      {index === 0 && <Laptop />}
-      {index === 1 && <GamingPC />}
-      {index === 3 && (
-        <>
-          <City />
-          <Monitor />
-        </>
-      )}
-      {index === 4 && (
-        <>
-          <Plane
-            rotation={[Math.PI / 2, -2.1, 0]}
-            start={[10, -4, -5]}
-            end={{ x: -5, y: 2 }}
-          />
-          <Plane
-            rotation={[Math.PI / 2, 1.9, 0]}
-            start={[-5, -3, -5]}
-            end={{ x: 5, y: -1 }}
-          />
-          <Phone />
-        </>
-      )}
-      {/* <mesh position={[0, 0, 0.35]}>
+      <Float floatIntensity={0.15} speed={1} rotationIntensity={0.15}>
+        {index === 0 && <Laptop />}
+        {index === 1 && <GamingPC />}
+        {index === 2 && <Board />}
+        {index === 3 && (
+          <>
+            <City />
+            <Monitor />
+          </>
+        )}
+        {index === 4 && (
+          <>
+            <Plane
+              rotation={[Math.PI / 2, -2.1, 0]}
+              start={[10, -4, -5]}
+              end={{ x: -5, y: 2 }}
+            />
+            <Plane
+              rotation={[Math.PI / 2, 1.9, 0]}
+              start={[-5, -3, -5]}
+              end={{ x: 5, y: -1 }}
+            />
+            <Phone />
+          </>
+        )}
+        {index === 5 && <User />}
+        {/* <mesh position={[0, 0, 0.35]}>
           <planeGeometry args={[1.08 * 2, 2.28 * 2]} />
           <Suspense fallback={<meshBasicMaterial color="white" />}>
             <VideoMaterial url="/footprintTracker.mp4" toneMapped={false} />
           </Suspense>
         </mesh> */}
+      </Float>
       <Text
         position={[0, 3, 0]}
         font={"/Raleway-ExtraLight.ttf"}
