@@ -4,6 +4,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { useMask } from "@react-three/drei";
 import projects from "../../data/projects.json";
 import { useTheme } from "../../contexts/themeContext";
+import { damp } from "../../utils";
 
 function Lines({ index, mask, percentage }) {
   const ref = useRef();
@@ -27,7 +28,7 @@ function Lines({ index, mask, percentage }) {
     ref.current.children.forEach((child, index) => {
       const portion = (Math.abs(index - lines.length / 2) / lines.length) * 2;
       const y = percentage.value > portion ? height : 0;
-      child.scale.y = THREE.MathUtils.damp(child.scale.y, y, 8, delta);
+      child.scale.y = damp(child.scale.y, y, 8, delta);
     });
   });
 

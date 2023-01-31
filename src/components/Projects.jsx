@@ -39,9 +39,6 @@ function Projects() {
   const [canToggleText, setCanToggleText] = useState(true);
 
   const [theme] = useTheme();
-  const nameStyle = `text-center leading-[12rem] text-[11rem] font-thin h-48 ${
-    theme === "dark" ? "text-neutral-200" : "text-neutral-700"
-  }`;
 
   function toggleText(show = true, delay = 0, duration = 0.5) {
     if (canToggleText) {
@@ -58,14 +55,13 @@ function Projects() {
   }
 
   function scrollOffsetToIndex() {
-    const numPages = projects.length + 4;
-    const pageOffset = 1 / numPages;
-    const projectsStartAt = pageOffset * 3;
+    const pageOffset = 1 / projects.length;
+    const projectsStartAt = 0;
 
     if (scroll.offset < projectsStartAt) return -1;
     return Math.min(
       Math.floor((scroll.offset - projectsStartAt) / pageOffset),
-      projects.length
+      projects.length - 1
     );
   }
 
@@ -117,11 +113,6 @@ function Projects() {
 
   return (
     <>
-      <Html fullscreen>
-        <div className="landing-section mt-[200vh]">
-          <h1 className={nameStyle}>Projects</h1>
-        </div>
-      </Html>
       <Minimap />
       <Float floatIntensity={0.15} speed={1} rotationIntensity={0.15}>
         {index === 0 && <Laptop />}
