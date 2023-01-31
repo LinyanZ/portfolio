@@ -8,7 +8,7 @@ const defaultAttributes = {
   blur: 0.3,
   fade: 0.9,
   pointSize: 1,
-  sizeXY: 250,
+  sizeXY: 150,
   focus: 50,
   sizeZ: 30,
   offsetZ: 50,
@@ -107,7 +107,7 @@ const Background = () => {
 
   return (
     <>
-      <Particles count={1000} animation={burstAnimation.current} />
+      <Particles count={500} animation={burstAnimation.current} />
       <Particles count={300} animation={smallParticlesAnimation.current} />
       <Particles count={100} animation={mediumParticlesAnimation.current} />
     </>
