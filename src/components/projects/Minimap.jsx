@@ -22,20 +22,25 @@ function Minimap() {
     const currIndexFloat = scrollOffsetToIndex();
 
     ref.current.children.forEach((child, index) => {
+      const currIndex = Math.floor(currIndexFloat);
       const isText = index >= projects.length;
       index = index % projects.length;
 
-      const textOffset = isText ? -0.35 : 0;
+      const textOffset = isText ? -0.25 : 0;
 
       const x =
         currIndexFloat < 0 || currIndexFloat >= projects.length
-          ? width / 2 + 0.5
+          ? width / 2 + 1
           : width / 2 - 0.5 + textOffset;
-      const y = -index * 0.3 + currIndexFloat * 0.3;
+      const y =
+        currIndexFloat < 0
+          ? -1 - index * 0.1
+          : currIndexFloat >= projects.length
+          ? 2 - index * 0.1
+          : -index * 0.3 + currIndexFloat * 0.3;
       child.position.x = THREE.MathUtils.damp(child.position.x, x, 8, delta);
       child.position.y = THREE.MathUtils.damp(child.position.y, y, 8, delta);
 
-      const currIndex = Math.floor(currIndexFloat);
       const scale =
         currIndex === index ? (isText ? 0.03 : 0.04) : isText ? 0.015 : 0.01;
       child.scale.x = THREE.MathUtils.damp(child.scale.x, scale, 8, delta);
@@ -57,12 +62,13 @@ function Minimap() {
         {projects.map((p, index) => (
           <Text
             position={[width / 2 + 0.5, 0, 0]}
-            font={"/Raleway-ExtraLight.ttf"}
+            font={"/fonts/Raleway-ExtraLight.ttf"}
             fontSize={5}
             key={p.title}
             scale={[0.015, 0.015, 0.015]}
+            anchorX="right"
           >
-            {`No. ${index + 1}`}
+            {p.title}
           </Text>
         ))}
       </group>

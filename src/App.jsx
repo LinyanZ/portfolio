@@ -22,7 +22,7 @@ function App() {
             <Perf position="top-left" />
           )}
           <Background />
-          <ScrollControls pages={projects.length + 4}>
+          <ScrollControls pages={projects.length + 4} damping={0.1}>
             <Landing />
             <About />
             <Projects />

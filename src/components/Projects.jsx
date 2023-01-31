@@ -158,7 +158,7 @@ function Projects() {
       </Float>
       <Text
         position={[0, 3, 0]}
-        font={"/Raleway-ExtraLight.ttf"}
+        font={"/fonts/Raleway-ExtraLight.ttf"}
         fontSize={0.3}
         ref={textRef}
         fillOpacity={0}

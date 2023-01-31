@@ -10,8 +10,6 @@ export default function Board() {
   const { nodes } = useGLTF("/models/board.glb");
   const ref = useRef();
 
-  console.log(nodes);
-
   useEffect(() => {
     gsap.to(ref.current.rotation, {
       x: 0.5,
