@@ -1,12 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
-import { Html, Line, Plane, Svg, Text } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
-import { useRef } from "react";
 import { useState } from "react";
-import * as THREE from "three";
-import { MyLink } from "./lib";
-import { damp } from "../utils";
+import { NavLink, useLinkClickHandler } from "react-router-dom";
+import { useTheme } from "../contexts/themeContext";
 
 const links = [
   { link: "", label: "Home" },
@@ -15,14 +10,49 @@ const links = [
   { link: "contact", label: "Contact" },
 ];
 
-function NavMenu({ open, setOpen, ...props }) {
+function Link({ to, label, expanded, setExpanded, transitionRef }) {
+  const handleClick = useLinkClickHandler(to);
+
   return (
-    <Html fullscreen>
+    <NavLink
+      className={`navlink ${expanded ? "navlink--expanded" : ""}`}
+      to={to}
+      onClick={(e) => {
+        e.preventDefault();
+        setExpanded(false);
+        gsap.to(transitionRef.current.scale, {
+          x: 20,
+          y: 20,
+          z: 20,
+          duration: 0.5,
+          onComplete: () => {
+            handleClick(e);
+            gsap.to(transitionRef.current.scale, {
+              x: 1,
+              y: 1,
+              z: 1,
+              duration: 0.5,
+            });
+          },
+        });
+      }}
+    >
+      {label}
+    </NavLink>
+  );
+}
+
+export default function Nav({ transitionRef }) {
+  const [expanded, setExpanded] = useState(false);
+  const [theme] = useTheme();
+
+  return (
+    <div className="navbar">
       <button
-        className={`w-[32px] h-[32px] absolute left-[20px] top-[20px] ${
-          open ? "text-neutral-800" : "text-neutral-100"
-        } transition z-10`}
-        onClick={() => setOpen(!open)}
+        className={`navbar-menu navbar-menu--${theme} ${
+          expanded ? "navbar-menu--expanded" : ""
+        }`}
+        onClick={() => setExpanded(!expanded)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -40,67 +70,22 @@ function NavMenu({ open, setOpen, ...props }) {
           />
         </svg>
       </button>
-    </Html>
-  );
-}
-
-export default function Nav({ transitionRef }) {
-  const navigate = useNavigate();
-  const { width, height } = useThree((state) => state.viewport);
-
-  function handleClick(url) {
-    setOpen(false);
-    gsap.to(transitionRef.current.scale, {
-      x: 15,
-      y: 15,
-      z: 15,
-      duration: 1,
-      onComplete: () => {
-        navigate(url);
-        gsap.to(transitionRef.current.scale, {
-          x: 0,
-          y: 0,
-          z: 0,
-          duration: 1,
-        });
-      },
-    });
-  }
-
-  const backgroundWidth = Math.min(width, 2);
-  const backgroundRef = useRef();
-  const [open, setOpen] = useState(false);
-
-  useFrame((_, delta) => {
-    backgroundRef.current.position.x = damp(
-      backgroundRef.current.position.x,
-      open ? -(width - backgroundWidth) / 2 : -(backgroundWidth + width) / 2,
-      8,
-      delta
-    );
-    backgroundRef.current.children.forEach((c) => {
-      c.position.x = damp(c.position.x, open ? 0.7 : 0.2, 8, delta);
-    });
-  });
-
-  return (
-    <group>
-      <Plane
-        ref={backgroundRef}
-        args={[backgroundWidth, height]}
-        position={[-(backgroundWidth + width) / 2, 0, 0]}
+      <div
+        className={`navbar-background ${
+          expanded ? "navbar-background--expanded" : ""
+        }`}
       >
-        <meshBasicMaterial color="#d44d5c" />
-        {links.map((l, i) => (
-          <MyLink
-            label={l.label}
-            i={i}
-            onClick={() => handleClick(l.link)}
+        {links.map((l) => (
+          <Link
             key={l.label}
+            to={l.link}
+            label={l.label}
+            expanded={expanded}
+            setExpanded={setExpanded}
+            transitionRef={transitionRef}
           />
         ))}
-      </Plane>
-      <NavMenu open={open} setOpen={setOpen} />
-    </group>
+      </div>
+    </div>
   );
 }

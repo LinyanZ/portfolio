@@ -119,3 +119,64 @@ html {
 .tag--light:hover {
   border-color: rgb(23 23 23);
 }
+
+.navbar {
+  width: 100px;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  color: white;
+}
+
+.navbar-menu {
+  transition: color 0.3s;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+.navbar-menu--dark {
+  color: white;
+}
+
+.navbar-menu--light {
+  color: black;
+}
+
+.navbar-menu--expanded {
+  color: white;
+}
+
+.navbar-background {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #d44d5c;
+  padding-right: 40px;
+  padding-top: 72px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  align-items: flex-end;
+  font-size: 2rem;
+  gap: 10px;
+  transition: transform 0.5s cubic-bezier(0, 0.9, 0.5, 0.99);
+  transform: translateX(-100%);
+}
+
+.navbar-background--expanded {
+  transform: translateX(0);
+}
+
+.navlink {
+  transition: transform 0.5s cubic-bezier(0, 0.7, 0.5, 0.99);
+  transform: translateX(-50%);
+}
+
+.navlink--expanded {
+  transform: translateX(0);
+}

@@ -8,8 +8,6 @@ import projects from "./data/projects.json";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 
-import { ThemeToggler } from "./contexts/themeContext";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,12 +38,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <>
-      <ThemeToggler />
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

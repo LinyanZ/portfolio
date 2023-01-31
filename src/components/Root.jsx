@@ -1,10 +1,9 @@
 import { Outlet } from "react-router-dom";
-import { Perf } from "r3f-perf";
 import { Canvas } from "@react-three/fiber";
-import { useTheme } from "../contexts/themeContext";
-import Nav from "./Nav";
-import { Circle } from "@react-three/drei";
 import { useRef } from "react";
+import { Circle } from "@react-three/drei";
+import { useTheme, ThemeToggler } from "../contexts/themeContext";
+import Nav from "./Nav";
 
 export default function Root() {
   const [theme] = useTheme();
@@ -18,7 +17,6 @@ export default function Root() {
             <Perf position="top-left" />
           )} */}
           <Outlet />
-          <Nav transitionRef={transitionRef} />
           <Circle
             args={[1, 128]}
             ref={transitionRef}
@@ -27,6 +25,8 @@ export default function Root() {
           />
         </Canvas>
       </div>
+      <Nav transitionRef={transitionRef} />
+      <ThemeToggler />
     </>
   );
 }
