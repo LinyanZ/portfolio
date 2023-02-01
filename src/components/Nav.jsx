@@ -37,16 +37,14 @@ export default function Nav({ transitionRef }) {
           />
         </svg>
       </button>
-      <div className={`navbar ${expanded ? "navbar--expanded" : ""}`}>
+      <div
+        className={`navbar ${
+          expanded ? "navbar--expanded" : ""
+        } background-blur background-blur--${theme}`}
+      >
         <button
           className={`navlink ${expanded ? "navlink--expanded" : ""}`}
           onClick={() => handleClick("/")}
-        >
-          Home
-        </button>
-        <button
-          className={`navlink ${expanded ? "navlink--expanded" : ""}`}
-          onClick={() => handleClick("/about")}
         >
           About
         </button>

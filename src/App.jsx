@@ -4,7 +4,6 @@ import { Canvas } from "@react-three/fiber";
 import { useLocation } from "wouter";
 import { useState } from "react";
 
-import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
@@ -29,15 +28,16 @@ function App() {
             prevLocation={prevLocation}
             setPrevLocation={setPrevLocation}
           />
-          {prevLocation === "/" && <Landing />}
-          {prevLocation === "/about" && <About />}
+          {prevLocation === "/" && <About />}
           {prevLocation === "/projects" && (
             <ScrollControls pages={projects.length} damping={0.1}>
               <Projects />
             </ScrollControls>
           )}
           {prevLocation === "/contact" && <Contact />}
-          <Perf position="top-right" />
+          {process.env.NODE_ENV === "development" && (
+            <Perf position="top-right" />
+          )}
         </Canvas>
       </div>
       <Nav />

@@ -15,13 +15,13 @@ export default function Transition({ prevLocation, setPrevLocation }) {
     if (location !== prevLocation) {
       gsap.to(ref.current.position, {
         y: 0,
-        duration: 0.4,
+        duration: 0.3,
         onComplete: () => {
           setPrevLocation(location);
 
           gsap.to(ref.current.position, {
             y: height,
-            duration: 0.2,
+            duration: 0.3,
             onComplete: () => {
               ref.current.position.y = -height;
             },
@@ -33,7 +33,7 @@ export default function Transition({ prevLocation, setPrevLocation }) {
 
   return (
     <Plane ref={ref} args={[width, height]} position={[0, -height, 1]}>
-      <meshBasicMaterial color="#6c757d" />
+      <meshBasicMaterial color="#333333" />
     </Plane>
   );
 }
