@@ -1,8 +1,8 @@
 import { Html } from "@react-three/drei";
 import { useTheme } from "../contexts/themeContext";
-import Education from "./about/Education";
-import Experiences from "./about/Experiences";
-import Skills from "./about/Skills";
+import Education from "../components/about/Education";
+import Experiences from "../components/about/Experiences";
+import Skills from "../components/about/Skills";
 
 function About() {
   const [theme] = useTheme();

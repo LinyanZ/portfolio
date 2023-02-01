@@ -10,17 +10,17 @@ import {
 } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useTheme } from "../contexts/themeContext";
-import Minimap from "./projects/Minimap";
-import Phone from "./projects/Phone";
-import GamingPC from "./projects/GamingPC";
-import Lines from "./projects/Lines";
+import Minimap from "../components/projects/Minimap";
+import Phone from "../components/projects/Phone";
+import GamingPC from "../components/projects/GamingPC";
+import Lines from "../components/projects/Lines";
 import projects from "../data/projects.json";
-import Laptop from "./projects/Laptop";
-import City from "./projects/City";
-import Monitor from "./projects/Monitor";
-import Plane from "./projects/Plane";
-import Board from "./projects/Board";
-import User from "./projects/User";
+import Laptop from "../components/projects/Laptop";
+import City from "../components/projects/City";
+import Monitor from "../components/projects/Monitor";
+import Plane from "../components/projects/Plane";
+import Board from "../components/projects/Board";
+import User from "../components/projects/User";
 
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
