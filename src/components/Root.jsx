@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { useRef } from "react";
 import { Circle } from "@react-three/drei";
 import { useTheme, ThemeToggler } from "../contexts/themeContext";
+import Background from "./particles/Background";
 import Nav from "./Nav";
 
 export default function Root() {
@@ -23,6 +24,7 @@ export default function Root() {
             scale={[0, 0, 0]}
             position={[0, -10, 1]}
           />
+          <Background />
         </Canvas>
       </div>
       <Nav transitionRef={transitionRef} />

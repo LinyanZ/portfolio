@@ -1,6 +1,5 @@
 import { useTheme } from "../contexts/themeContext";
 import { Html, Scroll } from "@react-three/drei";
-import Background from "./particles/Background";
 
 function Landing() {
   const [theme] = useTheme();
@@ -25,7 +24,6 @@ function Landing() {
           </div>
         </div>
       </Html>
-      <Background />
     </>
   );
 }
