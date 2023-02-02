@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTheme } from "../contexts/themeContext";
 import { useLocation } from "wouter";
 
-export default function Nav({ transitionRef }) {
+export default function Nav() {
   const [expanded, setExpanded] = useState(false);
   const [theme] = useTheme();
 

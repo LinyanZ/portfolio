@@ -25,21 +25,16 @@ html {
   position: fixed;
   top: 0;
   left: 0;
+  transition: background 0.3s;
+  z-index: -1;
 }
 
 .canvas-container--dark {
-  background: radial-gradient(
-    at 5% 100%,
-    rgb(66, 59, 61) 0%,
-    rgba(50, 44, 55, 1) 21%,
-    rgba(35, 36, 47, 1) 54%,
-    rgba(44, 45, 55, 1) 78%,
-    rgb(64, 65, 75) 100%
-  );
+  background: rgb(43, 42, 45);
 }
 
 .canvas-container--light {
-  background: rgb(214, 214, 214);
+  background: rgb(236, 239, 241);
 }
 
 .landing-section {
@@ -128,7 +123,7 @@ html {
   flex-direction: column;
   padding-right: 72px;
   padding-top: 72px;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   align-items: flex-end;
@@ -147,7 +142,7 @@ html {
   transition: color 0.3s;
   width: 32px;
   height: 32px;
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   z-index: 2;
@@ -159,10 +154,6 @@ html {
 
 .navbar-menu--light {
   color: black;
-}
-
-.navbar-menu--expanded {
-  color: white;
 }
 
 .navlink {
@@ -177,4 +168,11 @@ html {
 
 .navlink--expanded {
   transform: translateX(0);
+}
+
+.transition {
+  background-color: #343439;
+  z-index: 50;
+  position: fixed;
+  width: 100vw;
 }

@@ -1,39 +1,53 @@
-import gsap from "gsap";
-import { useLocation } from "wouter";
-import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
-import { Plane } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
+import { motion } from "framer-motion";
 
-export default function Transition({ prevLocation, setPrevLocation }) {
-  const [location] = useLocation();
-  const { width, height } = useThree((state) => state.viewport);
+const start = {
+  initial: {
+    height: "100vh",
+    top: 0,
+  },
+  animate: {
+    height: 0,
+    transition: {
+      duration: 1,
+      ease: [0.87, 0, 0.13, 1],
+    },
+  },
+};
 
-  const ref = useRef();
+const end = {
+  initial: {
+    height: 0,
+    bottom: 0,
+  },
+  exit: {
+    height: "100vh",
+    transition: {
+      duration: 1,
+      ease: [0.87, 0, 0.13, 1],
+    },
+  },
+};
 
-  useFrame(() => {
-    if (location !== prevLocation) {
-      gsap.to(ref.current.position, {
-        y: 0,
-        duration: 0.3,
-        onComplete: () => {
-          setPrevLocation(location);
-
-          gsap.to(ref.current.position, {
-            y: height,
-            duration: 0.3,
-            onComplete: () => {
-              ref.current.position.y = -height;
-            },
-          });
-        },
-      });
-    }
-  });
-
+export default function Transition() {
   return (
-    <Plane ref={ref} args={[width, height]} position={[0, -height, 1]}>
-      <meshBasicMaterial color="#333333" />
-    </Plane>
+    <>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={start}
+        className="transition"
+        onAnimationStart={() => document.body.classList.add("overflow-hidden")}
+        onAnimationComplete={() =>
+          document.body.classList.remove("overflow-hidden")
+        }
+      />
+      <motion.div
+        initial="initial"
+        exit="exit"
+        variants={end}
+        className="transition"
+        onAnimationStart={() => document.body.classList.add("overflow-hidden")}
+      />
+    </>
   );
 }
