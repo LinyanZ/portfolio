@@ -12,13 +12,9 @@ function Minimap() {
 
   function scrollOffsetToIndex() {
     const pageOffset = 1 / projects.length;
-    const projectsStartAt = 0;
 
-    if (scroll.offset < projectsStartAt) return 0;
-    return Math.min(
-      (scroll.offset - projectsStartAt) / pageOffset,
-      projects.length - 1
-    );
+    if (scroll.offset < 0) return 0;
+    return Math.min(scroll.offset / pageOffset, projects.length - 1);
   }
 
   useFrame((state, delta) => {

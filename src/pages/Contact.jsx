@@ -12,7 +12,7 @@ function Contact() {
   return (
     <>
       <div
-        className={`w-full h-[100vh] flex justify-center flex-column items-center`}
+        className={`flex-column flex h-[100vh] w-full items-center justify-center`}
       >
         <motion.h1
           className={nameStyle}

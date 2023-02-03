@@ -25,9 +25,9 @@ function Skills({ theme }) {
   const blockStyle = `background-blur background-blur--${theme} m-4 rounded-lg`;
 
   return (
-    <div className={`${blockStyle} row-span-5 col-span-4`}>
+    <div className={`${blockStyle} col-span-4 row-span-5`}>
       <h2 className={titleStyle}>Skills</h2>
-      <div className="flex mx-8 flex-wrap gap-4">
+      <div className="mx-8 flex flex-wrap gap-4">
         {skills.map((s) => (
           <Tag key={s} theme={theme} text={s} />
         ))}

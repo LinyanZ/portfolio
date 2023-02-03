@@ -4,13 +4,13 @@ function Education({ theme }) {
   const blockStyle = `background-blur background-blur--${theme} m-4 rounded-lg`;
 
   return (
-    <div className={`${blockStyle} row-span-3 col-span-6`}>
+    <div className={`${blockStyle} col-span-6 row-span-3`}>
       <h2 className={titleStyle}>Education</h2>
       <div className={`mx-8 my-4 ${textColor} font-thin`}>
         <div className="my-4">
           <div className="grid grid-cols-2">
-            <p className="col-span-1 uni-title">University of Melbourne</p>
-            <p className="col-span-1 uni-title text-right">
+            <p className="uni-title col-span-1">University of Melbourne</p>
+            <p className="uni-title col-span-1 text-right">
               Mar. 2022 - Present
             </p>
           </div>
@@ -20,8 +20,8 @@ function Education({ theme }) {
         </div>
         <div className="my-4">
           <div className="grid grid-cols-2">
-            <p className="col-span-1 uni-title">University of Melbourne</p>
-            <p className="col-span-1 uni-title text-right">
+            <p className="uni-title col-span-1">University of Melbourne</p>
+            <p className="uni-title col-span-1 text-right">
               Mar. 2019 - Dec. 2021
             </p>
           </div>

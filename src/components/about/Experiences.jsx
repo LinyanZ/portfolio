@@ -4,7 +4,7 @@ function Experiences({ theme }) {
   const blockStyle = `background-blur background-blur--${theme} m-4 rounded-lg`;
 
   return (
-    <div className={`${blockStyle} row-span-5 col-span-7`}>
+    <div className={`${blockStyle} col-span-7 row-span-5`}>
       <h2 className={titleStyle}>Experience</h2>
       <div className={`mx-8 my-4 ${textColor} font-thin`}>
         <div className="my-4">
@@ -25,7 +25,7 @@ function Experiences({ theme }) {
                 </ul>
               </div>
             </div>
-            <p className="col-span-1 row-span-2 job-title text-right">
+            <p className="job-title col-span-1 row-span-2 text-right">
               Jul. 2022 - Aug. 2022
             </p>
           </div>
@@ -54,7 +54,7 @@ function Experiences({ theme }) {
                 </ul>
               </div>
             </div>
-            <p className="col-span-1 row-span-2 job-title text-right">
+            <p className="job-title col-span-1 row-span-2 text-right">
               Dec. 2019 - Present
             </p>
           </div>

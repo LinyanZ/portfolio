@@ -21,7 +21,7 @@ function About() {
 
   return (
     <>
-      <div className="w-[100vw] h-[100vh] flex flex-column items-center justify-center">
+      <div className="flex-column flex h-[100vh] w-[100vw] items-center justify-center">
         <h1 className={nameStyle}>LINYAN ZHU</h1>
         <div className="flex w-[800px]">
           <h2 className={descriptionStyle}>Full-Stack Developer</h2>
@@ -29,15 +29,15 @@ function About() {
           <h2 className={descriptionStyle}>Software Developer</h2>\
         </div>
       </div>
-      <div className="w-[100vw] h-[100vh] flex flex-column items-center justify-center">
+      <div className="flex-column flex h-[100vh] w-[100vw] items-center justify-center">
         <div>
-          <div className="row-span-2 col-span-3">
+          <div className="col-span-3 row-span-2">
             <h1 className={`text-center text-[10rem] font-thin ${textColor}`}>
               About
             </h1>
           </div>
-          <div className="w-[1600px] h-[800px] grid grid-rows-8 grid-cols-11 rounded-lg">
-            <div className={`${blockStyle} row-span-3 col-span-5`}>
+          <div className="grid-rows-8 grid h-[800px] w-[1600px] grid-cols-11 rounded-lg">
+            <div className={`${blockStyle} col-span-5 row-span-3`}>
               <h2 className={titleStyle}>Summary</h2>
             </div>
             <Education theme={theme} />

@@ -28,7 +28,7 @@ function VideoMaterial({ url }) {
 }
 
 function Projects() {
-  const linePercentage = useRef({ value: 0 });
+  const linePercentage = useRef({ value: 1 });
   const [canSwitch, setCanSwitch] = useState(true);
   const [index, setIndex] = useState(-1);
   const { width, height } = useThree((state) => state.viewport);
@@ -56,65 +56,62 @@ function Projects() {
 
   function scrollOffsetToIndex() {
     const pageOffset = 1 / projects.length;
-    const projectsStartAt = 0;
 
-    if (scroll.offset < projectsStartAt) return -1;
+    if (scroll.offset < 0) return 0;
     return Math.min(
-      Math.floor((scroll.offset - projectsStartAt) / pageOffset),
+      Math.floor(scroll.offset / pageOffset),
       projects.length - 1
     );
   }
 
   useFrame(() => {
-    if (canSwitch && scrollOffsetToIndex() != index) {
-      setCanSwitch(false);
-
-      if (index < 0 || index >= projects.length) {
-        // start showing the first project right away
-        setIndex(scrollOffsetToIndex());
-        toggleText(true);
-        gsap.to(linePercentage.current, {
-          value: 1,
-          duration: 1,
-          onComplete: () => {
-            setCanSwitch(true);
-          },
-        });
-      } else {
-        // hide the previous project
-        toggleText(false);
-        gsap.to(linePercentage.current, {
-          value: -0.3,
-          duration: 1,
-          onComplete: () => {
-            setIndex(scrollOffsetToIndex());
-
-            if (
-              scrollOffsetToIndex() >= 0 &&
-              scrollOffsetToIndex() < projects.length
-            ) {
-              // show the next project
-              toggleText(true);
-              gsap.to(linePercentage.current, {
-                value: 1,
-                duration: 1,
-                onComplete: () => {
-                  setCanSwitch(true);
-                },
-              });
-            } else {
-              setCanSwitch(true);
-            }
-          },
-        });
-      }
-    }
+    // if (canSwitch && scrollOffsetToIndex() != index) {
+    //   setCanSwitch(false);
+    //   if (index < 0 || index >= projects.length) {
+    //     // start showing the first project right away
+    //     setIndex(scrollOffsetToIndex());
+    //     toggleText(true);
+    //     gsap.to(linePercentage.current, {
+    //       value: 1,
+    //       duration: 1,
+    //       onComplete: () => {
+    //         setCanSwitch(true);
+    //       },
+    //     });
+    //   } else {
+    //     // hide the previous project
+    //     toggleText(false);
+    //     gsap.to(linePercentage.current, {
+    //       value: -0.3,
+    //       duration: 1,
+    //       onComplete: () => {
+    //         setIndex(scrollOffsetToIndex());
+    //         if (
+    //           scrollOffsetToIndex() >= 0 &&
+    //           scrollOffsetToIndex() < projects.length
+    //         ) {
+    //           // show the next project
+    //           toggleText(true);
+    //           gsap.to(linePercentage.current, {
+    //             value: 1,
+    //             duration: 1,
+    //             onComplete: () => {
+    //               setCanSwitch(true);
+    //             },
+    //           });
+    //         } else {
+    //           setCanSwitch(true);
+    //         }
+    //       },
+    //     });
+    //   }
+    // }
   });
 
   return (
     <>
       <Minimap />
-      <Float floatIntensity={0.15} speed={1} rotationIntensity={0.15}>
+      {/* <Float floatIntensity={0.15} speed={1} rotationIntensity={0.15}>
         {index === 0 && <Laptop />}
         {index === 1 && <GamingPC />}
         {index === 2 && <Board />}
@@ -140,14 +137,8 @@ function Projects() {
           </>
         )}
         {index === 5 && <User />}
-        {/* <mesh position={[0, 0, 0.35]}>
-          <planeGeometry args={[1.08 * 2, 2.28 * 2]} />
-          <Suspense fallback={<meshBasicMaterial color="white" />}>
-            <VideoMaterial url="/footprintTracker.mp4" toneMapped={false} />
-          </Suspense>
-        </mesh> */}
-      </Float>
-      <Text
+      </Float> */}
+      {/* <Text
         position={[0, 3, 0]}
         font={"/fonts/Raleway-ExtraLight.ttf"}
         fontSize={0.3}
@@ -155,7 +146,7 @@ function Projects() {
         fillOpacity={0}
       >
         {projects[Math.max(Math.min(index, projects.length - 1), 0)].title}
-      </Text>
+      </Text> */}
       <Lines index={index} mask={1} percentage={linePercentage.current} />
     </>
   );
