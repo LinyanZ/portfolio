@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from "react";
-import { useLocation } from "wouter";
+import { useLocation, useRoutes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import About from "./pages/About";
@@ -12,14 +12,32 @@ import { ThemeToggler } from "./contexts/themeContext";
 import { Loader } from "@react-three/drei";
 
 function App() {
-  const [location] = useLocation();
+  const element = useRoutes([
+    {
+      path: "/",
+      element: <About />,
+    },
+    {
+      path: "/projects",
+      element: <Transition />,
+    },
+    {
+      path: "/contact",
+      element: <Contact />,
+    },
+  ]);
+
+  const location = useLocation();
+
+  if (!element) return null;
+
   const [showProjects, setShowProjects] = useState(false);
 
   useEffect(() => {
-    if (location === "/projects") {
+    if (location.pathname === "/projects") {
       setTimeout(() => {
         setShowProjects(true);
-      }, 1500);
+      }, 1000);
     } else {
       setTimeout(() => {
         setShowProjects(false);
@@ -34,9 +52,7 @@ function App() {
         <Nav />
         <ThemeToggler />
         <AnimatePresence mode="wait">
-          {location === "/" && <About key="about" />}
-          {location === "/projects" && <Transition key="projects" />}
-          {location === "/contact" && <Contact key="contact" />}
+          {React.cloneElement(element, { key: location.pathname })}
         </AnimatePresence>
       </Suspense>
       <Loader />

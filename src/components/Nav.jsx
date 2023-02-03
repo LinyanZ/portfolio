@@ -1,17 +1,10 @@
 import { useState } from "react";
 import { useTheme } from "../contexts/themeContext";
-import { useLocation } from "wouter";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   const [expanded, setExpanded] = useState(false);
   const [theme] = useTheme();
-
-  const [location, setLocation] = useLocation();
-
-  function handleClick(url) {
-    setExpanded(false);
-    setLocation(url);
-  }
 
   return (
     <>
@@ -42,24 +35,27 @@ export default function Nav() {
           expanded ? "navbar--expanded" : ""
         } background-blur background-blur--${theme}`}
       >
-        <button
+        <Link
+          to="/"
           className={`navlink ${expanded ? "navlink--expanded" : ""}`}
-          onClick={() => handleClick("/")}
+          onClick={() => setExpanded(false)}
         >
           About
-        </button>
-        <button
+        </Link>
+        <Link
+          to="/projects"
           className={`navlink ${expanded ? "navlink--expanded" : ""}`}
-          onClick={() => handleClick("/projects")}
+          onClick={() => setExpanded(false)}
         >
           Projects
-        </button>
-        <button
+        </Link>
+        <Link
+          to="/contact"
           className={`navlink ${expanded ? "navlink--expanded" : ""}`}
-          onClick={() => handleClick("/contact")}
+          onClick={() => setExpanded(false)}
         >
           Contact
-        </button>
+        </Link>
       </div>
     </>
   );
