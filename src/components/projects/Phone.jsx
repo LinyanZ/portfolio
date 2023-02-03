@@ -6,22 +6,30 @@ source: https://sketchfab.com/3d-models/samsung-phone-030019d343df47e598e929a785
 title: Samsung Phone
 */
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, Suspense } from "react";
 import gsap from "gsap";
-import { Mask, useGLTF } from "@react-three/drei";
+import { Mask, Plane, useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { VideoMaterial } from "../lib";
 
-export function Phone() {
+export default function Phone({ opacityRef }) {
   const { nodes } = useGLTF("/models/phone.glb");
-  const ref = useRef();
+  const groupRef = useRef();
+  const videoRef = useRef();
+  const materialRef = useRef();
 
   useEffect(() => {
-    gsap.to(ref.current.rotation, { x: 0, y: 0, duration: 1 });
+    gsap.to(groupRef.current.rotation, { x: 0, y: 0, duration: 1 });
+  });
+
+  useFrame(() => {
+    if (materialRef.current) materialRef.current.opacity = opacityRef.value;
   });
 
   return (
     <group
-      ref={ref}
-      position={[0, -0.45, 0]}
+      ref={groupRef}
+      position={[0.01, -0.45, 0]}
       rotation={[-Math.PI / 6, -Math.PI / 3, 0]}
     >
       <Mask id={1} scale={[0.06, 0.06, 0.06]} rotation={[Math.PI / 2, 0, 0]}>
@@ -33,10 +41,21 @@ export function Phone() {
       <Mask id={1} scale={[0.06, 0.06, 0.06]} rotation={[Math.PI / 2, 0, 0]}>
         <bufferGeometry {...nodes["3dphoneuvmap_topface_0"].geometry} />
       </Mask>
+      <Plane
+        ref={videoRef}
+        position={[-0.01, 0.05, 0.5]}
+        scale={[1.08 * 1.93, 2.28 * 1.93, 1.0]}
+      >
+        <Suspense fallback={<meshBasicMaterial transparent opacity={0} />}>
+          <VideoMaterial
+            url="./videos/footprintTracker.mp4"
+            opacity={0}
+            ref={materialRef}
+          />
+        </Suspense>
+      </Plane>
     </group>
   );
 }
 
 useGLTF.preload("/models/phone.glb");
-
-export default Phone;

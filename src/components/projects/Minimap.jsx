@@ -22,15 +22,10 @@ function Minimap() {
 
     ref.current.children.forEach((child, index) => {
       const currIndex = Math.floor(currIndexFloat);
-      const isText = index >= projects.length;
-      index = index % projects.length;
-
-      const textOffset = isText ? -0.25 : 0;
-
       const x =
         currIndexFloat < 0 || currIndexFloat >= projects.length
           ? width / 2 + 1
-          : width / 2 - 0.5 + textOffset;
+          : width / 2 - 0.5;
       const y =
         currIndexFloat < 0
           ? -1 - index * 0.1
@@ -40,8 +35,7 @@ function Minimap() {
       child.position.x = damp(child.position.x, x, 8, delta);
       child.position.y = damp(child.position.y, y, 8, delta);
 
-      const scale =
-        currIndex === index ? (isText ? 0.03 : 0.04) : isText ? 0.015 : 0.01;
+      const scale = currIndex === index ? 0.04 : 0.01;
       child.scale.x = damp(child.scale.x, scale, 8, delta);
       child.scale.y = damp(child.scale.y, scale, 8, delta);
       child.scale.z = damp(child.scale.z, scale, 8, delta);
@@ -57,18 +51,6 @@ function Minimap() {
             position={[width / 2 + 0.5, -index * 0.3, 0]}
             scale={[0.01, 0.01, 0.01]}
           ></Circle>
-        ))}
-        {projects.map((p, index) => (
-          <Text
-            position={[width / 2 + 0.5, 0, 0]}
-            font={"./fonts/raleway-200.woff"}
-            fontSize={5}
-            key={p.title}
-            scale={[0.015, 0.015, 0.015]}
-            anchorX="right"
-          >
-            {p.title}
-          </Text>
         ))}
       </group>
     </>

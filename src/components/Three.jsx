@@ -1,9 +1,9 @@
-import { Plane, ScrollControls } from "@react-three/drei";
+import { OrbitControls, Plane, ScrollControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 
-import Projects from "../pages/Projects";
+import Models from "../pages/Models";
 import Background from "./particles/Background";
 
 import { useTheme } from "../contexts/themeContext";
@@ -15,10 +15,11 @@ export default function Three({ showProjects }) {
   return (
     <div className={`canvas-container canvas-container--${theme}`}>
       <Canvas>
+        {/* <OrbitControls /> */}
         <Background />
         {showProjects && (
           <ScrollControls pages={projects.length} damping={0.1}>
-            <Projects />
+            <Models />
           </ScrollControls>
         )}
         {process.env.NODE_ENV === "development" && (

@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
 import Nav from "./components/Nav";
 import Transition from "./components/Transition";
 import Three from "./components/Three";
@@ -19,7 +20,7 @@ function App() {
     },
     {
       path: "/projects",
-      element: <Transition />,
+      element: <Projects />,
     },
     {
       path: "/contact",

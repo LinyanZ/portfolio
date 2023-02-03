@@ -1,26 +1,32 @@
 [
   {
     "title": "Survey Creator",
-    "numLines": 132
+    "numLines": 132,
+    "hasVideo": true
   },
   {
     "title": "Third Person Shooter Game",
-    "numLines": 172
+    "numLines": 172,
+    "hasVideo": true
   },
   {
     "title": "Board Game AI Agent",
-    "numLines": 152
+    "numLines": 152,
+    "hasVideo": false
   },
   {
     "title": "Data Visualiser",
-    "numLines": 180
+    "numLines": 180,
+    "hasVideo": true
   },
   {
     "title": "Footprint Tracker",
-    "numLines": 102
+    "numLines": 102,
+    "hasVideo": true
   },
   {
     "title": "Portfolio",
-    "numLines": 66
+    "numLines": 66,
+    "hasVideo": false
   }
 ]
