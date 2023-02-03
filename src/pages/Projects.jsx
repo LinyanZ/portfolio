@@ -65,53 +65,53 @@ function Projects() {
   }
 
   useFrame(() => {
-    // if (canSwitch && scrollOffsetToIndex() != index) {
-    //   setCanSwitch(false);
-    //   if (index < 0 || index >= projects.length) {
-    //     // start showing the first project right away
-    //     setIndex(scrollOffsetToIndex());
-    //     toggleText(true);
-    //     gsap.to(linePercentage.current, {
-    //       value: 1,
-    //       duration: 1,
-    //       onComplete: () => {
-    //         setCanSwitch(true);
-    //       },
-    //     });
-    //   } else {
-    //     // hide the previous project
-    //     toggleText(false);
-    //     gsap.to(linePercentage.current, {
-    //       value: -0.3,
-    //       duration: 1,
-    //       onComplete: () => {
-    //         setIndex(scrollOffsetToIndex());
-    //         if (
-    //           scrollOffsetToIndex() >= 0 &&
-    //           scrollOffsetToIndex() < projects.length
-    //         ) {
-    //           // show the next project
-    //           toggleText(true);
-    //           gsap.to(linePercentage.current, {
-    //             value: 1,
-    //             duration: 1,
-    //             onComplete: () => {
-    //               setCanSwitch(true);
-    //             },
-    //           });
-    //         } else {
-    //           setCanSwitch(true);
-    //         }
-    //       },
-    //     });
-    //   }
-    // }
+    if (canSwitch && scrollOffsetToIndex() != index) {
+      setCanSwitch(false);
+      if (index < 0 || index >= projects.length) {
+        // start showing the first project right away
+        setIndex(scrollOffsetToIndex());
+        toggleText(true);
+        gsap.to(linePercentage.current, {
+          value: 1,
+          duration: 1,
+          onComplete: () => {
+            setCanSwitch(true);
+          },
+        });
+      } else {
+        // hide the previous project
+        toggleText(false);
+        gsap.to(linePercentage.current, {
+          value: -0.3,
+          duration: 1,
+          onComplete: () => {
+            setIndex(scrollOffsetToIndex());
+            if (
+              scrollOffsetToIndex() >= 0 &&
+              scrollOffsetToIndex() < projects.length
+            ) {
+              // show the next project
+              toggleText(true);
+              gsap.to(linePercentage.current, {
+                value: 1,
+                duration: 1,
+                onComplete: () => {
+                  setCanSwitch(true);
+                },
+              });
+            } else {
+              setCanSwitch(true);
+            }
+          },
+        });
+      }
+    }
   });
 
   return (
     <>
       <Minimap />
-      {/* <Float floatIntensity={0.15} speed={1} rotationIntensity={0.15}>
+      <Float floatIntensity={0.15} speed={1} rotationIntensity={0.15}>
         {index === 0 && <Laptop />}
         {index === 1 && <GamingPC />}
         {index === 2 && <Board />}
@@ -137,16 +137,16 @@ function Projects() {
           </>
         )}
         {index === 5 && <User />}
-      </Float> */}
-      {/* <Text
+      </Float>
+      <Text
         position={[0, 3, 0]}
-        font={"/fonts/Raleway-ExtraLight.ttf"}
+        font={"./fonts/raleway-200.woff"}
         fontSize={0.3}
         ref={textRef}
         fillOpacity={0}
       >
         {projects[Math.max(Math.min(index, projects.length - 1), 0)].title}
-      </Text> */}
+      </Text>
       <Lines index={index} mask={1} percentage={linePercentage.current} />
     </>
   );

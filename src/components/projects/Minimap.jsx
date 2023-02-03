@@ -61,7 +61,7 @@ function Minimap() {
         {projects.map((p, index) => (
           <Text
             position={[width / 2 + 0.5, 0, 0]}
-            font={"/fonts/Raleway-ExtraLight.ttf"}
+            font={"./fonts/raleway-200.woff"}
             fontSize={5}
             key={p.title}
             scale={[0.015, 0.015, 0.015]}

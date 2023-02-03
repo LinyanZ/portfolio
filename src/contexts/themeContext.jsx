@@ -44,6 +44,7 @@ function ThemeToggler() {
     <button
       className={`theme-toggler theme-toggler--${theme}`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      title="theme-toggler"
     >
       <ion-icon name="contrast-outline" />
     </button>
