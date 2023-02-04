@@ -8,7 +8,7 @@ import Lines from "../components/projects/Lines";
 import Laptop from "../components/projects/Laptop";
 import GamingPC from "../components/projects/GamingPC";
 import Board from "../components/projects/Board";
-import DataVisualiser from "../components/projects/DataVisualiser";
+import DataVisualizer from "../components/projects/DataVisualizer";
 import FootprintTracker from "../components/projects/FootprintTracker";
 import User from "../components/projects/User";
 
@@ -113,7 +113,7 @@ function Models() {
         {project === 0 && <Laptop opacityRef={opacityRef.current} />}
         {project === 1 && <GamingPC opacityRef={opacityRef.current} />}
         {project === 2 && <Board />}
-        {project === 3 && <DataVisualiser opacityRef={opacityRef} />}
+        {project === 3 && <DataVisualizer opacityRef={opacityRef} />}
         {project === 4 && <FootprintTracker opacityRef={opacityRef} />}
         {project === 5 && <User />}
       </Float>

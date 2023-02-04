@@ -56,7 +56,7 @@ function App() {
           {React.cloneElement(element, { key: location.pathname })}
         </AnimatePresence>
       </Suspense>
-      <Loader />
+      {/* <Loader /> */}
     </>
   );
 }

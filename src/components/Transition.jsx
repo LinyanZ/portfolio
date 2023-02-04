@@ -35,7 +35,7 @@ export default function Transition() {
         initial="initial"
         animate="animate"
         variants={start}
-        className="transition"
+        className="transition-screen"
         onAnimationStart={() => document.body.classList.add("overflow-hidden")}
         onAnimationComplete={() =>
           document.body.classList.remove("overflow-hidden")
@@ -45,7 +45,7 @@ export default function Transition() {
         initial="initial"
         exit="exit"
         variants={end}
-        className="transition"
+        className="transition-screen"
         onAnimationStart={() => document.body.classList.add("overflow-hidden")}
       />
     </>

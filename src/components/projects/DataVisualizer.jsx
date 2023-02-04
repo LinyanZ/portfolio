@@ -1,7 +1,7 @@
 import City from "./City";
 import Monitor from "./Monitor";
 
-export default function DataVisualiser({ opacityRef }) {
+export default function DataVisualizer({ opacityRef }) {
   return (
     <>
       <City />
