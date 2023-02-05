@@ -27,45 +27,69 @@ export default function Summary() {
       <motion.div
         ref={ref}
         className="my-picture-container"
-        initial={{
-          scale: 0.9,
-        }}
-        whileInView={{
-          scale: 1,
-          transition: {
-            duration: 1,
-            ease,
-          },
-        }}
-        whileHover={{
-          scale: 1.1,
-          transition: {
-            duration: 1,
-            ease,
-          },
-        }}
+        initial={
+          isMedium
+            ? {
+                scale: 0.9,
+              }
+            : {}
+        }
+        whileInView={
+          isMedium
+            ? {
+                scale: 1,
+                transition: {
+                  duration: 1,
+                  ease,
+                },
+              }
+            : {}
+        }
+        whileHover={
+          isMedium
+            ? {
+                scale: 1.1,
+                transition: {
+                  duration: 1,
+                  ease,
+                },
+              }
+            : {}
+        }
       >
         <motion.img
           className="my-picture"
           src="./pictures/me.jpg"
           alt="a picture of myself with my cat on top of my head"
-          initial={{
-            scale: 2,
-          }}
-          whileInView={{
-            scale: 1.3,
-            transition: {
-              duration: 1,
-              ease,
-            },
-          }}
-          whileHover={{
-            scale: 1,
-            transition: {
-              duration: 1,
-              ease,
-            },
-          }}
+          initial={
+            isMedium
+              ? {
+                  scale: 2,
+                }
+              : {}
+          }
+          whileInView={
+            isMedium
+              ? {
+                  scale: 1.3,
+                  transition: {
+                    duration: 1,
+                    ease,
+                  },
+                }
+              : {}
+          }
+          whileHover={
+            isMedium
+              ? {
+                  scale: 1,
+                  transition: {
+                    duration: 1,
+                    ease,
+                  },
+                }
+              : {}
+          }
         />
       </motion.div>
       <motion.div className="summary" style={isMedium ? { y: yDiv } : {}}>

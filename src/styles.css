@@ -294,7 +294,7 @@ html {
   }
 
   .summary-title {
-    font-size: 4rem;
+    font-size: 4.2rem;
   }
 
   .summary-content {
@@ -386,7 +386,7 @@ html {
 }
 
 .skill {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 200;
   padding: 1rem;
   transition: background-color 0.3s;
@@ -397,19 +397,31 @@ html {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1280px) {
+  .skill-section-title {
+    font-size: 7rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .skill-section-title {
     font-size: 6rem;
   }
 
   .skill-group__label {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     background-color: rgba(0, 0, 0, 0.05);
   }
 
   .skill {
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skill-section-title {
+    font-size: 4rem;
   }
 }
 
