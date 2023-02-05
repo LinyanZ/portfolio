@@ -37,21 +37,27 @@ export default function Nav() {
       >
         <Link
           to="/"
-          className={`navlink ${expanded ? "navlink--expanded" : ""}`}
+          className={`navlink navlink--${theme} ${
+            expanded ? "navlink--expanded" : ""
+          }`}
           onClick={() => setExpanded(false)}
         >
           About
         </Link>
         <Link
           to="/projects"
-          className={`navlink ${expanded ? "navlink--expanded" : ""}`}
+          className={`navlink navlink--${theme} ${
+            expanded ? "navlink--expanded" : ""
+          }`}
           onClick={() => setExpanded(false)}
         >
           Projects
         </Link>
         <Link
           to="/contact"
-          className={`navlink ${expanded ? "navlink--expanded" : ""}`}
+          className={`navlink navlink--${theme} ${
+            expanded ? "navlink--expanded" : ""
+          }`}
           onClick={() => setExpanded(false)}
         >
           Contact

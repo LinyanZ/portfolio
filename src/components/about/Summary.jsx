@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "../../contexts/themeContext";
 import { useIsMedium } from "../../utils";
 
@@ -13,13 +13,7 @@ export default function Summary() {
   const [theme] = useTheme();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
-  const ySpring = useSpring(scrollYProgress, {
-    stiffness: 10,
-    damping: 10,
-    restDelta: 0.1,
-  });
-  const yDiv = useParallax(ySpring, 300);
-  const yP = useParallax(ySpring, 200);
+  const y = useParallax(scrollYProgress, 300);
   const isMedium = useIsMedium();
 
   return (
@@ -92,11 +86,11 @@ export default function Summary() {
           }
         />
       </motion.div>
-      <motion.div className="summary" style={isMedium ? { y: yDiv } : {}}>
+      <motion.div className="summary" style={isMedium ? { y } : {}}>
         <h2 className={`summary-title text--${theme}`}>About Me</h2>
         <motion.p
           className={`summary-content text--${theme}`}
-          style={isMedium ? { y: yP } : {}}
+          style={isMedium ? { y } : {}}
         >
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum nam
           quia omnis nemo facilis itaque placeat! Vitae eveniet, sit,

@@ -469,13 +469,25 @@ html {
 }
 
 .navlink {
-  color: #dddddd;
   transition: transform 0.5s cubic-bezier(0.2, 0.2, 0.2, 1), color 0.3s;
   transform: translateX(-100%);
+  font-weight: 300;
 }
 
-.navlink:hover {
-  color: #ffffff;
+.navlink--dark {
+  color: var(--color-text-lighter);
+}
+
+.navlink--light {
+  color: var(--color-text-dark);
+}
+
+.navlink--dark:hover {
+  color: #fff;
+}
+
+.navlink--light:hover {
+  color: var(--color-text-light);
 }
 
 .navlink--expanded {
@@ -510,8 +522,7 @@ html {
   height: 4rem;
   border-bottom: 1px solid #bbb;
   background-color: transparent;
-  color: #eee;
-  transition: background-color 0.3s, padding 0.15s;
+  transition: background-color 0.3s, padding 0.15s, backdrop-filter 0.3s;
   font-size: 1.4rem;
 }
 
@@ -520,20 +531,21 @@ html {
   border: none;
   padding: 0 1rem;
   background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
 }
 
 .contact-form__button {
   width: fit-content;
   height: 4rem;
   margin-top: 1rem;
-  color: #eee;
   border-bottom: 1px solid #bbb;
-  transition: background-color 0.3s, padding 0.15s;
+  transition: background-color 0.3s, padding 0.15s, backdrop-filter 0.3s;
   font-size: 1.2rem;
 }
 
 .contact-form__button:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
   padding: 0 1rem;
 }
 
@@ -543,15 +555,19 @@ html {
   margin-top: 15vh;
 }
 
-.contact-title--dark {
-  color: #eee;
-}
-
-.contact-title--light {
-  color: #222;
+.contact-message {
+  font-weight: 200;
+  font-size: 1.4rem;
+  margin: 2rem 0;
 }
 
 @media (max-width: 640px) {
+  .contact-title {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
   .contact-title {
     font-size: 3rem;
   }

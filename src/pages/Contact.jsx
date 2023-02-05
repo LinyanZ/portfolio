@@ -41,7 +41,7 @@ function Contact() {
       <div className="contact-container">
         <div>
           <motion.h1
-            className={`contact-title contact-title--${theme}`}
+            className={`contact-title text--${theme}`}
             initial={{
               opacity: 0,
               y: "25%",
@@ -57,7 +57,7 @@ function Contact() {
             Get in Touch
           </motion.h1>
         </div>
-        <div className="text-white my-8 text-xl">
+        <div className={`contact-message text--${theme}`}>
           Hope you've enjoyed my portfolio! If you want to have a chat, feel
           free to leave me a message.
         </div>
@@ -66,7 +66,7 @@ function Contact() {
             Name
           </label>
           <input
-            className="contact-form__input"
+            className={`contact-form__input text--${theme}`}
             type="text"
             id="name"
             placeholder="Name"
@@ -75,7 +75,7 @@ function Contact() {
             Email
           </label>
           <input
-            className="contact-form__input"
+            className={`contact-form__input text--${theme}`}
             type="text"
             id="email"
             placeholder="Email"
@@ -84,12 +84,15 @@ function Contact() {
             Message
           </label>
           <input
-            className="contact-form__input"
+            className={`contact-form__input text--${theme}`}
             type="text"
             id="message"
             placeholder="Message"
           />
-          <button className="contact-form__button" type="submit">
+          <button
+            className={`contact-form__button text--${theme}`}
+            type="submit"
+          >
             {state === "idle" && "SEND"}
             {state === "success" && "SENT!"}
             {state === "pending" && "SENDING..."}
