@@ -1,38 +1,44 @@
-import { Tag } from "../lib";
+import { useTheme } from "../../contexts/themeContext";
+import { useRef } from "react";
 
-const skills = [
-  "C/C++",
-  "Java",
-  "Python",
-  "Javascript",
-  "Node.js",
-  "React.js",
-  "Three.js",
-  "HTML/CSS",
-  "REST",
-  "MySQL",
-  "MongoDB",
-  "Firebase",
-  "Android",
-  "Unity",
-  "Docker",
-  "AWS",
-];
+function SkillGroup({ label, skills }) {
+  const [theme] = useTheme();
+  return (
+    <div className="skill-group-container">
+      <h3 className={`skill-group__label text--${theme}`}>{label}</h3>
+      <ul className="skills-container">
+        {skills.map((s) => (
+          <li key={s} className={`skill text--${theme}`}>
+            {s}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-function Skills({ theme }) {
-  const textColor = `text-neutral-${theme === "dark" ? "200" : "900"}`;
-  const titleStyle = `text-[2.4rem] ${textColor} mx-8 my-4`;
-  const blockStyle = `background-blur background-blur--${theme} m-4 rounded-lg`;
+function Skills({}) {
+  const [theme] = useTheme();
 
   return (
-    <div className={`${blockStyle} col-span-4 row-span-5`}>
-      <h2 className={titleStyle}>Skills</h2>
-      <div className="mx-8 flex flex-wrap gap-4">
-        {skills.map((s) => (
-          <Tag key={s} theme={theme} text={s} />
-        ))}
+    <section className={`skill-section`}>
+      <h2 className={`skill-section-title text--${theme}`}>Skills</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2">
+        <SkillGroup
+          label="Programming Languages"
+          skills={["C/C++", "Java", "JavaScript", "Python"]}
+        />
+        <SkillGroup
+          label="Web Development"
+          skills={["React.js", "Three.js", "Node.js", "HTML/CSS", "RESTful"]}
+        />
+        <SkillGroup label="Database" skills={["MySQL", "MongoDB"]} />
+        <SkillGroup
+          label="Misc"
+          skills={["Android", "Unity", "Git", "Docker", "AWS"]}
+        />
       </div>
-    </div>
+    </section>
   );
 }
 

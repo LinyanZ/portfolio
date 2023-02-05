@@ -58,8 +58,8 @@ function Contact() {
           </motion.h1>
         </div>
         <div className="text-white my-8 text-xl">
-          Hope you've enjoyed my portfolio. If you want to have a chat, feel
-          free to leave a message for me!
+          Hope you've enjoyed my portfolio! If you want to have a chat, feel
+          free to leave me a message.
         </div>
         <form className="contact-form" onSubmit={handleSubmit}>
           <label className="hidden" htmlFor="name">

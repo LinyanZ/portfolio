@@ -22,9 +22,9 @@ export default function Three({ showProjects }) {
             <Models />
           </ScrollControls>
         )}
-        {process.env.NODE_ENV === "development" && (
+        {/* {process.env.NODE_ENV === "development" && (
           <Perf position="top-right" />
-        )}
+        )} */}
       </Canvas>
     </div>
   );

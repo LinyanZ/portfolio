@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-text-dark: rgb(64 64 64);
+  --color-text-darker: rgb(23 23 23);
+  --color-text-light: rgb(163 163 163);
+  --color-text-lighter: rgb(229 229 229);
+}
+
 ::selection {
   background: rgb(85, 89, 128);
 }
@@ -15,6 +22,10 @@
   scrollbar-width: none; 
 } */
 
+body {
+  overflow-x: hidden;
+}
+
 html {
   font-family: "Raleway", sans-serif;
 }
@@ -26,7 +37,7 @@ html {
   top: 0;
   left: 0;
   transition: background 0.3s;
-  z-index: -1;
+  z-index: -100;
 }
 
 .canvas-container--dark {
@@ -115,6 +126,295 @@ html {
   border-color: rgb(23 23 23);
 }
 
+/* About Page */
+
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  padding: 2rem;
+}
+
+.short-description {
+  font-size: 2rem;
+  font-weight: 200;
+  position: relative;
+  left: 9px;
+  top: -6vh;
+}
+
+.hero-text {
+  font-size: 8rem;
+  font-weight: 100;
+  line-height: 8rem;
+  margin-bottom: 2rem;
+  position: relative;
+  top: -6vh;
+}
+
+.text--dark {
+  color: var(--color-text-lighter);
+}
+
+.text--light {
+  color: var(--color-text-dark);
+}
+
+@media screen and (max-width: 768px) {
+  .hero-text {
+    font-size: 6rem;
+    line-height: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  .short-description {
+    font-size: 1.6rem;
+    position: relative;
+    left: 0px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-text {
+    font-size: 5rem;
+    line-height: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  .short-description {
+    font-size: 1.6rem;
+    position: relative;
+    left: 0px;
+  }
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+}
+
+.my-picture-container {
+  width: 500px;
+  height: 600px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  left: calc(50% - 600px);
+}
+
+.my-picture {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.summary {
+  position: absolute;
+  left: calc(50% - 220px);
+  width: 100%;
+  max-width: 600px;
+}
+
+.summary-title {
+  font-size: 8rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+}
+
+.summary-content {
+  font-size: 2rem;
+  position: relative;
+  left: 170px;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 1280px) {
+  .summary {
+    max-width: 500px;
+  }
+
+  .summary-title {
+    font-size: 7rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .my-picture-container {
+    width: 400px;
+    height: 500px;
+    left: calc(50% - 450px);
+  }
+
+  .my-picture {
+    width: 500px;
+    height: 500px;
+  }
+
+  .summary {
+    max-width: 400px;
+    left: calc(50% - 140px);
+  }
+
+  .summary-title {
+    font-size: 5rem;
+  }
+
+  .summary-content {
+    font-size: 1.5rem;
+    left: 120px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .my-picture-container {
+    width: 400px;
+    height: 500px;
+    left: calc(50% - 450px);
+  }
+
+  .my-picture {
+    width: 500px;
+    height: 500px;
+  }
+
+  .summary {
+    max-width: 300px;
+    left: calc(50% - 120px);
+  }
+
+  .summary-title {
+    font-size: 4rem;
+  }
+
+  .summary-content {
+    font-size: 1.5rem;
+    left: 100px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .about-section {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    flex-direction: column;
+  }
+
+  .my-picture-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.4);
+    position: initial;
+  }
+
+  .my-picture {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .summary {
+    width: 100%;
+    position: initial;
+    padding: 2rem;
+    margin-bottom: 10rem;
+    max-width: 100%;
+  }
+
+  .summary-title {
+    font-size: 4rem;
+    position: initial;
+  }
+
+  .summary-content {
+    font-size: 1.6rem;
+    position: initial;
+  }
+}
+
+/* Skill Section */
+
+.skill-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+  justify-content: center;
+}
+
+.skill-section-title {
+  text-align: center;
+  font-size: 8rem;
+  font-weight: 100;
+}
+
+.skill-group-container {
+  margin: 0.5rem;
+  backdrop-filter: blur(16px);
+  height: fit-content;
+}
+
+.skill-group__label {
+  font-size: 2rem;
+  font-weight: 200;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.skills-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+.skill {
+  font-size: 1.2rem;
+  font-weight: 200;
+  padding: 1rem;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.skill:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (max-width: 640px) {
+  .skill-section-title {
+    font-size: 6rem;
+  }
+
+  .skill-group__label {
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .skill {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Navbar and Transition Screen */
+
 .navbar {
   width: 400px;
   height: 100%;
@@ -176,6 +476,8 @@ html {
   position: fixed;
   width: 100vw;
 }
+
+/* Contact Page */
 
 .contact-container {
   max-width: 1024px;
