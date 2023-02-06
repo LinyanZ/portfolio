@@ -38,25 +38,23 @@ function Contact() {
 
   return (
     <>
-      <div className="contact-container">
-        <div>
-          <motion.h1
-            className={`contact-title text--${theme}`}
-            initial={{
-              opacity: 0,
-              y: "25%",
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              transition: {
-                delay: 0.7,
-              },
-            }}
-          >
-            Get in Touch
-          </motion.h1>
-        </div>
+      <section className="max-width-container vertical-center mx-auto my-32 sm:my-64 p-[2rem]">
+        <motion.h1
+          className={`contact-title text--${theme}`}
+          initial={{
+            opacity: 0,
+            y: "25%",
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: 0.7,
+            },
+          }}
+        >
+          Get in Touch
+        </motion.h1>
         <div className={`contact-message text--${theme}`}>
           Hope you've enjoyed my portfolio! If you want to have a chat, feel
           free to leave me a message.
@@ -99,7 +97,7 @@ function Contact() {
             {state === "error" && "RETRY"}
           </button>
         </form>
-      </div>
+      </section>
       <Transition />
     </>
   );

@@ -1,10 +1,21 @@
 import { useVideoTexture } from "@react-three/drei";
 import React from "react";
 
-function Tag({ text, theme }) {
+function DetailBlock({ title, startDate, endDate, description, remark }) {
   return (
-    <div className={`tag tag--${theme}`}>
-      <p>{text}</p>
+    <div className="detail-container">
+      <div className="detail-top-row">
+        <p className="detail-title">{title}</p>
+        <p className="detail-date">{`${startDate} - ${endDate}`}</p>
+      </div>
+      <p className="detail-description">{description}</p>
+      {remark && (
+        <ul className="">
+          {remark.map((r) => (
+            <li key={r}>{r}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
@@ -22,4 +33,4 @@ const VideoMaterial = React.forwardRef(({ url, opacity }, ref) => {
   );
 });
 
-export { Tag, VideoMaterial };
+export { DetailBlock, VideoMaterial };

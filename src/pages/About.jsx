@@ -12,13 +12,14 @@ import Experiences from "../components/about/Experiences";
 import Skills from "../components/about/Skills";
 import Transition from "../components/Transition";
 import { useTheme } from "../contexts/themeContext";
+import Contact from "./Contact";
 
 function About() {
   const [theme] = useTheme();
 
   return (
     <div>
-      <section className="hero-section">
+      <section className="max-width-container vertical-center hero-section">
         <h1 className={`hero-text hero--top-left text--${theme}`}>
           Hi, I'm <br />
           LINYAN ZHU
@@ -29,7 +30,9 @@ function About() {
       </section>
       <Summary />
       <Skills />
-      {/* <Summary /> */}
+      <Education />
+      <Experiences />
+      <Contact />
       <Transition />
     </div>
   );

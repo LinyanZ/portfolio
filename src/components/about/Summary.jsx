@@ -13,11 +13,11 @@ export default function Summary() {
   const [theme] = useTheme();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 300);
+  const y = useParallax(scrollYProgress, 120);
   const isMedium = useIsMedium();
 
   return (
-    <section className="about-section">
+    <section className="max-width-container vertical-center summary-section">
       <motion.div
         ref={ref}
         className="my-picture-container"
@@ -50,6 +50,7 @@ export default function Summary() {
               }
             : {}
         }
+        viewport={{ once: true }}
       >
         <motion.img
           className="my-picture"
@@ -84,6 +85,7 @@ export default function Summary() {
                 }
               : {}
           }
+          viewport={{ once: true }}
         />
       </motion.div>
       <motion.div className="summary" style={isMedium ? { y } : {}}>
