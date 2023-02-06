@@ -1,12 +1,15 @@
 import * as THREE from "three";
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import "../../shaders/dofPointsMaterial";
 import { useTheme } from "../../contexts/themeContext";
+import { useControls } from "leva";
+import { lerp, useMousePos } from "../../utils";
 
 const Particles = ({ count = 1000, animation }) => {
   const [theme] = useTheme();
   const renderRef = useRef();
+  const mousePos = useMousePos();
 
   const color1 =
     theme === "dark"
@@ -33,47 +36,59 @@ const Particles = ({ count = 1000, animation }) => {
   }, [animation.sizeXY, animation.sizeZ]);
 
   useFrame((state, delta) => {
+    const lerpFactor = 7 * delta;
+
     renderRef.current.uniforms.uTimeMovement.value += delta * animation.speed;
     renderRef.current.uniforms.uTimeTwinkling.value = state.clock.elapsedTime;
-    renderRef.current.uniforms.uSizeXY.value = THREE.MathUtils.lerp(
+    renderRef.current.uniforms.uSizeXY.value = lerp(
       renderRef.current.uniforms.uSizeXY.value,
       animation.sizeXY,
-      0.05
+      lerpFactor
     );
-    renderRef.current.uniforms.uSizeZ.value = THREE.MathUtils.lerp(
+    renderRef.current.uniforms.uSizeZ.value = lerp(
       renderRef.current.uniforms.uSizeZ.value,
       animation.sizeZ,
-      0.05
+      lerpFactor
     );
-    renderRef.current.uniforms.uOffsetZ.value = THREE.MathUtils.lerp(
+    renderRef.current.uniforms.uOffsetZ.value = lerp(
       renderRef.current.uniforms.uOffsetZ.value,
       animation.offsetZ,
-      0.05
+      lerpFactor
     );
-    renderRef.current.uniforms.uFocus.value = THREE.MathUtils.lerp(
+    renderRef.current.uniforms.uFocus.value = lerp(
       renderRef.current.uniforms.uFocus.value,
       animation.focus,
-      0.05
+      lerpFactor
     );
-    renderRef.current.uniforms.uBlur.value = THREE.MathUtils.lerp(
+    renderRef.current.uniforms.uBlur.value = lerp(
       renderRef.current.uniforms.uBlur.value,
       animation.blur,
-      0.05
+      lerpFactor
     );
-    renderRef.current.uniforms.uFade.value = THREE.MathUtils.lerp(
+    renderRef.current.uniforms.uFade.value = lerp(
       renderRef.current.uniforms.uFade.value,
       animation.fade,
-      0.05
+      lerpFactor
     );
-    renderRef.current.uniforms.uPointSize.value = THREE.MathUtils.lerp(
+    renderRef.current.uniforms.uPointSize.value = lerp(
       renderRef.current.uniforms.uPointSize.value,
       animation.pointSize,
-      0.05
+      lerpFactor
     );
-    renderRef.current.uniforms.uOpacity.value = THREE.MathUtils.lerp(
+    renderRef.current.uniforms.uOpacity.value = lerp(
       renderRef.current.uniforms.uOpacity.value,
       animation.opacity,
-      0.05
+      lerpFactor
+    );
+    renderRef.current.uniforms.uMouseX.value = lerp(
+      renderRef.current.uniforms.uMouseX.value,
+      mousePos.x,
+      lerpFactor * 0.5
+    );
+    renderRef.current.uniforms.uMouseY.value = lerp(
+      renderRef.current.uniforms.uMouseY.value,
+      mousePos.y,
+      lerpFactor * 0.5
     );
 
     const lookAt = new THREE.Vector3();
@@ -82,8 +97,8 @@ const Particles = ({ count = 1000, animation }) => {
     renderRef.current.uniforms.uCameraPos.value = cameraPos;
     renderRef.current.uniforms.uCameraLookAt.value = lookAt;
 
-    renderRef.current.uniforms.uColor1.value.lerp(color1, 0.05);
-    renderRef.current.uniforms.uColor2.value.lerp(color2, 0.05);
+    renderRef.current.uniforms.uColor1.value.lerp(color1, lerpFactor);
+    renderRef.current.uniforms.uColor2.value.lerp(color2, lerpFactor);
   });
 
   return (

@@ -8,6 +8,7 @@ import Background from "./particles/Background";
 
 import { useTheme } from "../contexts/themeContext";
 import projects from "../data/projects.json";
+import Camera from "./Camera";
 
 export default function Three({ showProjects }) {
   const [theme] = useTheme();
@@ -22,6 +23,7 @@ export default function Three({ showProjects }) {
             <Models />
           </ScrollControls>
         )}
+        <Camera />
         {/* {process.env.NODE_ENV === "development" && (
           <Perf position="top-right" />
         )} */}

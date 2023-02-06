@@ -14,6 +14,8 @@ const defaultAttributes = {
   offsetZ: 50,
 };
 
+const initialDelay = 0.3;
+
 const Background = () => {
   const burstAnimation = useRef({
     ...defaultAttributes,
@@ -37,6 +39,7 @@ const Background = () => {
       focus: 50,
       sizeZ: 30,
       offsetZ: 50,
+      delay: initialDelay + 0,
     });
 
     // movement speed
@@ -44,11 +47,12 @@ const Background = () => {
       duration: 0.5,
       speed: 0.8,
       ease: "power4.out",
+      delay: initialDelay + 0,
     });
     gsap.to(burstAnimation.current, {
       duration: 3,
       speed: 0.002,
-      delay: 0.5,
+      delay: initialDelay + 0.5,
       ease: "power4.out",
     });
 
@@ -56,11 +60,12 @@ const Background = () => {
     gsap.to(burstAnimation.current, {
       duration: 2,
       opacity: 1,
+      delay: initialDelay + 0,
     });
     gsap.to(burstAnimation.current, {
       duration: 6,
       opacity: 0,
-      delay: 2.5,
+      delay: initialDelay + 2.5,
     });
   }
 
@@ -69,16 +74,17 @@ const Background = () => {
     gsap.to(smallParticlesAnimation.current, {
       duration: 4,
       opacity: 1,
-      delay: 1,
+      delay: initialDelay + 1,
     });
     gsap.to(smallParticlesAnimation.current, {
       duration: 0.7,
       speed: 0.8,
+      delay: initialDelay + 0,
     });
     gsap.to(smallParticlesAnimation.current, {
       duration: 3,
       speed: 0.001,
-      delay: 0.8,
+      delay: initialDelay + 0.8,
       ease: "power4.out",
     });
 
@@ -86,16 +92,17 @@ const Background = () => {
     gsap.to(mediumParticlesAnimation.current, {
       duration: 4,
       opacity: 0.8,
-      delay: 1,
+      delay: initialDelay + 1,
     });
     gsap.to(mediumParticlesAnimation.current, {
       duration: 0.7,
       speed: 0.8,
+      delay: initialDelay + 0,
     });
     gsap.to(mediumParticlesAnimation.current, {
       duration: 3,
       speed: 0.002,
-      delay: 0.8,
+      delay: initialDelay + 0.8,
       ease: "power4.out",
     });
   }

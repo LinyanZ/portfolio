@@ -5,6 +5,9 @@ export default /*html*/ `
   uniform float uOffsetZ;
   uniform float uFocus;
   uniform float uPointSize;
+  uniform float uMouseX;
+  uniform float uMouseY;
+  uniform float uMouseMovementScale;
   uniform vec3 uCameraPos;
   uniform vec3 uCameraLookAt;
 
@@ -95,8 +98,8 @@ export default /*html*/ `
     randomPosition.y = cnoise(vec3(position.xz, uTimeMovement));
     randomPosition.z = cnoise(vec3(position.xy, uTimeMovement));
 
-    randomPosition.x = (randomPosition.x) * uSizeXY;
-    randomPosition.y = (randomPosition.y) * uSizeXY;
+    randomPosition.x = (randomPosition.x) * uSizeXY + uMouseX * uMouseMovementScale;
+    randomPosition.y = (randomPosition.y) * uSizeXY + uMouseY * uMouseMovementScale;
     randomPosition.z = (randomPosition.z) * uSizeZ - uOffsetZ;
 
     vec4 mvPosition = modelViewMatrix * vec4(randomPosition, 1.0);
