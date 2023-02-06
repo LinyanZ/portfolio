@@ -1,5 +1,5 @@
 import Particles from "./Particles";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 const defaultAttributes = {
@@ -17,6 +17,8 @@ const defaultAttributes = {
 const initialDelay = 0.3;
 
 const Background = () => {
+  const [finished, setFinished] = useState(false);
+
   const burstAnimation = useRef({
     ...defaultAttributes,
     sizeZ: 10000,
@@ -39,7 +41,7 @@ const Background = () => {
       focus: 50,
       sizeZ: 30,
       offsetZ: 50,
-      delay: initialDelay + 0,
+      delay: initialDelay + 0.5,
     });
 
     // movement speed
@@ -47,25 +49,33 @@ const Background = () => {
       duration: 0.5,
       speed: 0.8,
       ease: "power4.out",
-      delay: initialDelay + 0,
+      delay: initialDelay + 0.5,
     });
     gsap.to(burstAnimation.current, {
       duration: 3,
       speed: 0.002,
-      delay: initialDelay + 0.5,
+      delay: initialDelay + 1,
       ease: "power4.out",
     });
 
     // opacity
     gsap.to(burstAnimation.current, {
-      duration: 2,
+      duration: 0.7,
+      opacity: 0.1,
+      delay: initialDelay,
+    });
+    gsap.to(burstAnimation.current, {
+      duration: 1,
       opacity: 1,
-      delay: initialDelay + 0,
+      delay: initialDelay + 0.7,
     });
     gsap.to(burstAnimation.current, {
       duration: 6,
       opacity: 0,
-      delay: initialDelay + 2.5,
+      delay: initialDelay + 3,
+      onComplete: () => {
+        setFinished(true);
+      },
     });
   }
 
@@ -114,7 +124,9 @@ const Background = () => {
 
   return (
     <>
-      <Particles count={500} animation={burstAnimation.current} />
+      {!finished && (
+        <Particles count={600} animation={burstAnimation.current} />
+      )}
       <Particles count={300} animation={smallParticlesAnimation.current} />
       <Particles count={100} animation={mediumParticlesAnimation.current} />
     </>
