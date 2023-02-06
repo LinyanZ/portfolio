@@ -13,10 +13,14 @@ function SkillGroup({ index, label, skills, scrollRef }) {
   const isMedium = useIsMedium();
 
   const [theme] = useTheme();
+
   return (
-    <motion.div className="skill-group-container" style={isMedium ? { y } : {}}>
+    <motion.div
+      className={`skill-group-container skill-group-container--${theme}`}
+      style={isMedium ? { y } : {}}
+    >
       <h3 className="skill-group__label">{label}</h3>
-      <ul className="skills-container">
+      <ul className={`skills-container skills-container--${theme}`}>
         {skills.map((s) => (
           <li key={s} className="skill">
             {s}

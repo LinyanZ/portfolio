@@ -253,17 +253,31 @@ html {
   height: fit-content;
 }
 
+.skill-group-container--dark {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.skill-group-container--light {
+  background-color: rgba(235, 235, 235, 0.2);
+}
+
 .skill-group__label {
   font-size: 2rem;
   font-weight: 200;
   padding: 1rem 2rem;
-  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .skills-container {
-  background-color: rgba(0, 0, 0, 0.2);
   padding: 1rem;
   display: flex;
+}
+
+.skills-container--dark {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.skills-container--light {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .skill {
@@ -281,7 +295,6 @@ html {
 @media screen and (max-width: 1024px) {
   .skill-group__label {
     font-size: 1.8rem;
-    background-color: rgba(0, 0, 0, 0.05);
     padding: 1.5rem;
   }
 
@@ -489,7 +502,14 @@ html {
   width: calc(100% - 2rem);
   margin: 1rem;
   backdrop-filter: blur(16px);
+}
+
+.detail-container--dark {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.detail-container--light {
+  background-color: rgba(235, 235, 235, 0.2);
 }
 
 .detail-title {
@@ -508,12 +528,26 @@ html {
   font-size: 1.2rem;
   font-weight: 300;
   font-style: italic;
+}
+
+.detail-description--dark {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.detail-description--light {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .detail-container ul {
   padding: 0 4rem 1rem;
+}
+
+.detail-container--dark ul {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.detail-container--light ul {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .detail-container li {
