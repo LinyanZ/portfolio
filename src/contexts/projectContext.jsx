@@ -1,16 +1,11 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 const projectContext = createContext();
 projectContext.displayName = "projectContext";
 
-function ProjectProvider({ children }) {
-  const [project, setProject] = useState(-1);
-
-  return (
-    <projectContext.Provider value={[project, setProject]}>
-      {children}
-    </projectContext.Provider>
-  );
+function ProjectProvider(props) {
+  const [project, setProject] = useState(null);
+  return <projectContext.Provider value={[project, setProject]} {...props} />;
 }
 
 function useProject() {

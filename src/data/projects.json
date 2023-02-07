@@ -1,32 +1,39 @@
 [
   {
     "title": "Survey Creator",
-    "numLines": 132,
-    "hasVideo": true
+    "description": "",
+    "videoUrl": "./videos/test.mp4",
+    "techStacks": ["React.js", "Node.js", "Express", "MongoDB", "Docker"],
+    "externalLink": "external",
+    "githubLink": "github",
+    "details": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam?"
   },
   {
     "title": "Third Person Shooter Game",
-    "numLines": 172,
-    "hasVideo": true
+    "description": "",
+    "videoUrl": "./videos/thirdPersonShooter.mp4",
+    "techStacks": ["Unity", "C#", "Blender"],
+    "details": ""
   },
   {
     "title": "Board Game AI Agent",
-    "numLines": 152,
-    "hasVideo": false
+    "description": "",
+    "techStacks": ["Python"],
+    "pictureUrl": "./pictures/yinsh.png",
+    "details": ""
   },
   {
     "title": "Data Visualizer",
-    "numLines": 180,
-    "hasVideo": true
+    "description": "",
+    "videoUrl": "./videos/dataVisualizer.mp4",
+    "techStacks": ["React.js", "CouchDB", "Docker"],
+    "details": ""
   },
   {
     "title": "Footprint Tracker",
-    "numLines": 102,
-    "hasVideo": true
-  },
-  {
-    "title": "Portfolio",
-    "numLines": 66,
-    "hasVideo": false
+    "description": "",
+    "videoUrl": "./videos/footprintTracker.mp4",
+    "techStacks": ["Java"],
+    "details": ""
   }
 ]
