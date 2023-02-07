@@ -7,62 +7,25 @@ export default function Nav() {
   const [theme] = useTheme();
 
   return (
-    <>
-      <button
-        className={`navbar-menu navbar-menu--${theme} ${
-          expanded ? "navbar-menu--expanded" : ""
+    <div className={`max-width-container navbar`}>
+      <Link
+        to="/"
+        className={`navlink navlink--${theme} ${
+          expanded ? "navlink--expanded" : ""
         }`}
-        onClick={() => setExpanded(!expanded)}
+        onClick={() => setExpanded(false)}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="ionicon"
-          viewBox="0 0 512 512"
-        >
-          <title>Menu</title>
-          <path
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeMiterlimit="10"
-            strokeWidth="32"
-            d="M80 160h352M80 256h352M80 352h352"
-          />
-        </svg>
-      </button>
-      <div
-        className={`navbar ${
-          expanded ? "navbar--expanded" : ""
-        } background-blur background-blur--${theme}`}
+        Home
+      </Link>
+      <Link
+        to="/about"
+        className={`navlink navlink--${theme} ${
+          expanded ? "navlink--expanded" : ""
+        }`}
+        onClick={() => setExpanded(false)}
       >
-        <Link
-          to="/"
-          className={`navlink navlink--${theme} ${
-            expanded ? "navlink--expanded" : ""
-          }`}
-          onClick={() => setExpanded(false)}
-        >
-          About
-        </Link>
-        <Link
-          to="/projects"
-          className={`navlink navlink--${theme} ${
-            expanded ? "navlink--expanded" : ""
-          }`}
-          onClick={() => setExpanded(false)}
-        >
-          Projects
-        </Link>
-        <Link
-          to="/contact"
-          className={`navlink navlink--${theme} ${
-            expanded ? "navlink--expanded" : ""
-          }`}
-          onClick={() => setExpanded(false)}
-        >
-          Contact
-        </Link>
-      </div>
-    </>
+        About
+      </Link>
+    </div>
   );
 }
