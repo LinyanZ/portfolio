@@ -3,6 +3,10 @@ import { useTheme } from "../contexts/themeContext";
 import { useProject } from "../contexts/projectContext";
 import { useEffect, useRef } from "react";
 import { useIsLarge } from "../utils";
+import gsap from "gsap";
+import { CustomEase } from "gsap/all";
+
+gsap.registerPlugin(CustomEase);
 
 function Video({ project }) {
   if (!project.videoUrl) return null;
@@ -101,33 +105,39 @@ export default function Project({ project }) {
   const zIndex = useMotionValue(isSelected ? 2 : 0);
 
   const isLarge = useIsLarge();
-  const projectHeight = useMotionValue(432);
+  const projectHeight = useMotionValue(0);
   const shortDescriptionRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    function handleResize() {
+    const resizeObserver = new ResizeObserver((e) => {
       if (!isLarge) {
+        console.log(shortDescriptionRef.current.clientHeight);
         projectHeight.set(shortDescriptionRef.current.clientHeight);
       } else {
         projectHeight.set(432);
       }
-    }
+    });
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    resizeObserver.observe(shortDescriptionRef.current);
   }, []);
 
   return (
     <motion.div className="project" style={{ height: projectHeight }}>
       <motion.div
+        ref={containerRef}
         layout
         transition={{ duration: 0.8, ease: [0.6, 0, 0.12, 1] }}
         style={{ zIndex }}
         onLayoutAnimationStart={() => {
           zIndex.set(2);
+          if (!isSelected) {
+            gsap.to(containerRef.current, {
+              scrollTop: 0,
+              duration: 1,
+              ease: CustomEase.create("scrollToTop", "0.6, 0. 0.12, 1"),
+            });
+          }
         }}
         onLayoutAnimationComplete={() => {
           zIndex.set(isSelected ? 2 : 0);
@@ -143,9 +153,13 @@ export default function Project({ project }) {
         >
           <Video project={project} />
           <Picture project={project} />
-          <ProjectDescription project={project} />
+          <ProjectDescription
+            project={project}
+            isSelected={isSelected}
+            isLarge={isLarge}
+          />
         </motion.div>
-        <motion.div layout style={{ width: "768px" }} className="p-4">
+        <motion.div layout className="project-details">
           {project.details}
         </motion.div>
       </motion.div>
