@@ -24,6 +24,7 @@ function useMediaQuery(query) {
 
 const useIsSmall = () => useMediaQuery("(min-width: 480px)");
 const useIsMedium = () => useMediaQuery("(min-width: 641px)");
+const useIsLarge = () => useMediaQuery("(min-width: 1201px)");
 
 function useMousePos() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -46,4 +47,12 @@ function useMousePos() {
   return mousePos;
 }
 
-export { damp, lerp, useMediaQuery, useIsSmall, useIsMedium, useMousePos };
+export {
+  damp,
+  lerp,
+  useMediaQuery,
+  useIsSmall,
+  useIsMedium,
+  useIsLarge,
+  useMousePos,
+};

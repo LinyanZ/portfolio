@@ -553,6 +553,11 @@ html {
 
 /* Projects Section */
 
+.project {
+  height: 432px;
+  margin: 4rem auto;
+}
+
 .project-container {
   height: 432px;
   backdrop-filter: blur(16px);
@@ -583,7 +588,6 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
 }
 
 .project-container--dark {
@@ -592,6 +596,10 @@ html {
 
 .project-container--light {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-short-description-container {
+  display: flex;
 }
 
 .project-media {
@@ -603,6 +611,7 @@ html {
 
 .project-description {
   width: 432px;
+  max-width: 100%;
   padding: 1rem 2rem;
   flex-shrink: 0;
 }
@@ -649,6 +658,37 @@ html {
   height: 900px;
   background-color: #fff;
   z-index: 100;
+}
+
+@media screen and (max-width: 1200px) {
+  .project {
+    width: 100%;
+    margin: 4rem auto;
+  }
+
+  .project-container {
+    height: 100%;
+  }
+
+  .project-container--open {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    margin: 0;
+  }
+
+  .project-short-description-container {
+    flex-direction: column;
+  }
+
+  .project-description {
+    width: 100%;
+  }
+
+  .project-media {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .overlay {

@@ -1,6 +1,8 @@
 import { motion, useMotionValue } from "framer-motion";
 import { useTheme } from "../contexts/themeContext";
 import { useProject } from "../contexts/projectContext";
+import { useEffect, useRef } from "react";
+import { useIsLarge } from "../utils";
 
 function Video({ project }) {
   if (!project.videoUrl) return null;
@@ -96,10 +98,30 @@ export default function Project({ project }) {
   const [selectedProject] = useProject();
   const isSelected = selectedProject === project;
 
-  const zIndex = useMotionValue(isSelected ? 2 : 1);
+  const zIndex = useMotionValue(isSelected ? 2 : 0);
+
+  const isLarge = useIsLarge();
+  const projectHeight = useMotionValue(432);
+  const shortDescriptionRef = useRef(null);
+
+  useEffect(() => {
+    function handleResize() {
+      if (!isLarge) {
+        projectHeight.set(shortDescriptionRef.current.clientHeight);
+      } else {
+        projectHeight.set(432);
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <>
+    <motion.div className="project" style={{ height: projectHeight }}>
       <motion.div
         layout
         transition={{ duration: 0.8, ease: [0.6, 0, 0.12, 1] }}
@@ -108,13 +130,17 @@ export default function Project({ project }) {
           zIndex.set(2);
         }}
         onLayoutAnimationComplete={() => {
-          zIndex.set(isSelected ? 2 : 1);
+          zIndex.set(isSelected ? 2 : 0);
         }}
         className={`max-width-container project-container ${
           isSelected ? "project-container--open" : ""
         } project-container--${theme} text--${theme}`}
       >
-        <motion.div layout className="flex">
+        <motion.div
+          layout
+          ref={shortDescriptionRef}
+          className="project-short-description-container"
+        >
           <Video project={project} />
           <Picture project={project} />
           <ProjectDescription project={project} />
@@ -123,8 +149,7 @@ export default function Project({ project }) {
           {project.details}
         </motion.div>
       </motion.div>
-      {isSelected && <div className="max-width-container place-holder" />}
-    </>
+    </motion.div>
   );
 }
 
