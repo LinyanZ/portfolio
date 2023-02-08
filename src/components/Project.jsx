@@ -112,7 +112,6 @@ export default function Project({ project }) {
   useEffect(() => {
     const resizeObserver = new ResizeObserver((e) => {
       if (!isLarge) {
-        console.log(shortDescriptionRef.current.clientHeight);
         projectHeight.set(shortDescriptionRef.current.clientHeight);
       } else {
         projectHeight.set(432);
@@ -131,7 +130,7 @@ export default function Project({ project }) {
         style={{ zIndex }}
         onLayoutAnimationStart={() => {
           zIndex.set(2);
-          if (!isSelected) {
+          if (!isSelected && containerRef.current.scrollTop !== 0) {
             gsap.to(containerRef.current, {
               scrollTop: 0,
               duration: 1,

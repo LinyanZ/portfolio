@@ -128,7 +128,6 @@ html {
 .summary-title {
   font-size: 8rem;
   font-weight: 100;
-  margin-bottom: 1rem;
 }
 
 .summary-content {
@@ -569,14 +568,14 @@ html {
 
 .project-container--open {
   height: fit-content;
-  max-height: 80vh;
+  max-height: 75vh;
   margin: auto;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .project-container--dark {
