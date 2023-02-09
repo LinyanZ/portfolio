@@ -95,7 +95,8 @@ html {
 }
 
 .summary-section {
-  margin: calc(50vh - var(--navbar-height) / 2) auto;
+  height: calc(100vh - var(--navbar-height));
+  margin: 0 auto;
   position: relative;
 }
 
@@ -138,7 +139,7 @@ html {
 
 @media screen and (max-width: 1200px) {
   .summary-section {
-    margin: 0;
+    height: fit-content;
     display: flex;
     align-items: center;
   }
