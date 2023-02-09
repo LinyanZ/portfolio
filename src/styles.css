@@ -126,7 +126,7 @@ html {
 
 .summary-title {
   font-size: 8rem;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .summary-content {
@@ -152,7 +152,7 @@ html {
   }
 
   .my-picture-container {
-    margin: 2rem auto;
+    margin: 2rem auto 0;
     width: 100%;
     max-width: 600px;
     height: auto;
@@ -180,7 +180,6 @@ html {
 
   .summary-title {
     font-size: 4rem;
-    font-weight: 200;
     position: initial;
   }
 
@@ -344,7 +343,7 @@ html {
 
 .contact-title {
   font-size: 8rem;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .contact-message {
@@ -360,7 +359,6 @@ html {
 
   .contact-title {
     font-size: 4rem;
-    font-weight: 200;
   }
 
   .contact-message {
