@@ -2,16 +2,29 @@
   {
     "title": "Survey Creator",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "./videos/test.mp4",
+    "videoUrl": "vvfTlTezr_s",
     "techStacks": ["React.js", "Node.js", "Express", "MongoDB", "Docker"],
     "externalLink": "external",
-    "githubLink": "github",
-    "details": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam?"
+    "githubLink": "https://github.com/LinyanZ/portfolio",
+    "details": [
+      {
+        "title": "About This Project",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni"
+      },
+      {
+        "title": "Another Section",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, "
+      },
+      {
+        "title": "And Another Section",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni"
+      }
+    ]
   },
   {
     "title": "Third Person Shooter Game",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "./videos/thirdPersonShooter.mp4",
+    "videoUrl": "IdROkSJjZoo",
     "techStacks": ["Unity", "C#", "Blender"],
     "details": ""
   },
@@ -25,14 +38,14 @@
   {
     "title": "Data Visualizer",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "./videos/dataVisualizer.mp4",
+    "videoUrl": "vvfTlTezr_s",
     "techStacks": ["React.js", "CouchDB", "Docker"],
     "details": ""
   },
   {
     "title": "Footprint Tracker",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "./videos/footprintTracker.mp4",
+    "videoUrl": "vvfTlTezr_s",
     "techStacks": ["Java"],
     "details": ""
   }

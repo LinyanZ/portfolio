@@ -567,10 +567,9 @@ html {
 }
 
 .project-media {
-  height: 432px;
   width: 768px;
+  aspect-ratio: 16 / 9;
   background-color: #333;
-  flex-shrink: 0;
 }
 
 .project-summary {
@@ -614,9 +613,14 @@ html {
 }
 
 .project-details {
-  padding: 2rem;
+  padding: 0 2rem 1rem;
   width: 100%;
   font-size: 1.2rem;
+}
+
+.project-details h3 {
+  font-size: 2rem;
+  margin: 1rem 0;
 }
 
 @media screen and (max-width: 1200px) {
@@ -645,8 +649,6 @@ html {
 
   .project-media {
     width: 100%;
-    height: auto;
-    max-height: 675px;
   }
 
   .project-details {

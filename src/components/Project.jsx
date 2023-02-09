@@ -12,9 +12,13 @@ gsap.registerPlugin(CustomEase);
 function Video({ project }) {
   if (!project.videoUrl) return null;
   return (
-    <motion.video layout className="project-media" autoPlay muted loop>
-      <source src={project.videoUrl} type="video/mp4" />
-    </motion.video>
+    <iframe
+      src={`https://www.youtube.com/embed/${project.videoUrl}`}
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowFullScreen
+      className="project-media"
+    ></iframe>
   );
 }
 
@@ -37,12 +41,18 @@ function ProjectSummary({ project, isSelected, expand, collapse }) {
       </ul>
       <div className="flex w-full items-end gap-4 mt-auto">
         {project.externalLink && (
-          <button className="project__link-icon">
+          <button
+            className="project__link-icon"
+            onClick={() => window.open(project.externalLink, "_blank").focus()}
+          >
             <ExternalLinkIcon />
           </button>
         )}
         {project.githubLink && (
-          <button className="project__link-icon">
+          <button
+            className="project__link-icon"
+            onClick={() => window.open(project.githubLink, "_blank").focus()}
+          >
             <GithubIcon />
           </button>
         )}
@@ -57,6 +67,19 @@ function ProjectSummary({ project, isSelected, expand, collapse }) {
           </button>
         )}
       </div>
+    </motion.div>
+  );
+}
+
+function ProjectDetails({ details }) {
+  return (
+    <motion.div layout className="project-details">
+      {details.map((section) => (
+        <div>
+          <h3>{section.title}</h3>
+          <p>{section.content}</p>
+        </div>
+      ))}
     </motion.div>
   );
 }
@@ -140,9 +163,7 @@ export default function Project({ project }) {
             collapse={collapse}
           />
         </motion.div>
-        <motion.div layout className="project-details">
-          {project.details}
-        </motion.div>
+        {project.details && <ProjectDetails details={project.details} />}
       </motion.div>
       <Overlay isSelected={isSelected} onClick={collapse} />
     </motion.div>
