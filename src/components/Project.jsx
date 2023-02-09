@@ -24,9 +24,7 @@ function Picture({ project }) {
   );
 }
 
-function ProjectDescription({ project }) {
-  const [, setProject] = useProject();
-
+function ProjectDescription({ project, isSelected, expand, collapse }) {
   return (
     <motion.div layout className="project-description flex flex-col">
       <h2>{project.title}</h2>
@@ -75,12 +73,18 @@ function ProjectDescription({ project }) {
             </svg>
           </button>
         )}
-        <button
+        {isSelected && <button
           className="project__learn-more"
-          onClick={() => setProject(project)}
+          onClick={collapse}
+        >
+          Close
+        </button>}
+        {!isSelected && <button
+          className="project__learn-more"
+          onClick={expand}
         >
           Learn More
-        </button>
+        </button>}
       </div>
     </motion.div>
   );
@@ -99,7 +103,7 @@ const Overlay = ({ isSelected, ...props }) => (
 
 export default function Project({ project }) {
   const [theme] = useTheme();
-  const [selectedProject] = useProject();
+  const [selectedProject, setSelectedProject] = useProject();
   const isSelected = selectedProject === project;
 
   const zIndex = useMotionValue(isSelected ? 2 : 0);
@@ -121,26 +125,29 @@ export default function Project({ project }) {
     resizeObserver.observe(shortDescriptionRef.current);
   }, []);
 
+  function expand() {
+    zIndex.set(2);
+    setSelectedProject(project)
+  }
+
+  function collapse() {
+    setSelectedProject(null)
+    gsap.to(containerRef.current, {
+      scrollTop: 0,
+      duration: 0.3,
+      onComplete: () => {
+        zIndex.set(0)
+      }
+    });
+  }
+
   return (
     <motion.div className="project" style={{ height: projectHeight }}>
       <motion.div
         ref={containerRef}
         layout
-        transition={{ duration: 0.8, ease: [0.6, 0, 0.12, 1] }}
+        transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
         style={{ zIndex }}
-        onLayoutAnimationStart={() => {
-          zIndex.set(2);
-          if (!isSelected && containerRef.current.scrollTop !== 0) {
-            gsap.to(containerRef.current, {
-              scrollTop: 0,
-              duration: 1,
-              ease: CustomEase.create("scrollToTop", "0.6, 0. 0.12, 1"),
-            });
-          }
-        }}
-        onLayoutAnimationComplete={() => {
-          zIndex.set(isSelected ? 2 : 0);
-        }}
         className={`max-width-container project-container ${
           isSelected ? "project-container--open" : ""
         } project-container--${theme} text--${theme}`}
@@ -155,15 +162,15 @@ export default function Project({ project }) {
           <ProjectDescription
             project={project}
             isSelected={isSelected}
-            isLarge={isLarge}
+            expand={expand}
+            collapse={collapse}
           />
         </motion.div>
         <motion.div layout className="project-details">
           {project.details}
         </motion.div>
       </motion.div>
+      <Overlay isSelected={isSelected} onClick={collapse} />
     </motion.div>
   );
 }
-
-export { Overlay };

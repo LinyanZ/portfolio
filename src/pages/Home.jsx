@@ -1,6 +1,6 @@
 import Transition from "../components/Transition";
 import Hero from "../components/Hero";
-import Project, { Overlay } from "../components/Project";
+import Project from "../components/Project";
 import { useProject } from "../contexts/projectContext";
 import projects from "../data/projects.json";
 
@@ -15,7 +15,6 @@ function Home() {
         ))}
       </section>
       <Transition />
-      <Overlay isSelected={project !== null} onClick={() => setProject(null)} />
     </>
   );
 }

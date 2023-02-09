@@ -10,9 +10,9 @@ export default function Three() {
 
   return (
     <div className={`canvas-container canvas-container--${theme}`}>
-      <Canvas dpr={1}>
+      <Canvas dpr={Math.min(window.devicePixelRatio, 2)}>
         <Background />
-        <Perf />
+        <Perf position="top-left"/>
       </Canvas>
     </div>
   );
