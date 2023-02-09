@@ -1,7 +1,7 @@
 [
   {
     "title": "Survey Creator",
-    "description": "",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
     "videoUrl": "./videos/test.mp4",
     "techStacks": ["React.js", "Node.js", "Express", "MongoDB", "Docker"],
     "externalLink": "external",
@@ -10,28 +10,28 @@
   },
   {
     "title": "Third Person Shooter Game",
-    "description": "",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
     "videoUrl": "./videos/thirdPersonShooter.mp4",
     "techStacks": ["Unity", "C#", "Blender"],
     "details": ""
   },
   {
     "title": "Board Game AI Agent",
-    "description": "",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
     "techStacks": ["Python"],
     "pictureUrl": "./pictures/yinsh.png",
     "details": ""
   },
   {
     "title": "Data Visualizer",
-    "description": "",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
     "videoUrl": "./videos/dataVisualizer.mp4",
     "techStacks": ["React.js", "CouchDB", "Docker"],
     "details": ""
   },
   {
     "title": "Footprint Tracker",
-    "description": "",
+    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
     "videoUrl": "./videos/footprintTracker.mp4",
     "techStacks": ["Java"],
     "details": ""

@@ -1,98 +1,73 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "../../contexts/themeContext";
-import { useIsMedium } from "../../utils";
+import { useIsLarge, useIsMedium } from "../../utils";
 
 const ease = [0, 0.4, 0.2, 1];
 
-function useParallax(value, distance) {
-  return useTransform(value, [0, 1], [-distance, distance]);
+function useParallax(value, distance, offset = 0) {
+  return useTransform(value, [0, 1], [-distance + offset, distance + offset]);
 }
 
 export default function Summary() {
   const [theme] = useTheme();
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 120);
-  const isMedium = useIsMedium();
+  const { scrollYProgress } = useScroll();
+  const yDiv = useParallax(scrollYProgress, -120, -120);
+  const yP = useParallax(scrollYProgress, -100, -120);
+  const isLarge = useIsLarge();
 
   return (
     <section className="max-width-container vertical-center summary-section">
       <motion.div
-        ref={ref}
         className="my-picture-container"
-        initial={
-          isMedium
-            ? {
-                scale: 0.9,
-              }
-            : {}
-        }
-        whileInView={
-          isMedium
-            ? {
-                scale: 1,
-                transition: {
-                  duration: 1,
-                  ease,
-                },
-              }
-            : {}
-        }
-        whileHover={
-          isMedium
-            ? {
-                scale: 1.1,
-                transition: {
-                  duration: 1,
-                  ease,
-                },
-              }
-            : {}
-        }
+        initial={{
+          scale: 0.9,
+        }}
+        whileInView={{
+          scale: 1,
+          transition: {
+            duration: 1,
+            ease,
+          },
+        }}
+        whileHover={{
+          scale: 1.1,
+          transition: {
+            duration: 1,
+            ease,
+          },
+        }}
         viewport={{ once: true }}
       >
         <motion.img
           className="my-picture"
           src="./pictures/me.jpg"
           alt="a picture of myself with my cat on top of my head"
-          initial={
-            isMedium
-              ? {
-                  scale: 2,
-                }
-              : {}
-          }
-          whileInView={
-            isMedium
-              ? {
-                  scale: 1.3,
-                  transition: {
-                    duration: 1,
-                    ease,
-                  },
-                }
-              : {}
-          }
-          whileHover={
-            isMedium
-              ? {
-                  scale: 1,
-                  transition: {
-                    duration: 1,
-                    ease,
-                  },
-                }
-              : {}
-          }
+          initial={{
+            scale: 2,
+          }}
+          whileInView={{
+            scale: 1.3,
+            transition: {
+              duration: 1,
+              ease,
+            },
+          }}
+          whileHover={{
+            scale: 1,
+            transition: {
+              duration: 1,
+              ease,
+            },
+          }}
           viewport={{ once: true }}
         />
       </motion.div>
-      <motion.div className="summary" style={isMedium ? { y } : {}}>
+      <motion.div className="summary" style={isLarge ? { y: yDiv } : {}}>
         <h2 className={`summary-title text--${theme}`}>About Me</h2>
         <motion.p
           className={`summary-content text--${theme}`}
-          style={isMedium ? { y } : {}}
+          style={isLarge ? { y: yP } : {}}
         >
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum nam
           quia omnis nemo facilis itaque placeat! Vitae eveniet, sit,

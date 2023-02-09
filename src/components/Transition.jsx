@@ -8,7 +8,7 @@ const start = {
   animate: {
     height: 0,
     transition: {
-      duration: 1,
+      duration: 0.8,
       ease: [0.87, 0, 0.13, 1],
     },
   },
@@ -22,7 +22,7 @@ const end = {
   exit: {
     height: "100vh",
     transition: {
-      duration: 1,
+      duration: 0.8,
       ease: [0.87, 0, 0.13, 1],
     },
   },
