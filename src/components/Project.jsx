@@ -31,7 +31,7 @@ function Picture({ project }) {
 
 function ProjectSummary({ project, isSelected, expand, collapse }) {
   return (
-    <motion.div layout className="project-summary flex flex-col">
+    <div className="project-summary flex flex-col">
       <h2>{project.title}</h2>
       <p>{project.summary}</p>
       <ul>
@@ -67,15 +67,17 @@ function ProjectSummary({ project, isSelected, expand, collapse }) {
           </button>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
-function ProjectDetails({ details }) {
+function ProjectDetails({ project }) {
+  if (!project.details) return null;
+
   return (
     <motion.div layout className="project-details">
-      {details.map((section) => (
-        <div>
+      {project.details.map((section) => (
+        <div key={`${project.title} ${section.title}`}>
           <h3>{section.title}</h3>
           <p>{section.content}</p>
         </div>
@@ -163,7 +165,7 @@ export default function Project({ project }) {
             collapse={collapse}
           />
         </motion.div>
-        {project.details && <ProjectDetails details={project.details} />}
+        <ProjectDetails project={project} />
       </motion.div>
       <Overlay isSelected={isSelected} onClick={collapse} />
     </motion.div>

@@ -17,6 +17,9 @@
 
 body {
   overflow-x: hidden;
+  /* 'scroll' for firefox */
+  overflow-y: scroll;
+  overflow-y: overlay;
 }
 
 html {
@@ -551,7 +554,9 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
+  /* 'scroll' for firefox */
   overflow-y: scroll;
+  overflow-y: overlay;
   z-index: 2;
 }
 
