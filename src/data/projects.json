@@ -3,50 +3,91 @@
     "title": "Survey Creator",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
     "videoUrl": "vvfTlTezr_s",
-    "techStacks": ["React.js", "Node.js", "Express", "MongoDB", "Docker"],
+    "tags": ["React.js", "Node.js", "Express", "MongoDB", "Docker"],
     "externalLink": "external",
     "githubLink": "https://github.com/LinyanZ/portfolio",
     "details": [
       {
         "title": "About This Project",
-        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni"
+        "content": [
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni"
+        ]
       },
       {
         "title": "Another Section",
-        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, "
+        "content": [
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, "
+        ]
       },
       {
         "title": "And Another Section",
-        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni"
+        "content": [
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni"
+        ]
       }
     ]
   },
   {
     "title": "Third Person Shooter Game",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "IdROkSJjZoo",
-    "techStacks": ["Unity", "C#", "Blender"],
-    "details": ""
+    "videoUrl": "73mukJxvZWE",
+    "tags": ["Unity", "C#", "Blender"],
+    "details": []
   },
   {
     "title": "Board Game AI Agent",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "techStacks": ["Python"],
+    "tags": ["Python"],
     "pictureUrl": "./pictures/yinsh.png",
-    "details": ""
+    "details": []
   },
   {
     "title": "Data Visualizer",
-    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "vvfTlTezr_s",
-    "techStacks": ["React.js", "CouchDB", "Docker"],
-    "details": ""
+    "summary": "A website that displays regional information for Melbourne. A Map-Reduce processing is used to group the data into different statistical area levels.",
+    "videoUrl": "iRAcW1rMhYU",
+    "externalLink": "http://3.27.77.149:443/",
+    "githubLink": "https://github.com/LinyanZ/dataVisualizer",
+    "tags": [
+      "React.js",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Map-Reduce",
+      "Docker",
+      "AWS"
+    ],
+    "details": [
+      {
+        "title": "About This Project",
+        "content": [
+          "This is a refactoring of the project for my university subject \"COMP90024 - Cluster and Cloud Computing\".",
+          "The original project collects Twitter data in real-time, geolocates those tweets if possible and stores them in a CouchDB database. These tweets are then processed and displayed through a frontend website. CouchDB provides a built-in Map-Reduce feature which comes in handy during the data processing.",
+          "This was a group project. I mainly focused on developing the front-end website, a simple back-end server, and the Map-Reduce logics inside the database.",
+          "For this refactored project, I generated some fake data instead of harvesting real tweets for simplicity. I also reworked on the database code by switching to MongoDB as I'm more experienced with that instead. Other aspects of the project remain unchanged."
+        ]
+      },
+      {
+        "title": "Map-Reduce",
+        "content": [
+          "The aggregation pipeline, a feature of MongoDB's more recent release, is comparable to but more potent than the capabilities of standard Map-Reduce, which is used in this refactored project.",
+          "Each document in the database contains an SA (statistical area) code which represents its geolocation, such as \"209041430\". An SA2 (SA level 2) code comprises 9 digits (\"209041430\"), denotes a finer-grained area. A legitimate SA3 code (\"20904\") can be created using the first five digits of any SA2 code, which covers a broader area on the map. A legitimate SA4 code (\"209\") can be created using the first three digits of any SA2 code, which covers an even wider area.",
+          "During the Map process, each document emits all three levels of its SA code (\"209041430\" => \"209041430\", \"20904\", \"209\"), then during the Reduce process, all documents are grouped by a certain SA level according to a given query.",
+          "The \"Min\", \"Max\", \"Sum\", \"Average\", and \"Count\" is calculated during the Reduce process."
+        ]
+      },
+      {
+        "title": "Deployment",
+        "content": [
+          "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
+        ]
+      }
+    ]
   },
   {
     "title": "Footprint Tracker",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
     "videoUrl": "vvfTlTezr_s",
-    "techStacks": ["Java"],
-    "details": ""
+    "tags": ["Java"],
+    "details": []
   }
 ]

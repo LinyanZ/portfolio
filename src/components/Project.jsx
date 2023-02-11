@@ -35,7 +35,7 @@ function ProjectSummary({ project, isSelected, expand, collapse }) {
       <h2>{project.title}</h2>
       <p>{project.summary}</p>
       <ul>
-        {project.techStacks.map((t) => (
+        {project.tags.map((t) => (
           <li key={`${project.title}:${t}`}>{t}</li>
         ))}
       </ul>
@@ -79,7 +79,11 @@ function ProjectDetails({ project }) {
       {project.details.map((section) => (
         <div key={`${project.title} ${section.title}`}>
           <h3>{section.title}</h3>
-          <p>{section.content}</p>
+          {section.content.map((paragraph, index) => (
+            <p key={`${project.title} ${section.title} ${index}`}>
+              {paragraph}
+            </p>
+          ))}
         </div>
       ))}
     </motion.div>

@@ -13,6 +13,7 @@
 
 ::selection {
   background: rgb(85, 89, 128);
+  color: #fff;
 }
 
 body {
@@ -626,6 +627,10 @@ html {
 
 .project-details h3 {
   font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.project-details p {
   margin: 1rem 0;
 }
 
