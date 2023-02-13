@@ -1,17 +1,13 @@
 import { useTheme } from "../contexts/themeContext";
 import { motion } from "framer-motion";
 
-const AnimatedLetters = ({
-  text,
-  delay,
-  childrenDelay,
-  spaceWidth,
-  ...props
-}) => {
+const AnimatedLetters = ({ text, delay, childrenDelay, ...props }) => {
+  const letters = text.split("");
+
   return (
     <span {...props}>
-      {[...text].map((letter, index) => (
-        <motion.p
+      {letters.map((letter, index) => (
+        <motion.span
           className="inline-block"
           key={`${text} ${index}`}
           initial={{
@@ -25,10 +21,9 @@ const AnimatedLetters = ({
               delay: delay + index * childrenDelay,
             },
           }}
-          style={letter === " " ? { width: spaceWidth } : {}}
         >
-          {letter}
-        </motion.p>
+          {letter === " " ? "\u00a0" : letter}
+        </motion.span>
       ))}
     </span>
   );
@@ -45,21 +40,18 @@ export default function Hero() {
         className="hero-text"
         delay={2}
         childrenDelay={0.04}
-        spaceWidth={32}
         text="Hi, I'm"
       />
       <AnimatedLetters
         className="hero-text"
         delay={2.2}
         childrenDelay={0.04}
-        spaceWidth={32}
         text="LINYAN ZHU"
       />
       <AnimatedLetters
         className="short-description"
         delay={2.4}
         childrenDelay={0.01}
-        spaceWidth={8}
         text="A Full-Stack / Software Developer"
       />
     </section>
