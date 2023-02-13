@@ -42,18 +42,46 @@ export default function Hero() {
         childrenDelay={0.04}
         text="Hi, I'm"
       />
-      <AnimatedLetters
-        className="hero-text"
-        delay={2.2}
-        childrenDelay={0.04}
-        text="LINYAN ZHU"
-      />
-      <AnimatedLetters
-        className="short-description"
-        delay={2.4}
-        childrenDelay={0.01}
-        text="A Full-Stack / Software Developer"
-      />
+      <div>
+        <AnimatedLetters
+          className="hero-text inline-block w-fit mr-8"
+          delay={2.2}
+          childrenDelay={0.04}
+          text="LINYAN"
+        />
+        <AnimatedLetters
+          className="hero-text inline-block w-fit"
+          delay={2.2}
+          childrenDelay={0.04}
+          text="ZHU"
+        />
+      </div>
+      <div>
+        <AnimatedLetters
+          className="short-description inline-block mr-4"
+          delay={2.4}
+          childrenDelay={0.01}
+          text="A Full-Stack"
+        />
+        <AnimatedLetters
+          className="short-description inline-block mr-4"
+          delay={2.53}
+          childrenDelay={0.01}
+          text="/"
+        />
+        <AnimatedLetters
+          className="short-description inline-block mr-4"
+          delay={2.54}
+          childrenDelay={0.01}
+          text="Software"
+        />
+        <AnimatedLetters
+          className="short-description inline-block mr-4"
+          delay={2.62}
+          childrenDelay={0.01}
+          text="Developer"
+        />
+      </div>
     </section>
   );
 }
