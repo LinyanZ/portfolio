@@ -70,7 +70,7 @@
         "title": "Map-Reduce",
         "content": [
           "The aggregation pipeline, a feature of MongoDB's more recent release, is comparable to but more potent than the capabilities of standard Map-Reduce, which is used in this refactored project.",
-          "Each document in the database contains an SA (statistical area) code which represents its geolocation, such as \"209041430\". An SA2 (SA level 2) code comprises 9 digits (\"209041430\"), denotes a finer-grained area. A legitimate SA3 code (\"20904\") can be created using the first five digits of any SA2 code, which covers a broader area on the map. A legitimate SA4 code (\"209\") can be created using the first three digits of any SA2 code, which covers an even wider area.",
+          "Each document in the database contains an arbitrary value and an SA (statistical area) code which represents its geolocation, such as \"209041430\". An SA2 (SA level 2) code comprises 9 digits (\"209041430\"), denotes a finer-grained area. A legitimate SA3 code (\"20904\") can be created using the first five digits of any SA2 code, which covers a broader area on the map. A legitimate SA4 code (\"209\") can be created using the first three digits of any SA2 code, which covers an even wider area.",
           "During the Map process, each document emits all three levels of its SA code (\"209041430\" => \"209041430\", \"20904\", \"209\"), then during the Reduce process, all documents are grouped by a certain SA level according to a given query.",
           "The \"Min\", \"Max\", \"Sum\", \"Average\", and \"Count\" is calculated during the Reduce process."
         ]

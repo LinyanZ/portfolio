@@ -1,4 +1,4 @@
-import Particles from "./Particles";
+import Particles from "./particles";
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 

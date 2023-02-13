@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 
-import Background from "./particles/Background";
+import Background from "./particles/background";
 import { useTheme } from "../contexts/themeContext";
 import { Perf } from "r3f-perf";
 

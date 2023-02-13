@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "../../contexts/themeContext";
-import { useIsLarge, useIsMedium } from "../../utils";
+import { useIsLarge } from "../../utils";
 
 const ease = [0, 0.4, 0.2, 1];
 
@@ -11,15 +11,17 @@ function useParallax(value, distance, offset = 0) {
 
 export default function Summary() {
   const [theme] = useTheme();
-  const { scrollYProgress } = useScroll();
-  const yDiv = useParallax(scrollYProgress, -120, -120);
-  const yP = useParallax(scrollYProgress, -100, -120);
+  const ref = useRef();
+  const { scrollYProgress } = useScroll({ target: ref });
+  const yDiv = useParallax(scrollYProgress, 100);
+  const yP = useParallax(scrollYProgress, 100);
   const isLarge = useIsLarge();
 
   return (
     <section className="max-width-container vertical-center summary-section">
       <motion.div
         className="my-picture-container"
+        ref={ref}
         initial={{
           scale: 0.9,
         }}

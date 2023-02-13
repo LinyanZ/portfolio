@@ -7,7 +7,6 @@
   --color-text-darker: rgb(23 23 23);
   --color-text-light: rgb(163 163 163);
   --color-text-lighter: rgb(229 229 229);
-  --navbar-height: 4rem;
   --project-details-container-height: 1000px;
 }
 
@@ -48,7 +47,7 @@ html {
 /* About Page */
 
 .hero-section {
-  height: calc(100vh - var(--navbar-height));
+  height: 100vh;
   margin: auto;
   padding: 2rem;
 }
@@ -59,6 +58,7 @@ html {
   position: relative;
   left: 9px;
   top: -6vh;
+  overflow: hidden;
 }
 
 .hero-text {
@@ -68,6 +68,7 @@ html {
   margin-bottom: 2rem;
   position: relative;
   top: -6vh;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -99,7 +100,7 @@ html {
 }
 
 .summary-section {
-  height: calc(100vh - var(--navbar-height));
+  height: 100vh;
   margin: 0 auto;
   position: relative;
 }
@@ -259,44 +260,24 @@ html {
   }
 }
 
-/* Navbar and Transition Screen */
-
-.navbar {
-  display: flex;
-  gap: 2rem;
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
-  justify-content: flex-end;
-  width: 100%;
-  margin: 0 auto;
-  height: var(--navbar-height);
-}
-
-.navlink {
-  font-weight: 300;
-}
-
-.navlink--dark {
-  color: var(--color-text-lighter);
-}
-
-.navlink--light {
-  color: var(--color-text-dark);
-}
-
-.navlink--dark:hover {
-  color: #fff;
-}
-
-.navlink--light:hover {
-  color: var(--color-text-light);
-}
+/* Transition Screen */
 
 .transition-screen {
-  background-color: #343439;
   z-index: 50;
   position: fixed;
-  width: 100vw;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  pointer-events: none;
+}
+
+.transition-screen--dark {
+  background-color: rgb(43, 42, 45);
+}
+
+.transition-screen--light {
+  background-color: rgb(236, 239, 241);
 }
 
 /* Contact Section */
