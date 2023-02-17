@@ -26,9 +26,9 @@ export default function WelcomeScreen() {
         document.body.classList.remove("overflow-hidden")
       }
     >
-      <motion.h1 className="text-[4rem] sm:text-[6rem] lg:text-[7rem] xl:text-[8rem]">
+      {/* <motion.h1 className="text-[4rem] sm:text-[6rem] lg:text-[7rem] xl:text-[8rem]">
         Welcome
-      </motion.h1>
+      </motion.h1> */}
     </motion.div>
   );
 }
