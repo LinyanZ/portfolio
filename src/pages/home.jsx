@@ -1,4 +1,4 @@
-import Transition from "../components/transition";
+import WelcomeScreen from "../components/welcomeScreen";
 import Hero from "../components/hero";
 import Project from "../components/project";
 import projects from "../data/projects.json";
@@ -22,7 +22,7 @@ function Projects() {
 function Home() {
   return (
     <div>
-      <Transition />
+      <WelcomeScreen />
       <Hero />
       {/* <Projects />
       <Summary />

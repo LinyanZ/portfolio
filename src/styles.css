@@ -49,56 +49,30 @@ html {
 .hero-section {
   height: 100vh;
   margin: auto;
-  padding: 2rem;
+  padding: calc(32px - max(0px, (32 - 16) * (1024px - 100vw) / (1024 - 400)));
 }
 
 .short-description {
-  font-size: 2.4rem;
-  font-weight: 300;
+  font-size: calc(42px - max(0px, (42 - 32) * (1024px - 100vw) / (1024 - 400)));
   position: relative;
-  left: 9px;
-  top: -6vh;
+  left: calc(9px - max(0px, (9 - 3) * (1024px - 100vw) / (1024 - 400)));
   overflow: hidden;
 }
 
 .hero-text {
-  font-size: 8rem;
-  font-weight: 200;
-  line-height: 8rem;
-  margin-bottom: 2rem;
+  font-size: calc(
+    128px - max(0px, (128 - 64) * (1024px - 100vw) / (1024 - 400))
+  );
+  line-height: calc(
+    150px - max(0px, (150 - 80) * (1024px - 100vw) / (1024 - 400))
+  );
+  margin-bottom: calc(
+    16px - max(0px, (16 - 8) * (1024px - 100vw) / (1024 - 400))
+  );
   position: relative;
-  top: -6vh;
   overflow: hidden;
 }
-
-@media screen and (max-width: 768px) {
-  .hero-text {
-    font-size: 6rem;
-    line-height: 6rem;
-    margin-bottom: 1rem;
-  }
-
-  .short-description {
-    font-size: 2.2rem;
-    position: relative;
-    left: 0px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .hero-text {
-    font-size: 4rem;
-    line-height: 4rem;
-    margin-bottom: 1rem;
-  }
-
-  .short-description {
-    font-size: 2rem;
-    position: relative;
-    left: 0px;
-  }
-}
-
+/* 
 .summary-section {
   height: 100vh;
   margin: 0 auto;

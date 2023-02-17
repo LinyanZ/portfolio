@@ -1,13 +1,25 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { useTheme } from "../contexts/themeContext";
+import { useEffect } from "react";
 
-export default function Transition() {
+export default function WelcomeScreen() {
   const [theme] = useTheme();
+
+  const animations = useAnimation();
+
+  async function sequence() {
+    await animations.start({ opacity: 1 });
+    animations.start({ opacity: 0, transition: { delay: 1.2 } });
+  }
+
+  useEffect(() => {
+    sequence();
+  }, []);
 
   return (
     <motion.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 0, transition: { delay: 1.2 } }}
+      initial={{ opacity: 0 }}
+      animate={animations}
       className={`transition-screen transition-screen--${theme}`}
       onAnimationStart={() => document.body.classList.add("overflow-hidden")}
       onAnimationComplete={() =>
