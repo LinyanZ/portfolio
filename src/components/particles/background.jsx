@@ -14,8 +14,6 @@ const defaultAttributes = {
   offsetZ: 50,
 };
 
-const initialDelay = 0.3;
-
 const Background = () => {
   const [finished, setFinished] = useState(false);
 
@@ -41,7 +39,7 @@ const Background = () => {
       focus: 50,
       sizeZ: 30,
       offsetZ: 50,
-      delay: initialDelay + 0.5,
+      delay: 0.5,
     });
 
     // movement speed
@@ -49,12 +47,12 @@ const Background = () => {
       duration: 0.5,
       speed: 0.8,
       ease: "power4.out",
-      delay: initialDelay + 0.5,
+      delay: 0.5,
     });
     gsap.to(burstAnimation.current, {
       duration: 3,
       speed: 0.002,
-      delay: initialDelay + 1,
+      delay: 1,
       ease: "power4.out",
     });
 
@@ -62,17 +60,16 @@ const Background = () => {
     gsap.to(burstAnimation.current, {
       duration: 0.7,
       opacity: 0.1,
-      delay: initialDelay,
     });
     gsap.to(burstAnimation.current, {
       duration: 1,
       opacity: 1,
-      delay: initialDelay + 0.7,
+      delay: 0.7,
     });
     gsap.to(burstAnimation.current, {
       duration: 6,
       opacity: 0,
-      delay: initialDelay + 3,
+      delay: 3,
       onComplete: () => {
         setFinished(true);
       },
@@ -84,17 +81,17 @@ const Background = () => {
     gsap.to(smallParticlesAnimation.current, {
       duration: 4,
       opacity: 1,
-      delay: initialDelay + 1,
+      delay: 1,
     });
     gsap.to(smallParticlesAnimation.current, {
       duration: 0.7,
       speed: 0.8,
-      delay: initialDelay + 0,
+      delay: 0,
     });
     gsap.to(smallParticlesAnimation.current, {
       duration: 3,
       speed: 0.001,
-      delay: initialDelay + 0.8,
+      delay: 0.8,
       ease: "power4.out",
     });
 
@@ -102,24 +99,26 @@ const Background = () => {
     gsap.to(mediumParticlesAnimation.current, {
       duration: 4,
       opacity: 0.8,
-      delay: initialDelay + 1,
+      delay: 1,
     });
     gsap.to(mediumParticlesAnimation.current, {
       duration: 0.7,
       speed: 0.8,
-      delay: initialDelay + 0,
+      delay: 0,
     });
     gsap.to(mediumParticlesAnimation.current, {
       duration: 3,
       speed: 0.002,
-      delay: initialDelay + 0.8,
+      delay: 0.8,
       ease: "power4.out",
     });
   }
 
   useLayoutEffect(() => {
-    burst();
-    background();
+    setTimeout(() => {
+      burst();
+      background();
+    }, 1500);
   }, []);
 
   return (

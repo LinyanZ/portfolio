@@ -21,13 +21,13 @@ function Projects() {
 
 function Home() {
   return (
-    <>
+    <div>
       <Transition />
       <Hero />
-      <Projects />
+      {/* <Projects />
       <Summary />
-      <Contact />
-    </>
+      <Contact /> */}
+    </div>
   );
 }
 

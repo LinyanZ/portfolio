@@ -113,8 +113,6 @@ html {
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.4);
-  position: absolute;
-  left: calc(50% - 600px);
 }
 
 .my-picture {
@@ -124,8 +122,6 @@ html {
 }
 
 .summary {
-  position: absolute;
-  left: calc(50% - 220px);
   width: 100%;
   max-width: 600px;
 }
@@ -133,28 +129,18 @@ html {
 .summary-title {
   font-size: 8rem;
   font-weight: 200;
+  position: relative;
+  right: 220px;
 }
 
 .summary-content {
   font-size: 2rem;
-  position: relative;
-  left: 170px;
   font-weight: 300;
 }
 
 @media screen and (max-width: 1200px) {
   .summary-section {
     height: fit-content;
-    display: flex;
-    align-items: center;
-  }
-
-  .about-section {
-    display: flex;
-    width: 100vw;
-    min-height: 100vh;
-    position: relative;
-    flex-direction: column;
   }
 
   .my-picture-container {
@@ -185,13 +171,12 @@ html {
   }
 
   .summary-title {
-    font-size: 4rem;
     position: initial;
+    font-size: 4rem;
   }
 
   .summary-content {
     font-size: 1.6rem;
-    position: initial;
   }
 }
 
@@ -270,14 +255,21 @@ html {
   left: 0px;
   right: 0px;
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 200;
 }
 
 .transition-screen--dark {
   background-color: rgb(43, 42, 45);
+  color: var(--color-text-lighter);
 }
 
 .transition-screen--light {
   background-color: rgb(236, 239, 241);
+  color: var(--color-text-dark);
 }
 
 /* Contact Section */
