@@ -145,6 +145,7 @@ const AnimatedPicture = ({ src, handleClick }) => {
         autoPlay
         muted
         loop
+        preload
         initial={{
           scale: 1.6,
           opacity: 0,
