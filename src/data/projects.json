@@ -2,7 +2,8 @@
   {
     "title": "Survey Creator",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "vvfTlTezr_s",
+    "videoUrl": "./videos/test.mp4",
+    "youtubeUrl": "vvfTlTezr_s",
     "tags": ["React.js", "Node.js", "Express", "MongoDB", "Docker"],
     "externalLink": "external",
     "githubLink": "https://github.com/LinyanZ/portfolio",
@@ -30,7 +31,8 @@
   {
     "title": "Third Person Shooter Game",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "73mukJxvZWE",
+    "videoUrl": "./videos/thirdPersonShooterGame.mp4",
+    "youtubeUrl": "73mukJxvZWE",
     "tags": ["Unity", "C#", "Blender"],
     "details": []
   },
@@ -44,7 +46,8 @@
   {
     "title": "Data Visualizer",
     "summary": "A website that displays regional information for Melbourne. A Map-Reduce processing is used to group the data into different statistical area levels.",
-    "videoUrl": "iRAcW1rMhYU",
+    "videoUrl": "./videos/dataVisualizer.mp4",
+    "youtubeUrl": "iRAcW1rMhYU",
     "externalLink": "http://3.27.77.149:443/",
     "githubLink": "https://github.com/LinyanZ/dataVisualizer",
     "tags": [
@@ -86,7 +89,8 @@
   {
     "title": "Footprint Tracker",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "vvfTlTezr_s",
+    "videoUrl": "./videos/footprintTracker.mp4",
+    "youtubeUrl": "vvfTlTezr_s",
     "tags": ["Java"],
     "details": []
   }
