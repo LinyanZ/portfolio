@@ -28,17 +28,17 @@ export default function Hero() {
       className={`max-width-container vertical-center hero-section text--${theme}`}
     >
       <div className="relative top-[-5vh]">
-        <AnimatedLetters className="hero-text font-extralight" delay={2.2}>
+        <AnimatedLetters className="hero-text font-extralight" delay={2.5}>
           Hi, I'm
         </AnimatedLetters>
       </div>
       <div className="relative top-[-7vh]">
-        <AnimatedLetters className="hero-text font-medium" delay={2.3}>
+        <AnimatedLetters className="hero-text font-medium" delay={2.6}>
           Linyan Zhu
         </AnimatedLetters>
       </div>
       <div className="relative top-[-6vh]">
-        <AnimatedLetters className="short-description font-light" delay={2.6}>
+        <AnimatedLetters className="short-description font-light" delay={2.9}>
           A Full-stack / Software Developer
         </AnimatedLetters>
       </div>

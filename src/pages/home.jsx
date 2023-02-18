@@ -1,10 +1,14 @@
-import WelcomeScreen from "../components/welcomeScreen";
+import { useState, useEffect } from "react";
+
+import LoadingScreen from "../components/loadingScreen";
 import Hero from "../components/hero";
 import Project from "../components/project";
 import projects from "../data/projects.json";
 import Summary from "../components/about/summary";
 import Contact from "../components/contact";
+
 import { useTheme } from "../contexts/themeContext";
+import { useProject } from "../contexts/projectContext";
 
 function Projects() {
   const [theme] = useTheme();
@@ -20,13 +24,20 @@ function Projects() {
 }
 
 function Home() {
+  const [selectedProject] = useProject();
+
+  useEffect(() => {
+    if (selectedProject) document.body.classList.add("overflow-hidden");
+    else document.body.classList.remove("overflow-hidden");
+  }, [selectedProject]);
+
   return (
     <div>
-      <WelcomeScreen />
+      <LoadingScreen />
       <Hero />
-      {/* <Projects />
+      <Projects />
       <Summary />
-      <Contact /> */}
+      <Contact />
     </div>
   );
 }

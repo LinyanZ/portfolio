@@ -158,7 +158,7 @@ export default function Project({ project }) {
         <motion.div
           layout
           ref={summaryRef}
-          className="project-summary-container"
+          className="flex max-[1200px]:flex-col"
         >
           <Video project={project} />
           <Picture project={project} />

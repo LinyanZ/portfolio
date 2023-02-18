@@ -5,7 +5,7 @@ const themeContext = createContext();
 themeContext.displayName = "themeContext";
 
 function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     const previousTheme = window.localStorage.getItem("theme");

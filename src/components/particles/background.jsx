@@ -118,7 +118,7 @@ const Background = () => {
     setTimeout(() => {
       burst();
       background();
-    }, 1500);
+    }, 1800);
   }, []);
 
   return (

@@ -5,11 +5,20 @@ import "../../shaders/dofPointsMaterial";
 import { useTheme } from "../../contexts/themeContext";
 import { useControls } from "leva";
 import { lerp, useMousePos } from "../../utils";
+import { useProject } from "../../contexts/projectContext";
+import { useEffect } from "react";
 
 const Particles = ({ count = 1000, animation }) => {
   const [theme] = useTheme();
+  const [selectedProject] = useProject();
   const renderRef = useRef();
   const mousePos = useMousePos();
+  const [zOffset, setZOffset] = useState(0);
+
+  useEffect(() => {
+    if (selectedProject) setZOffset(30);
+    else setZOffset(0);
+  }, [selectedProject]);
 
   const color1 =
     theme === "dark"
@@ -47,7 +56,7 @@ const Particles = ({ count = 1000, animation }) => {
     );
     renderRef.current.uniforms.uSizeZ.value = lerp(
       renderRef.current.uniforms.uSizeZ.value,
-      animation.sizeZ,
+      animation.sizeZ + zOffset,
       lerpFactor
     );
     renderRef.current.uniforms.uOffsetZ.value = lerp(

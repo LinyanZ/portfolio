@@ -72,7 +72,7 @@ html {
   position: relative;
   overflow: hidden;
 }
-/* 
+
 .summary-section {
   height: 100vh;
   margin: 0 auto;
@@ -516,10 +516,6 @@ html {
   background-color: rgb(240, 242, 244);
 }
 
-.project-summary-container {
-  display: flex;
-}
-
 .project-media {
   width: 768px;
   aspect-ratio: 16 / 9;
@@ -589,15 +585,6 @@ html {
 
   .project-container {
     height: 100%;
-  }
-
-  .project-container--open {
-    width: 100%;
-    min-height: 100vh;
-  }
-
-  .project-summary-container {
-    flex-direction: column;
   }
 
   .project-summary {
