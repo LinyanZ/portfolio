@@ -20,7 +20,7 @@ export default function Project({ p, i, total }) {
 
   const { scrollYProgress } = useScroll();
   const ySpring = useSpring(scrollYProgress, {
-    stiffness: 100,
+    stiffness: 150,
     damping: 30,
     restDelta: 0.00001,
   });

@@ -13,8 +13,11 @@ function Home() {
   const [selectedProject] = useProject();
 
   useEffect(() => {
-    if (selectedProject) document.body.classList.add("overflow-hidden");
-    else document.body.classList.remove("overflow-hidden");
+    if (selectedProject) {
+      document.body.classList.add("noscroll");
+    } else {
+      document.body.classList.remove("noscroll");
+    }
   }, [selectedProject]);
 
   return (
