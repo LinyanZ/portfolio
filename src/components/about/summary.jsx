@@ -44,7 +44,7 @@ export default function Summary() {
         >
           <motion.img
             className="my-picture"
-            src="./pictures/me.jpg"
+            src="./images/me.jpg"
             alt="a picture of myself with my cat on top of my head"
             initial={{
               scale: 2,

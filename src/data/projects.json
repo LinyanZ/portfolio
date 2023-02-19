@@ -29,7 +29,7 @@
     ]
   },
   {
-    "title": "Third Person Shooter Game",
+    "title": "3rd Person Shooter",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
     "videoUrl": "./videos/thirdPersonShooterGame.mp4",
     "youtubeUrl": "73mukJxvZWE",
@@ -37,10 +37,10 @@
     "details": []
   },
   {
-    "title": "Board Game AI Agent",
+    "title": "Board Game AI",
     "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
     "tags": ["Python"],
-    "pictureUrl": "./pictures/yinsh.png",
+    "imageUrl": "./images/yinsh.png",
     "details": []
   },
   {

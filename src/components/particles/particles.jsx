@@ -91,12 +91,12 @@ const Particles = ({ count = 1000, animation }) => {
     );
     renderRef.current.uniforms.uMouseX.value = lerp(
       renderRef.current.uniforms.uMouseX.value,
-      mousePos.x,
+      mousePos.x * (selectedProject ? 0.2 : 1),
       lerpFactor * 0.5
     );
     renderRef.current.uniforms.uMouseY.value = lerp(
       renderRef.current.uniforms.uMouseY.value,
-      mousePos.y,
+      mousePos.y * (selectedProject ? 0.2 : 1),
       lerpFactor * 0.5
     );
 

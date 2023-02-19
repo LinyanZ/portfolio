@@ -5,7 +5,7 @@
   transition: color 0.3s ease-out;
   width: 32px;
   height: 32px;
-  z-index: 10;
+  z-index: 100;
 }
 
 .theme-toggler--dark {

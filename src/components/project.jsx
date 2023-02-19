@@ -56,16 +56,6 @@ function ProjectSummary({ project, isSelected, expand, collapse }) {
             <GithubIcon />
           </button>
         )}
-        {isSelected && (
-          <button className="project__learn-more" onClick={collapse}>
-            Close
-          </button>
-        )}
-        {!isSelected && (
-          <button className="project__learn-more" onClick={expand}>
-            Learn More
-          </button>
-        )}
       </div>
     </div>
   );
