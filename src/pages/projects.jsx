@@ -18,6 +18,7 @@ import { useTheme } from "../contexts/themeContext";
 import { useProject } from "../contexts/projectContext";
 
 import { useWindowSize, useObjectSize } from "../utils";
+import YoutubePlayer from "../components/projects/youtubePlayer";
 
 const Overlay = ({ isSelected, ...props }) => (
   <motion.div
@@ -47,18 +48,11 @@ const ProjectDetail = ({ p }) => {
         initial={{ y: windowHeight }}
         className={`fixed ${
           isSelected ? "top-[20vh]" : "top-[120vh]"
-        } left-0 md:left-[10vw] w-screen md:w-[80vw] h-[80vh] bg-black z-[2] rounded-t-[40px] project-details project-details--${theme} drop-shadow-2xl`}
+        } left-0 md:left-[10vw] w-screen md:w-[80vw] h-[80vh] bg-black z-[2] rounded-t-xl sm:rounded-t-2xl project-details text--${theme} project-details--${theme} drop-shadow-2xl`}
       >
         <h2>{p.title}</h2>
         {p.youtubeUrl && (
-          <iframe
-            className="w-full aspect-video"
-            src={`https://www.youtube.com/embed/${p.videoUrl}`}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
+          <YoutubePlayer p={p} className="w-full aspect-video" />
         )}
         <p>{p.summary}</p>
         <ul>
@@ -106,7 +100,6 @@ const Project = ({ p, i, total }) => {
   const margin = (windowWidth - mediaWidth) / 2 - 20;
 
   const [selectedProject, setSelectedProject] = useProject();
-  const isSelected = selectedProject === p;
 
   const { scrollYProgress } = useScroll();
   const ySpring = useSpring(scrollYProgress, {
@@ -164,12 +157,6 @@ const Project = ({ p, i, total }) => {
 
 export default function Projects() {
   return (
-    // <section className={`max-width-container mx-auto text--${theme}`}>
-    //   <h1 className="projects-section-title">Projects</h1>
-    //   {projects.map((p) => (
-    //     <Project project={p} key={p.title} />
-    //   ))}
-    // </section>
     <div className="h-[800vh] flex">
       {projects.map((p, i) => (
         <Project p={p} key={i} i={i} total={projects.length} />
