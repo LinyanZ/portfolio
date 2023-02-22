@@ -8,7 +8,13 @@ import { useTheme } from "../../contexts/themeContext";
 import { useProject } from "../../contexts/projectContext";
 import { useWindowSize, useObjectSize } from "../../utils";
 
-export default function Project({ p, i, total }) {
+export default function Project({
+  p,
+  i,
+  total,
+  startOffset = 0.8,
+  endOffset = 1.3,
+}) {
   const [theme] = useTheme();
 
   const ref = useRef(null);
@@ -27,7 +33,12 @@ export default function Project({ p, i, total }) {
 
   const mediaX = useTransform(
     ySpring,
-    [0, i / total, (i + 1) / total, 1],
+    [
+      0,
+      (i + startOffset - 0.3) / (total + endOffset),
+      (i + startOffset + 1.3) / (total + endOffset),
+      1,
+    ],
     [
       windowWidth - margin,
       windowWidth - margin,
@@ -38,12 +49,17 @@ export default function Project({ p, i, total }) {
 
   const textX = useTransform(
     ySpring,
-    [0, i / total, (i + 1) / total, 1],
     [
-      windowWidth + 100,
-      windowWidth + 100,
-      -windowWidth - 100,
-      -windowWidth - 100,
+      0,
+      (i + startOffset - 0.3) / (total + endOffset),
+      (i + startOffset + 1.3) / (total + endOffset),
+      1,
+    ],
+    [
+      0.3 * windowWidth,
+      0.3 * windowWidth,
+      -0.3 * windowWidth,
+      -0.3 * windowWidth,
     ]
   );
 

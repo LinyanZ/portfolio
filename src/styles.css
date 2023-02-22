@@ -69,10 +69,10 @@ html {
 
 .hero-text {
   font-size: calc(
-    128px - max(0px, (128 - 64) * (1024px - 100vw) / (1024 - 400))
+    144px - max(0px, (144 - 64) * (1024px - 100vw) / (1024 - 400))
   );
   line-height: calc(
-    150px - max(0px, (150 - 80) * (1024px - 100vw) / (1024 - 400))
+    160px - max(0px, (160 - 90) * (1024px - 100vw) / (1024 - 400))
   );
   margin-bottom: calc(
     16px - max(0px, (16 - 8) * (1024px - 100vw) / (1024 - 400))
@@ -395,7 +395,7 @@ html {
 
 .max-width-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
 }
 
 .vertical-center {
