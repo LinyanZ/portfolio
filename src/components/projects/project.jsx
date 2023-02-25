@@ -13,7 +13,7 @@ export default function Project({
   i,
   total,
   startOffset = 0.8,
-  endOffset = 1.3,
+  endOffset = 2.3,
 }) {
   const [theme] = useTheme();
 

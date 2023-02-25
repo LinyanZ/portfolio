@@ -36,7 +36,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="max-width-container vertical-center contact-container">
+    <section className="max-w-[1024px] vertical-center contact-container">
       <motion.h1
         className={`contact-title text--${theme}`}
         initial={{

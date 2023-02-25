@@ -25,8 +25,8 @@ function Home() {
       <LoadingScreen />
       <Hero />
       <Projects />
-      {/* <Summary />
-      <Contact /> */}
+      <Summary />
+      <Contact />
     </div>
   );
 }
