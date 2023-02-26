@@ -21,7 +21,7 @@ export default function Summary() {
     <section className="max-width-container vertical-center summary-section">
       <div className="flex flex-col min-[900px]:flex-row justify-center items-center min-[1200px]:gap-x-24 gap-x-8 mx-auto">
         <motion.div
-          className="my-picture-container"
+          className="my-picture-container rounded-xl"
           ref={ref}
           initial={{
             scale: 0.9,

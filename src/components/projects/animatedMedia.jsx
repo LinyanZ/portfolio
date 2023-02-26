@@ -23,7 +23,7 @@ export default function AnimatedMedia({ p, handleClick }) {
           ease,
         },
       }}
-      className={`aspect-[16/9] h-[60vh] max-w-[100vw] bg-[var(--color-background-dark)] rounded-xl sm:rounded-2xl overflow-hidden drop-shadow-2xl relative top-[-5vh]`}
+      className={`aspect-[16/9] h-[60vh] max-w-[100vw] bg-[var(--color-background-dark)] rounded-xl sm:rounded-2xl overflow-hidden drop-shadow-2xl relative cursor-pointer top-[-5vh]`}
     >
       {p.videoUrl && (
         <motion.video

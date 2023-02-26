@@ -25,8 +25,8 @@ const ProjectDetail = ({ p }) => {
         layout
         initial={{ y: windowHeight }}
         className={`fixed ${
-          isSelected ? "top-[20vh]" : "top-[120vh]"
-        } left-0 md:left-[10vw] w-screen md:w-[80vw] h-[80vh] bg-black z-[2] rounded-t-xl sm:rounded-t-2xl project-details text--${theme} project-details--${theme} drop-shadow-2xl`}
+          isSelected ? "top-[15vh]" : "top-[115vh]"
+        } left-0 md:left-[10vw] w-screen md:w-[80vw] h-[85vh] bg-black z-[2] rounded-t-xl sm:rounded-t-2xl project-details text--${theme} project-details--${theme} drop-shadow-2xl`}
       >
         <h2>{p.title}</h2>
         {p.youtubeUrl && (

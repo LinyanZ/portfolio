@@ -1,29 +1,47 @@
 [
   {
     "title": "Survey Creator",
-    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "videoUrl": "./videos/test.mp4",
-    "youtubeUrl": "73mukJxvZWE",
-    "tags": ["React.js", "Node.js", "Express", "MongoDB", "Docker"],
-    "externalLink": "external",
-    "githubLink": "https://github.com/LinyanZ/portfolio",
+    "summary": "A website that helps you to create and publish custom surveys. Use \"admin\" for both username and password to log in as an administrator, create your own surveys and view the submission data.",
+    "videoUrl": "./videos/surveyCreator.mp4",
+    "youtubeUrl": "CQZ9yFDFZSE",
+    "tags": [
+      "React.js",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Json-Web-Token",
+      "Docker",
+      "AWS"
+    ],
+    "externalLink": "http://3.27.77.149:5001/",
+    "githubLink": "https://github.com/LinyanZ/surveyCreator",
     "details": [
       {
         "title": "About This Project",
         "content": [
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni"
+          "This is a complete rebuild of my university project for the subject \"COMP30022 - IT Project\" (also my very first website). The original project is a CRM (customer relationship management) web platform, which provides this survey creation feature at its core, required by our mock client.",
+          "I extracted my portion from the original project and present you with this brand-new, easy-to-use Survey Creator."
         ]
       },
       {
-        "title": "Another Section",
+        "title": "The Editor",
         "content": [
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni vero quis dicta voluptates, aliquid rem? Accusantium provident sit suscipit tempora corrupti minima impedit consequatur hic ducimus maxime nostrum praesentium aperiam vitae eaque autem, sint sed natus quidem itaque repellat perspiciatis, possimus distinctio ab. Tempora, temporibus. Itaque atque nobis officia, corrupti, soluta dolorem facere, perferendis et qui ratione ipsam dignissimos doloremque distinctio illo necessitatibus cum? Commodi id quibusdam, perferendis blanditiis quaerat numquam? Sit aspernatur ipsum aperiam? Lorem ipsum, "
+          "You can add/remove questions easily on the editor page, and simply drag them around to reorder the questions.",
+          "For each question, there is a preview section alongside its property editor to provide you with some visual feedback as you're creating your surveys. The property editor would be different for different types of survey questions.",
+          "Currently, the website supports 5 types of questions (short answer, multiple choice, multiple answer, drop-down list, and rating) but can be easily extended in the future."
         ]
       },
       {
-        "title": "And Another Section",
+        "title": "Authentication and Authorization",
         "content": [
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis possimus asperiores illum officia nam consectetur quisquam quasi velit tempora quo corrupti repellendus doloremque magni"
+          "This website is open for registration, although there is no difference between a guest visitor and a registered user (in the original project, a registered user has access to additional features). However, only an administrator can create surveys and view all the submissions made by others.",
+          "The authentication and authorization are achieved using JWT tokens, which are stored in httpOnly cookies to prevent potential attacks."
+        ]
+      },
+      {
+        "title": "Deployment",
+        "content": [
+          "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
         ]
       }
     ]
@@ -72,7 +90,7 @@
       {
         "title": "Map-Reduce",
         "content": [
-          "The aggregation pipeline, a feature of MongoDB's more recent release, is comparable to but more potent than the capabilities of standard Map-Reduce, which is used in this refactored project.",
+          "The aggregation pipeline, a feature of MongoDB's more recent release, is used in this refactored project.",
           "Each document in the database contains an arbitrary value and an SA (statistical area) code which represents its geolocation, such as \"209041430\". An SA2 (SA level 2) code comprises 9 digits (\"209041430\"), denotes a finer-grained area. A legitimate SA3 code (\"20904\") can be created using the first five digits of any SA2 code, which covers a broader area on the map. A legitimate SA4 code (\"209\") can be created using the first three digits of any SA2 code, which covers an even wider area.",
           "During the Map process, each document emits all three levels of its SA code (\"209041430\" => \"209041430\", \"20904\", \"209\"), then during the Reduce process, all documents are grouped by a certain SA level according to a given query.",
           "The \"Min\", \"Max\", \"Sum\", \"Average\", and \"Count\" is calculated during the Reduce process."
