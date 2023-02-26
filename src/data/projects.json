@@ -48,11 +48,21 @@
   },
   {
     "title": "Third Person Shooter",
-    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
+    "summary": "A third person shooter game made using Unity and Blender. The above video contains all the \"good\" parts of this game. You can find the full walk-through here: https://www.youtube.com/watch?v=IdROkSJjZoo",
     "videoUrl": "./videos/thirdPersonShooterGame.mp4",
     "youtubeUrl": "73mukJxvZWE",
+    "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
     "tags": ["Unity", "C#", "Blender"],
-    "details": []
+    "details": [
+      {
+        "title": "About This Project",
+        "content": [
+          "This is the final project submission for my university subject \"COMP30019 - Graphics and Interaction\". It achieved nearly full marks on the gameplay and graphics aspects.",
+          "This was a group project. Most of the game logics including camera, movements, weapon system, health system, AI, shaders and particles are written by myself. No third-party libraries are used in this project.",
+          "The actual code for this project is hidden on purpose as this is one of my university assignments. The report, however, is made public through the link above to showcase my understanding. Only the relevant parts (my parts) are kept in the report. It explains this project in great details."
+        ]
+      }
+    ]
   },
   {
     "title": "Board Game AI",
