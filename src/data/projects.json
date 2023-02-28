@@ -48,7 +48,7 @@
   },
   {
     "title": "Third Person Shooter",
-    "summary": "A third person shooter game made using Unity and Blender. The above video contains all the \"good\" parts of this game. You can find the full walk-through here: https://www.youtube.com/watch?v=IdROkSJjZoo",
+    "summary": "A third person shooter game made using Unity and Blender. The above video contains all the \"good\" parts of this game. You can find the full walk-through here: https://youtu.be/IdROkSJjZoo",
     "videoUrl": "./videos/thirdPersonShooterGame.mp4",
     "youtubeUrl": "73mukJxvZWE",
     "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
@@ -66,10 +66,19 @@
   },
   {
     "title": "Board Game AI",
-    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
-    "tags": ["Python"],
+    "summary": "An AI agent that plays the board game Yinsh which is able to beat experienced human players.",
+    "tags": ["Python", "Minimax"],
     "imageUrl": "./images/yinsh.png",
-    "details": []
+    "details": [
+      {
+        "title": "About This Project",
+        "content": [
+          "The final project for my university subject \"COMP90054 - AI Planning for Autonomy\". It won the third place out of 90 teams in the subject's final tournament.",
+          "The AI agent is driven by the minimax algorithms. We also built some variants that use A* algorithm and reinforcement learning, but overall the minimax variant outperforms all other agents in our tests.",
+          "The actual code for this project is hidden on purpose as this is one of my university assignments."
+        ]
+      }
+    ]
   },
   {
     "title": "Data Visualizer",
@@ -116,10 +125,19 @@
   },
   {
     "title": "Footprint Tracker",
-    "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat suscipit veniam delectus assumenda, necessitatibus placeat esse consequuntur. Ipsa, quae? Quasi possimus ducimus.",
+    "summary": "An android application that tracks the user's GPS location and draw the users' routes on a Google Map.",
     "videoUrl": "./videos/footprintTracker.mp4",
     "youtubeUrl": "vvfTlTezr_s",
-    "tags": ["Java"],
-    "details": []
+    "tags": ["Java", "Android", "Firebase"],
+    "details": [
+      {
+        "title": "About This Project",
+        "content": [
+          "The final project for my university subject \"COMP90018 - Mobile Computing Systems Programming\". Developed using vanilla Java.",
+          "This was a group project. The complete project is a social platform that allows users to share their travel experiences (similar to Instagram to an extent). The application allows users to publish posts, create travel plans and share it with others. My portion in this project is to track a user's travel footprints, save the routes and upload it onto Firebase.",
+          "The actual code for this project is hidden on purpose as this is one of my university assignments."
+        ]
+      }
+    ]
   }
 ]
