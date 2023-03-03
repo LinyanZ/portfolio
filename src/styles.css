@@ -207,7 +207,7 @@ html {
 .project-details ul {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 0;
+  row-gap: 1rem;
   column-gap: 1.5rem;
   font-size: calc(32px - max(0px, (32 - 24) * (1024px - 100vw) / (1024 - 400)));
 }
