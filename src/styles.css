@@ -208,8 +208,30 @@ html {
   display: flex;
   flex-wrap: wrap;
   row-gap: 0;
-  column-gap: 1rem;
+  column-gap: 1.5rem;
   font-size: calc(32px - max(0px, (32 - 24) * (1024px - 100vw) / (1024 - 400)));
+}
+
+.project-details li {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.project-details--dark li {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.project-details--light li {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.project-details--dark li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-details--light li:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .project-tags-links-container {
