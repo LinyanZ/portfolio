@@ -12,7 +12,7 @@ export default function Three() {
     <div className={`canvas-container canvas-container--${theme}`}>
       <Canvas dpr={Math.min(window.devicePixelRatio, 2)}>
         <Background />
-        {process.env.NODE_ENV === "development" && <Perf position="top-left" />}
+        {/* {process.env.NODE_ENV === "development" && <Perf position="top-left" />} */}
       </Canvas>
     </div>
   );

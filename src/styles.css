@@ -120,6 +120,15 @@ html {
   font-weight: 300;
 }
 
+.summary-link {
+  font-size: 2rem;
+  transition: opacity 0.2s;
+}
+
+.summary-link:hover {
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 1200px) {
   .summary-section {
     height: fit-content;
@@ -210,13 +219,18 @@ html {
   margin: calc(32px - max(0px, (32 - 24) * (1024px - 100vw) / (1024 - 400))) 0;
 }
 
-.project__link-icon {
+.icon {
   width: calc(48px - max(0px, (48 - 36) * (1024px - 100vw) / (1024 - 400)));
   height: calc(48px - max(0px, (48 - 36) * (1024px - 100vw) / (1024 - 400)));
   flex-shrink: 0;
+  transition: opacity 0.2s;
 }
 
-.project__link-icon:first-of-type {
+.icon:hover {
+  opacity: 0.6;
+}
+
+.icon:first-of-type {
   margin-left: auto;
 }
 
@@ -347,7 +361,6 @@ html {
   border: none;
   padding: 0 1rem;
   background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
 }
 
 .contact-form__button {
@@ -361,7 +374,6 @@ html {
 
 .contact-form__button:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
   padding: 0 1rem;
 }
 

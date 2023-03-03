@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "../../contexts/themeContext";
 import { useIsLarge } from "../../utils";
+import GithubIcon from "../icons/githubIcon";
+import LinkedInIcon from "../icons/linkedInIcon";
 
 const ease = [0, 0.4, 0.2, 1];
 
@@ -15,6 +17,7 @@ export default function Summary() {
   const { scrollYProgress } = useScroll({ target: ref });
   const yDiv = useParallax(scrollYProgress, 100);
   const yP = useParallax(scrollYProgress, 100);
+  const yLinks = useParallax(scrollYProgress, 200);
   const isLarge = useIsLarge();
 
   return (
@@ -72,11 +75,41 @@ export default function Summary() {
             className={`summary-content text--${theme}`}
             style={isLarge ? { y: yP } : {}}
           >
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum nam
-            quia omnis nemo facilis itaque placeat! Vitae eveniet, sit,
-            consequuntur, perspiciatis repudiandae iure beatae totam in possimus
-            aut necessitatibus a.
+            Hi, I'm Linyan, an <b className="font-semibold">MIT</b> student at
+            the <b className="font-semibold">University of Melbourne</b>. I'm a
+            full-stack web developer / software developer who is passionate to
+            create <b className="font-semibold">beautiful</b> and{" "}
+            <b className="font-semibold">innovative</b> applications.
           </motion.p>
+          <motion.div
+            className={`mt-16 flex text--${theme} items-center gap-x-8`}
+            style={isLarge ? { y: yLinks } : {}}
+          >
+            <a className="summary-link" href="/resume.pdf" download>
+              Resume
+            </a>
+            <button
+              className="icon"
+              onClick={() =>
+                window.open("https://github.com/LinyanZ", "_blank").focus()
+              }
+            >
+              <GithubIcon />
+            </button>
+            <button
+              className="icon"
+              onClick={() =>
+                window
+                  .open(
+                    "https://www.linkedin.com/in/%E4%B8%B4%E7%A0%9A-%E6%9C%B1-5a63b9215/",
+                    "_blank"
+                  )
+                  .focus()
+              }
+            >
+              <LinkedInIcon />
+            </button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

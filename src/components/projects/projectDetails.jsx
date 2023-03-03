@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-import ExternalLinkIcon from "./externalLinkIcon";
-import GithubIcon from "./githubIcon";
+import ExternalLinkIcon from "../icons/externalLinkIcon";
+import GithubIcon from "../icons/githubIcon";
 import YoutubePlayer from "./youtubePlayer";
 import Overlay from "./overlay";
 
@@ -45,7 +45,7 @@ const ProjectDetail = ({ p }) => {
         <div className="project-tags-links-container">
           {p.externalLink && (
             <button
-              className="project__link-icon"
+              className="icon"
               onClick={() => window.open(p.externalLink, "_blank").focus()}
             >
               <ExternalLinkIcon />
@@ -53,7 +53,7 @@ const ProjectDetail = ({ p }) => {
           )}
           {p.githubLink && (
             <button
-              className="project__link-icon"
+              className="icon"
               onClick={() => window.open(p.githubLink, "_blank").focus()}
             >
               <GithubIcon />

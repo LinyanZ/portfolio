@@ -40,10 +40,10 @@ export default function Project({
       1,
     ],
     [
-      windowWidth - margin,
-      windowWidth - margin,
-      -windowWidth + margin,
-      -windowWidth + margin,
+      windowWidth - margin + 100,
+      windowWidth - margin + 100,
+      -windowWidth + margin - 100,
+      -windowWidth + margin - 100,
     ]
   );
 

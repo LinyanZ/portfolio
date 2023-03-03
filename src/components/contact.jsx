@@ -36,23 +36,8 @@ export default function Contact() {
   }
 
   return (
-    <section className="max-w-[1024px] vertical-center contact-container">
-      <motion.h1
-        className={`contact-title text--${theme}`}
-        initial={{
-          opacity: 0,
-          y: "25%",
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: 0.7,
-          },
-        }}
-      >
-        Get in Touch
-      </motion.h1>
+    <section className="max-w-[1024px] vertical-center contact-container sm:h-screen">
+      <h1 className={`contact-title text--${theme}`}>Get in Touch</h1>
       <div className={`contact-message text--${theme}`}>
         Hope you've enjoyed my portfolio! If you want to have a chat, feel free
         to leave me a message.

@@ -1,8 +1,20 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const ease = [0, 0.4, 0.2, 1];
 
 export default function AnimatedMedia({ p, handleClick }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
+  useEffect(() => {
+    if (isInView) {
+      ref.current?.play();
+    } else {
+      ref.current?.pause();
+    }
+  }, [isInView]);
+
   return (
     <motion.div
       onClick={handleClick}
@@ -27,13 +39,13 @@ export default function AnimatedMedia({ p, handleClick }) {
     >
       {p.videoUrl && (
         <motion.video
+          ref={ref}
           className="object-cover h-full mx-auto"
-          autoPlay
           muted
           loop
           playsInline
           initial={{
-            scale: 1.6,
+            scale: 1.4,
             opacity: 0,
           }}
           whileInView={{
@@ -60,7 +72,7 @@ export default function AnimatedMedia({ p, handleClick }) {
           className="object-cover h-full"
           src={p.imageUrl}
           initial={{
-            scale: 1.6,
+            scale: 1.4,
             opacity: 0,
           }}
           whileInView={{
