@@ -10,6 +10,14 @@ export default function Contact() {
   function handleSubmit(e) {
     e.preventDefault();
 
+    if (
+      !e.target.name.value ||
+      !e.target.email.value ||
+      !e.target.message.value
+    ) {
+      return;
+    }
+
     const templateParams = {
       name: e.target.name.value,
       email: e.target.email.value,
@@ -26,6 +34,9 @@ export default function Contact() {
       .then(
         (result) => {
           setState("success");
+          setTimeout(() => {
+            setState("idle");
+          }, 5000);
         },
         (error) => {
           setState("error");
