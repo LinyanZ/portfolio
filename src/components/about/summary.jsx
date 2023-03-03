@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useTheme } from "../../contexts/themeContext";
 import { useIsLarge } from "../../utils";
 import GithubIcon from "../icons/githubIcon";
@@ -15,9 +15,14 @@ export default function Summary() {
   const [theme] = useTheme();
   const ref = useRef();
   const { scrollYProgress } = useScroll({ target: ref });
-  const yDiv = useParallax(scrollYProgress, 100);
-  const yP = useParallax(scrollYProgress, 100);
-  const yLinks = useParallax(scrollYProgress, 200);
+  const y = useSpring(scrollYProgress, {
+    stiffness: 300,
+    damping: 40,
+    restDelta: 0.00001,
+  });
+  const yDiv = useParallax(y, 100);
+  const yP = useParallax(y, 100);
+  const yLinks = useParallax(y, 200);
   const isLarge = useIsLarge();
 
   return (
