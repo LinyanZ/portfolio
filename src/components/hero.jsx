@@ -48,18 +48,6 @@ export default function Hero() {
           </AnimatedLetters>
         </div>
       </section>
-      <motion.img
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          repeat: Infinity,
-          repeatType: "reverse",
-          duration: 1.2,
-          delay: 5,
-        }}
-        className={`scroll-icon scroll-icon--${theme}`}
-        src="./icons/mouse-cursor.png"
-      />
     </>
   );
 }
