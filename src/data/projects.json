@@ -19,8 +19,7 @@
       {
         "title": "About This Project",
         "content": [
-          "This is a complete rebuild of my university project for the subject \"COMP30022 - IT Project\" (also my very first website). The original project is a CRM (customer relationship management) web platform, which provides this survey creation feature at its core, required by our mock client.",
-          "I extracted my portion from the original project and present you with this brand-new, easy-to-use Survey Creator."
+          "A full-stack side project that features flexible UI editor, drag-n-drop reordering, and authentication/authorization."
         ]
       },
       {
@@ -34,7 +33,7 @@
       {
         "title": "Authentication and Authorization",
         "content": [
-          "This website is open for registration, although there is no difference between a guest visitor and a registered user (in the original project, a registered user has access to additional features). However, only an administrator can create surveys and view all the submissions made by others.",
+          "This website is open for registration, although there is no difference between a guest visitor and a registered user at the moment. However, only an administrator can create surveys and view all the submissions made by others. Relevant routes are protected and the users would be redirected if they are not authenticated.",
           "The authentication and authorization are achieved using JWT tokens, which are stored in httpOnly cookies to prevent potential attacks."
         ]
       },
@@ -52,12 +51,12 @@
     "videoUrl": "./videos/thirdPersonShooterGame.mp4",
     "youtubeUrl": "73mukJxvZWE",
     "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
-    "tags": ["Unity", "C#", "Blender"],
+    "tags": ["Unity", "C#", "Blender", "Shader"],
     "details": [
       {
         "title": "About This Project",
         "content": [
-          "This is the final project submission for my university subject \"COMP30019 - Graphics and Interaction\". It achieved nearly full marks on the gameplay and graphics aspects.",
+          "A university project that achieved nearly full marks on the gameplay and graphics aspects.",
           "This was a group project. Most of the game logics including camera, movements, weapon system, health system, AI, shaders and particles are written by myself. No third-party libraries are used in this project.",
           "The actual code for this project is hidden on purpose as this is one of my university assignments. The report, however, is made public through the link above to showcase my understanding. Only the relevant parts (my parts) are kept in the report. It explains this project in great details."
         ]
@@ -76,6 +75,14 @@
           "The final project for my university subject \"COMP90054 - AI Planning for Autonomy\". It won the third place out of 90 teams in the subject's final tournament.",
           "The AI agent is driven by the minimax algorithm. We also built some variants that use A* algorithm and reinforcement learning, but overall the minimax variant outperforms all other agents in our tests.",
           "The actual code for this project is hidden on purpose as this is one of my university assignments."
+        ]
+      },
+      {
+        "title": "The Minimax Algorithm",
+        "content": [
+          "Yinsh is a turn-based board game involving two players that falls under the category of zero-sum games. Minimax is a very strong strategy in this category as it always picks the action that minimizes the opponent's rewards.",
+          "The full Minimax algorithm would expand the search path all the way to the terminal states (e.g., win, lose, or tie). However, as the dimensions of Yinsh are huge, it's not feasible to do so. Instead, we limited the search depth to only 2, that is to expand one action for ourselves and then one action for our opponent, to make the computation time fall within a reasonable range. We also implemented alpha-beta pruning and tried to expand more promising child nodes first to further decrease the elapsed time.",
+          "At each turn, the board configuration is fed into a heuristic function that returns a score to represent the chances of winning. A handful of features are selected (e.g., the number of rings won, whether there is a sequence in the state, how far the rings are from the center of the board, how many rings are blocked, and so on) inside the heuristic function."
         ]
       }
     ]
@@ -100,16 +107,12 @@
       {
         "title": "About This Project",
         "content": [
-          "This is a refactoring of the project for my university subject \"COMP90024 - Cluster and Cloud Computing\".",
-          "The original project collects Twitter data in real-time, geolocates those tweets if possible and stores them in a CouchDB database. These tweets are then processed and displayed through a frontend website. CouchDB provides a built-in Map-Reduce feature which comes in handy during the data processing.",
-          "This was a group project. I mainly focused on developing the front-end website, a simple back-end server, and the Map-Reduce logics inside the database.",
-          "For this refactored project, I generated some fake data instead of harvesting real tweets for simplicity. I also reworked on the database code by switching to MongoDB as I'm more experienced with that instead. Other aspects of the project remain unchanged."
+          "A side project that showcases the Map-Reduce concept. MongoDB is used in this project as its aggregation pipeline provides powerful Map-Reduce-alike features."
         ]
       },
       {
-        "title": "Map-Reduce",
+        "title": "The Map-Reduce Process",
         "content": [
-          "The aggregation pipeline, a feature of MongoDB's more recent release, is used in this refactored project.",
           "Each document in the database contains an arbitrary value and an SA (statistical area) code which represents its geolocation, such as \"209041430\". An SA2 (SA level 2) code comprises 9 digits (\"209041430\"), denotes a finer-grained area. A legitimate SA3 code (\"20904\") can be created using the first five digits of any SA2 code, which covers a broader area on the map. A legitimate SA4 code (\"209\") can be created using the first three digits of any SA2 code, which covers an even wider area.",
           "During the Map process, each document emits all three levels of its SA code (\"209041430\" => \"209041430\", \"20904\", \"209\"), then during the Reduce process, all documents are grouped by a certain SA level according to a given query.",
           "The \"Min\", \"Max\", \"Sum\", \"Average\", and \"Count\" is calculated during the Reduce process."

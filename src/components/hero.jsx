@@ -1,5 +1,6 @@
 import { useTheme } from "../contexts/themeContext";
 import { motion } from "framer-motion";
+import ScrollIcon from "./icons/scroll";
 
 const AnimatedLetters = ({ text, delay, ...props }) => {
   return (
@@ -24,27 +25,41 @@ export default function Hero() {
   const [theme] = useTheme();
 
   return (
-    <section
-      className={`max-width-container vertical-center hero-section text--${theme}`}
-    >
-      <div className="relative top-[-5vh]">
-        <AnimatedLetters className="hero-text font-extralight" delay={3.5}>
-          Hi, I'm
-        </AnimatedLetters>
-      </div>
-      <div className="relative top-[-7vh]">
-        <AnimatedLetters className="hero-text font-medium" delay={0.1 + 3.5}>
-          Linyan Zhu
-        </AnimatedLetters>
-      </div>
-      <div className="relative top-[-6vh]">
-        <AnimatedLetters
-          className="short-description font-light"
-          delay={0.8 + 3.5}
-        >
-          A Full-stack / Software Developer
-        </AnimatedLetters>
-      </div>
-    </section>
+    <>
+      <section
+        className={`max-width-container vertical-center hero-section text--${theme}`}
+      >
+        <div className="relative top-[-5vh]">
+          <AnimatedLetters className="hero-text font-extralight" delay={3.5}>
+            Hi, I'm
+          </AnimatedLetters>
+        </div>
+        <div className="relative top-[-7vh]">
+          <AnimatedLetters className="hero-text font-medium" delay={0.1 + 3.5}>
+            Linyan Zhu
+          </AnimatedLetters>
+        </div>
+        <div className="relative top-[-6vh]">
+          <AnimatedLetters
+            className="short-description font-light"
+            delay={0.8 + 3.5}
+          >
+            A Full-stack / Software Developer
+          </AnimatedLetters>
+        </div>
+      </section>
+      <motion.img
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "reverse",
+          duration: 1.2,
+          delay: 5,
+        }}
+        className={`scroll-icon scroll-icon--${theme}`}
+        src="./icons/mouse-cursor.png"
+      />
+    </>
   );
 }

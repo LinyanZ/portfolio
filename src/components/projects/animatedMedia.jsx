@@ -43,7 +43,6 @@ export default function AnimatedMedia({ p, handleClick }) {
           className="object-cover h-full mx-auto"
           muted
           loop
-          playsInline
           initial={{
             scale: 1.4,
             opacity: 0,
