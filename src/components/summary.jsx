@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useTheme } from "../../contexts/themeContext";
-import { useIsLarge } from "../../utils";
-import GithubIcon from "../icons/githubIcon";
-import LinkedInIcon from "../icons/linkedInIcon";
+import { useTheme } from "../contexts/themeContext";
+import { useIsLarge } from "../utils";
+import GithubIcon from "./icons/githubIcon";
+import LinkedInIcon from "./icons/linkedInIcon";
 
 const ease = [0, 0.4, 0.2, 1];
 

@@ -1,7 +1,6 @@
 import projects from "../data/projects.json";
 import Project from "../components/projects/project";
 import { useRef } from "react";
-import { useScroll } from "framer-motion";
 
 export default function Projects() {
   const touchEventRef = useRef({ touchStart: null, touchEnd: null });

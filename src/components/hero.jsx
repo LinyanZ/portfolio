@@ -1,6 +1,5 @@
 import { useTheme } from "../contexts/themeContext";
 import { motion } from "framer-motion";
-import ScrollIcon from "./icons/scroll";
 
 const AnimatedLetters = ({ text, delay, ...props }) => {
   return (

@@ -3,10 +3,9 @@ import { useEffect } from "react";
 import LoadingScreen from "../components/loadingScreen";
 import Hero from "../components/hero";
 import Projects from "./projects";
-import Summary from "../components/about/summary";
+import Summary from "../components/summary";
 import Contact from "../components/contact";
 
-import { useTheme } from "../contexts/themeContext";
 import { useProject } from "../contexts/projectContext";
 
 function Home() {
