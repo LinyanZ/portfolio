@@ -579,7 +579,7 @@ html {
 .scroll-icon {
   position: absolute;
   left: 50%;
-  bottom: calc(64px - max(0px, (64 - 16) * (800px - 100vh) / (800 - 400)));
+  bottom: calc(64px - max(0px, (64 - 20) * (1024px - 100vw) / (1024 - 400)));
   transform: translateX(-50%);
   width: 6rem;
   height: 6rem;
