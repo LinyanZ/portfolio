@@ -1,0 +1,25 @@
+.language-toggler {
+  position: fixed;
+  right: 72px;
+  bottom: 20px;
+  transition: color 0.3s ease-out;
+  width: 32px;
+  height: 32px;
+  z-index: 100;
+}
+
+.language-toggler--dark {
+  color: rgb(160, 160, 160);
+}
+
+.language-toggler--dark:hover {
+  color: rgb(230, 230, 230);
+}
+
+.language-toggler--light {
+  color: rgb(10, 10, 10);
+}
+
+.language-toggler--light:hover {
+  color: rgb(80, 80, 80);
+}

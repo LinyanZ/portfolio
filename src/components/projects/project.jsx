@@ -71,7 +71,7 @@ export default function Project({
           ref={ref}
           style={{ x: mediaX }}
         >
-          <AnimatedMedia p={p} handleClick={() => setSelectedProject(p)} />
+          <AnimatedMedia p={p} handleClick={() => setSelectedProject(p.id)} />
           <motion.h2
             className={`project-title text--${theme} font-medium absolute top-[-5vh] left-0 w-full text-center drop-shadow-2xl`}
             style={{

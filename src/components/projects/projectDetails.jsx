@@ -13,7 +13,7 @@ const ProjectDetail = ({ p }) => {
   const [theme] = useTheme();
   const [_, windowHeight] = useWindowSize();
   const [selectedProject, setSelectedProject] = useProject();
-  const isSelected = selectedProject === p;
+  const isSelected = selectedProject === p.id;
   return (
     <>
       <Overlay
@@ -21,7 +21,7 @@ const ProjectDetail = ({ p }) => {
         onClick={() => setSelectedProject(null)}
       />
       <motion.div
-        key={`${p.title} details`}
+        key={`${p.id} details`}
         layout
         initial={{ y: windowHeight }}
         className={`fixed ${

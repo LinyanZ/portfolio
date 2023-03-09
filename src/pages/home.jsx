@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import LoadingScreen from "../components/loadingScreen";
 import Hero from "../components/hero";
@@ -7,9 +7,14 @@ import Summary from "../components/summary";
 import Contact from "../components/contact";
 
 import { useProject } from "../contexts/projectContext";
+import { ThemeToggler } from "../contexts/themeContext";
+import { LanguageToggler, useLanguage } from "../contexts/languageContext";
+
+import projects from "../data/projects.json";
 
 function Home() {
   const [selectedProject] = useProject();
+  const [language] = useLanguage();
 
   useEffect(() => {
     if (selectedProject) {
@@ -20,13 +25,15 @@ function Home() {
   }, [selectedProject]);
 
   return (
-    <div>
+    <>
       <LoadingScreen />
       <Hero />
-      <Projects />
+      <Projects projects={language === "en" ? projects.en : projects.zh} />
       <Summary />
       <Contact />
-    </div>
+      <LanguageToggler />
+      <ThemeToggler />
+    </>
   );
 }
 

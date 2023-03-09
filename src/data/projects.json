@@ -1,146 +1,304 @@
-[
-  {
-    "title": "Survey Creator",
-    "summary": "A website that helps you to create and publish custom surveys. Use \"admin\" for both username and password to log in as an administrator, create your own surveys and view the submission data.",
-    "videoUrl": "./videos/surveyCreator.mp4",
-    "youtubeUrl": "CQZ9yFDFZSE",
-    "tags": [
-      "React.js",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Json-Web-Token",
-      "Docker",
-      "AWS"
-    ],
-    "externalLink": "http://3.27.77.149:5001/",
-    "githubLink": "https://github.com/LinyanZ/surveyCreator",
-    "details": [
-      {
-        "title": "About This Project",
-        "content": [
-          "A full-stack side project that features flexible UI editor, drag-n-drop reordering, and authentication/authorization."
-        ]
-      },
-      {
-        "title": "The Editor",
-        "content": [
-          "You can add/remove questions easily on the editor page, and simply drag them around to reorder the questions.",
-          "For each question, there is a preview section alongside its property editor to provide you with some visual feedback as you're creating your surveys. The property editor would be different for different types of survey questions.",
-          "Currently, the website supports 5 types of questions (short answer, multiple choice, multiple answer, drop-down list, and rating) but can be easily extended in the future."
-        ]
-      },
-      {
-        "title": "Authentication and Authorization",
-        "content": [
-          "This website is open for registration, although there is no difference between a guest visitor and a registered user at the moment. However, only an administrator can create surveys and view all the submissions made by others. Relevant routes are protected and the users would be redirected if they are not authenticated.",
-          "The authentication and authorization are achieved using JWT tokens, which are stored in httpOnly cookies to prevent potential attacks."
-        ]
-      },
-      {
-        "title": "Deployment",
-        "content": [
-          "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Third Person Shooter",
-    "summary": "A third person shooter game made using Unity and Blender. The above video contains all the \"good\" parts of this game. You can find the full walk-through here: https://youtu.be/IdROkSJjZoo",
-    "videoUrl": "./videos/thirdPersonShooterGame.mp4",
-    "youtubeUrl": "73mukJxvZWE",
-    "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
-    "tags": ["Unity", "C#", "Blender", "Shader"],
-    "details": [
-      {
-        "title": "About This Project",
-        "content": [
-          "A university project that achieved nearly full marks on the gameplay and graphics aspects.",
-          "This was a group project. Most of the game logics including camera, movements, weapon system, health system, AI, shaders and particles are written by myself. No third-party libraries are used in this project.",
-          "The actual code for this project is hidden on purpose as this is one of my university assignments. The report, however, is made public through the link above to showcase my understanding. Only the relevant parts (my parts) are kept in the report. It explains this project in great details."
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Board Game AI",
-    "summary": "An AI agent that plays the board game Yinsh which is able to beat experienced human players.",
-    "tags": ["Python", "Minimax"],
-    "imageUrl": "./images/yinsh.png",
-    "details": [
-      {
-        "title": "About This Project",
-        "content": [
-          "The final project for my university subject \"COMP90054 - AI Planning for Autonomy\". It won the third place out of 90 teams in the subject's final tournament.",
-          "The AI agent is driven by the minimax algorithm. We also built some variants that use A* algorithm and reinforcement learning, but overall the minimax variant outperforms all other agents in our tests.",
-          "The actual code for this project is hidden on purpose as this is one of my university assignments."
-        ]
-      },
-      {
-        "title": "The Minimax Algorithm",
-        "content": [
-          "Yinsh is a turn-based board game involving two players that falls under the category of zero-sum games. Minimax is a very strong strategy in this category as it always picks the action that minimizes the opponent's rewards.",
-          "The full Minimax algorithm would expand the search path all the way to the terminal states (e.g., win, lose, or tie). However, as the dimensions of Yinsh are huge, it's not feasible to do so. Instead, we limited the search depth to only 2, that is to expand one action for ourselves and then one action for our opponent, to make the computation time fall within a reasonable range. We also implemented alpha-beta pruning and tried to expand more promising child nodes first to further decrease the elapsed time.",
-          "At each turn, the board configuration is fed into a heuristic function that returns a score to represent the chances of winning. A handful of features are selected (e.g., the number of rings won, whether there is a sequence in the state, how far the rings are from the center of the board, how many rings are blocked, and so on) inside the heuristic function."
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Data Visualizer",
-    "summary": "A website that displays regional information for Melbourne. A Map-Reduce processing is used to group the data into different statistical area levels.",
-    "videoUrl": "./videos/dataVisualizer.mp4",
-    "youtubeUrl": "iRAcW1rMhYU",
-    "externalLink": "http://3.27.77.149:443/",
-    "githubLink": "https://github.com/LinyanZ/dataVisualizer",
-    "tags": [
-      "React.js",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Map-Reduce",
-      "Docker",
-      "AWS"
-    ],
-    "details": [
-      {
-        "title": "About This Project",
-        "content": [
-          "A side project that showcases the Map-Reduce concept. MongoDB is used in this project as its aggregation pipeline provides powerful Map-Reduce-alike features."
-        ]
-      },
-      {
-        "title": "The Map-Reduce Process",
-        "content": [
-          "Each document in the database contains an arbitrary value and an SA (statistical area) code which represents its geolocation, such as \"209041430\". An SA2 (SA level 2) code comprises 9 digits (\"209041430\"), denotes a finer-grained area. A legitimate SA3 code (\"20904\") can be created using the first five digits of any SA2 code, which covers a broader area on the map. A legitimate SA4 code (\"209\") can be created using the first three digits of any SA2 code, which covers an even wider area.",
-          "During the Map process, each document emits all three levels of its SA code (\"209041430\" => \"209041430\", \"20904\", \"209\"), then during the Reduce process, all documents are grouped by a certain SA level according to a given query.",
-          "The \"Min\", \"Max\", \"Sum\", \"Average\", and \"Count\" is calculated during the Reduce process."
-        ]
-      },
-      {
-        "title": "Deployment",
-        "content": [
-          "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Footprint Tracker",
-    "summary": "An android application that tracks the user's GPS location and draw the users' routes on a Google Map.",
-    "videoUrl": "./videos/footprintTracker.mp4",
-    "youtubeUrl": "vvfTlTezr_s",
-    "tags": ["Java", "Android", "Firebase"],
-    "details": [
-      {
-        "title": "About This Project",
-        "content": [
-          "The final project for my university subject \"COMP90018 - Mobile Computing Systems Programming\". Developed using vanilla Java.",
-          "This was a group project. The complete project is a social platform that allows users to share their travel experiences (similar to Instagram to an extent). The application allows users to publish posts, create travel plans and share it with others. My portion in this project is to track a user's travel footprints, save the routes and upload it onto Firebase.",
-          "The actual code for this project is hidden on purpose as this is one of my university assignments."
-        ]
-      }
-    ]
-  }
-]
+{
+  "en": [
+    {
+      "id": "sc",
+      "title": "Survey Creator",
+      "summary": "A website that helps you to create and publish custom surveys. Use \"admin\" for both username and password to log in as an administrator, create your own surveys and view the submission data.",
+      "videoUrl": "./videos/surveyCreator.mp4",
+      "youtubeUrl": "CQZ9yFDFZSE",
+      "tags": [
+        "React.js",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Json-Web-Token",
+        "Docker",
+        "AWS"
+      ],
+      "externalLink": "http://3.27.77.149:5001/",
+      "githubLink": "https://github.com/LinyanZ/surveyCreator",
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "A full-stack side project that features flexible UI editor, drag-n-drop reordering, and authentication/authorization."
+          ]
+        },
+        {
+          "title": "The Editor",
+          "content": [
+            "You can add/remove questions easily on the editor page, and simply drag them around to reorder the questions.",
+            "For each question, there is a preview section alongside its property editor to provide you with some visual feedback as you're creating your surveys. The property editor would be different for different types of survey questions.",
+            "Currently, the website supports 5 types of questions (short answer, multiple choice, multiple answer, drop-down list, and rating) but can be easily extended in the future."
+          ]
+        },
+        {
+          "title": "Authentication and Authorization",
+          "content": [
+            "This website is open for registration, although there is no difference between a guest visitor and a registered user at the moment. However, only an administrator can create surveys and view all the submissions made by others. Relevant routes are protected and the users would be redirected if they are not authenticated.",
+            "The authentication and authorization are achieved using JWT tokens, which are stored in httpOnly cookies to prevent potential attacks."
+          ]
+        },
+        {
+          "title": "Deployment",
+          "content": [
+            "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tps",
+      "title": "Third Person Shooter",
+      "summary": "A third person shooter game made using Unity and Blender. The above video contains all the \"good\" parts of this game. You can find the full walk-through here: https://youtu.be/IdROkSJjZoo",
+      "videoUrl": "./videos/thirdPersonShooterGame.mp4",
+      "youtubeUrl": "73mukJxvZWE",
+      "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
+      "tags": ["Unity", "C#", "Blender", "Shader"],
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "A university project that achieved nearly full marks on the gameplay and graphics aspects.",
+            "This was a group project. Most of the game logics including camera, movements, weapon system, health system, AI, shaders and particles are written by myself. No third-party libraries are used in this project.",
+            "The actual code for this project is hidden on purpose as this is one of my university assignments. The report, however, is made public through the link above to showcase my understanding. Only the relevant parts (my parts) are kept in the report. It explains this project in great details."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bgai",
+      "title": "Board Game AI",
+      "summary": "An AI agent that plays the board game Yinsh which is able to beat experienced human players.",
+      "tags": ["Python", "Minimax"],
+      "imageUrl": "./images/yinsh.png",
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "The final project for my university subject \"COMP90054 - AI Planning for Autonomy\". It won the third place out of 90 teams in the subject's final tournament.",
+            "The AI agent is driven by the minimax algorithm. We also built some variants that use A* algorithm and reinforcement learning, but overall the minimax variant outperforms all other agents in our tests.",
+            "The actual code for this project is hidden on purpose as this is one of my university assignments."
+          ]
+        },
+        {
+          "title": "The Minimax Algorithm",
+          "content": [
+            "Yinsh is a turn-based board game involving two players that falls under the category of zero-sum games. Minimax is a very strong strategy in this category as it always picks the action that minimizes the opponent's rewards.",
+            "The full Minimax algorithm would expand the search path all the way to the terminal states (e.g., win, lose, or tie). However, as the dimensions of Yinsh are huge, it's not feasible to do so. Instead, we limited the search depth to only 2, that is to expand one action for ourselves and then one action for our opponent, to make the computation time fall within a reasonable range. We also implemented alpha-beta pruning and tried to expand more promising child nodes first to further decrease the elapsed time.",
+            "At each turn, the board configuration is fed into a heuristic function that returns a score to represent the chances of winning. A handful of features are selected (e.g., the number of rings won, whether there is a sequence in the state, how far the rings are from the center of the board, how many rings are blocked, and so on) inside the heuristic function."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dv",
+      "title": "Data Visualizer",
+      "summary": "A website that displays regional information for Melbourne. A Map-Reduce processing is used to group the data into different statistical area levels.",
+      "videoUrl": "./videos/dataVisualizer.mp4",
+      "youtubeUrl": "iRAcW1rMhYU",
+      "externalLink": "http://3.27.77.149:443/",
+      "githubLink": "https://github.com/LinyanZ/dataVisualizer",
+      "tags": [
+        "React.js",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Map-Reduce",
+        "Docker",
+        "AWS"
+      ],
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "A side project that showcases the Map-Reduce concept. MongoDB is used in this project as its aggregation pipeline provides powerful Map-Reduce-alike features."
+          ]
+        },
+        {
+          "title": "The Map-Reduce Process",
+          "content": [
+            "Each document in the database contains an arbitrary value and an SA (statistical area) code which represents its geolocation, such as \"209041430\". An SA2 (SA level 2) code comprises 9 digits (\"209041430\"), denotes a finer-grained area. A legitimate SA3 code (\"20904\") can be created using the first five digits of any SA2 code, which covers a broader area on the map. A legitimate SA4 code (\"209\") can be created using the first three digits of any SA2 code, which covers an even wider area.",
+            "During the Map process, each document emits all three levels of its SA code (\"209041430\" => \"209041430\", \"20904\", \"209\"), then during the Reduce process, all documents are grouped by a certain SA level according to a given query.",
+            "The \"Min\", \"Max\", \"Sum\", \"Average\", and \"Count\" is calculated during the Reduce process."
+          ]
+        },
+        {
+          "title": "Deployment",
+          "content": [
+            "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft",
+      "title": "Footprint Tracker",
+      "summary": "An android application that tracks the user's GPS location and draw the users' routes on a Google Map.",
+      "videoUrl": "./videos/footprintTracker.mp4",
+      "youtubeUrl": "vvfTlTezr_s",
+      "tags": ["Java", "Android", "Firebase"],
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "The final project for my university subject \"COMP90018 - Mobile Computing Systems Programming\". Developed using vanilla Java.",
+            "This was a group project. The complete project is a social platform that allows users to share their travel experiences (similar to Instagram to an extent). The application allows users to publish posts, create travel plans and share it with others. My portion in this project is to track a user's travel footprints, save the routes and upload it onto Firebase.",
+            "The actual code for this project is hidden on purpose as this is one of my university assignments."
+          ]
+        }
+      ]
+    }
+  ],
+  "zh": [
+    {
+      "id": "sc",
+      "title": "问卷编辑器",
+      "summary": "一个帮助你创建并发布调查问卷的网站。用\"admin\"作为用户名和密码登录以创建你自己的问卷并查看所有提交结果。",
+      "videoUrl": "./videos/surveyCreator.mp4",
+      "youtubeUrl": "CQZ9yFDFZSE",
+      "tags": [
+        "React.js",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Json-Web-Token",
+        "Docker",
+        "AWS"
+      ],
+      "externalLink": "http://3.27.77.149:5001/",
+      "githubLink": "https://github.com/LinyanZ/surveyCreator",
+      "details": [
+        {
+          "title": "项目简介",
+          "content": [
+            "一个个人的全栈项目，提供了灵活的UI编辑器，拖拽排序，身份认证/授权等功能。"
+          ]
+        },
+        {
+          "title": "编辑器",
+          "content": [
+            "您可以轻松的添加或删除问卷问题，并通过拖拽的方式对其进行排序。",
+            "每一个问题都会有一个预览以及属性面板，For each question, there is a preview section alongside its property editor to provide you with some visual feedback as you're creating your surveys. The property editor would be different for different types of survey questions.",
+            "Currently, the website supports 5 types of questions (short answer, multiple choice, multiple answer, drop-down list, and rating) but can be easily extended in the future."
+          ]
+        },
+        {
+          "title": "Authentication and Authorization",
+          "content": [
+            "This website is open for registration, although there is no difference between a guest visitor and a registered user at the moment. However, only an administrator can create surveys and view all the submissions made by others. Relevant routes are protected and the users would be redirected if they are not authenticated.",
+            "The authentication and authorization are achieved using JWT tokens, which are stored in httpOnly cookies to prevent potential attacks."
+          ]
+        },
+        {
+          "title": "Deployment",
+          "content": [
+            "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tps",
+      "title": "Third Person Shooter",
+      "summary": "A third person shooter game made using Unity and Blender. The above video contains all the \"good\" parts of this game. You can find the full walk-through here: https://youtu.be/IdROkSJjZoo",
+      "videoUrl": "./videos/thirdPersonShooterGame.mp4",
+      "youtubeUrl": "73mukJxvZWE",
+      "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
+      "tags": ["Unity", "C#", "Blender", "Shader"],
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "A university project that achieved nearly full marks on the gameplay and graphics aspects.",
+            "This was a group project. Most of the game logics including camera, movements, weapon system, health system, AI, shaders and particles are written by myself. No third-party libraries are used in this project.",
+            "The actual code for this project is hidden on purpose as this is one of my university assignments. The report, however, is made public through the link above to showcase my understanding. Only the relevant parts (my parts) are kept in the report. It explains this project in great details."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bgai",
+      "title": "Board Game AI",
+      "summary": "An AI agent that plays the board game Yinsh which is able to beat experienced human players.",
+      "tags": ["Python", "Minimax"],
+      "imageUrl": "./images/yinsh.png",
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "The final project for my university subject \"COMP90054 - AI Planning for Autonomy\". It won the third place out of 90 teams in the subject's final tournament.",
+            "The AI agent is driven by the minimax algorithm. We also built some variants that use A* algorithm and reinforcement learning, but overall the minimax variant outperforms all other agents in our tests.",
+            "The actual code for this project is hidden on purpose as this is one of my university assignments."
+          ]
+        },
+        {
+          "title": "The Minimax Algorithm",
+          "content": [
+            "Yinsh is a turn-based board game involving two players that falls under the category of zero-sum games. Minimax is a very strong strategy in this category as it always picks the action that minimizes the opponent's rewards.",
+            "The full Minimax algorithm would expand the search path all the way to the terminal states (e.g., win, lose, or tie). However, as the dimensions of Yinsh are huge, it's not feasible to do so. Instead, we limited the search depth to only 2, that is to expand one action for ourselves and then one action for our opponent, to make the computation time fall within a reasonable range. We also implemented alpha-beta pruning and tried to expand more promising child nodes first to further decrease the elapsed time.",
+            "At each turn, the board configuration is fed into a heuristic function that returns a score to represent the chances of winning. A handful of features are selected (e.g., the number of rings won, whether there is a sequence in the state, how far the rings are from the center of the board, how many rings are blocked, and so on) inside the heuristic function."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dv",
+      "title": "Data Visualizer",
+      "summary": "A website that displays regional information for Melbourne. A Map-Reduce processing is used to group the data into different statistical area levels.",
+      "videoUrl": "./videos/dataVisualizer.mp4",
+      "youtubeUrl": "iRAcW1rMhYU",
+      "externalLink": "http://3.27.77.149:443/",
+      "githubLink": "https://github.com/LinyanZ/dataVisualizer",
+      "tags": [
+        "React.js",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Map-Reduce",
+        "Docker",
+        "AWS"
+      ],
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "A side project that showcases the Map-Reduce concept. MongoDB is used in this project as its aggregation pipeline provides powerful Map-Reduce-alike features."
+          ]
+        },
+        {
+          "title": "The Map-Reduce Process",
+          "content": [
+            "Each document in the database contains an arbitrary value and an SA (statistical area) code which represents its geolocation, such as \"209041430\". An SA2 (SA level 2) code comprises 9 digits (\"209041430\"), denotes a finer-grained area. A legitimate SA3 code (\"20904\") can be created using the first five digits of any SA2 code, which covers a broader area on the map. A legitimate SA4 code (\"209\") can be created using the first three digits of any SA2 code, which covers an even wider area.",
+            "During the Map process, each document emits all three levels of its SA code (\"209041430\" => \"209041430\", \"20904\", \"209\"), then during the Reduce process, all documents are grouped by a certain SA level according to a given query.",
+            "The \"Min\", \"Max\", \"Sum\", \"Average\", and \"Count\" is calculated during the Reduce process."
+          ]
+        },
+        {
+          "title": "Deployment",
+          "content": [
+            "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft",
+      "title": "Footprint Tracker",
+      "summary": "An android application that tracks the user's GPS location and draw the users' routes on a Google Map.",
+      "videoUrl": "./videos/footprintTracker.mp4",
+      "youtubeUrl": "vvfTlTezr_s",
+      "tags": ["Java", "Android", "Firebase"],
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "The final project for my university subject \"COMP90018 - Mobile Computing Systems Programming\". Developed using vanilla Java.",
+            "This was a group project. The complete project is a social platform that allows users to share their travel experiences (similar to Instagram to an extent). The application allows users to publish posts, create travel plans and share it with others. My portion in this project is to track a user's travel footprints, save the routes and upload it onto Firebase.",
+            "The actual code for this project is hidden on purpose as this is one of my university assignments."
+          ]
+        }
+      ]
+    }
+  ]
+}

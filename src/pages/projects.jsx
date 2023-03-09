@@ -1,8 +1,7 @@
-import projects from "../data/projects.json";
 import Project from "../components/projects/project";
 import { useRef } from "react";
 
-export default function Projects() {
+export default function Projects({ projects }) {
   const touchEventRef = useRef({ touchStart: null, touchEnd: null });
   const minSwipeDistance = 100;
 
