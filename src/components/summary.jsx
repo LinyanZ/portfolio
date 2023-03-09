@@ -4,6 +4,7 @@ import { useTheme } from "../contexts/themeContext";
 import { useIsLarge } from "../utils";
 import GithubIcon from "./icons/githubIcon";
 import LinkedInIcon from "./icons/linkedInIcon";
+import { useLanguage } from "../contexts/languageContext";
 
 const ease = [0, 0.4, 0.2, 1];
 
@@ -13,6 +14,8 @@ function useParallax(value, distance, offset = 0) {
 
 export default function Summary() {
   const [theme] = useTheme();
+  const [language] = useLanguage();
+
   const ref = useRef();
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useSpring(scrollYProgress, {
@@ -75,23 +78,36 @@ export default function Summary() {
           />
         </motion.div>
         <motion.div className="summary" style={isLarge ? { y: yDiv } : {}}>
-          <h2 className={`summary-title text--${theme}`}>About Me</h2>
+          <h2 className={`summary-title text--${theme}`}>
+            {language === "en" ? "About Me" : "个人简介"}
+          </h2>
           <motion.p
             className={`summary-content text--${theme}`}
             style={isLarge ? { y: yP } : {}}
           >
-            Hi, I'm Linyan, an <b className="font-semibold">MIT</b> student at
-            the <b className="font-semibold">University of Melbourne</b>. I'm a
-            full-stack web developer / software developer who is passionate to
-            create <b className="font-semibold">beautiful</b> and{" "}
-            <b className="font-semibold">innovative</b> applications.
+            {language === "en" ? (
+              "About Me"
+            ) : (
+              <>
+                哈喽，我是临砚，一个在
+                <b className="font-semibold">墨尔本大学</b>上学的
+                <b className="font-semibold">IT硕士</b>
+                学生。我是一个全栈Web应用开发 / 软件开发程序猿，热衷于创造
+                <b className="font-semibold">出色</b>的，
+                <b className="font-semibold">创新</b>的应用程序。
+              </>
+            )}
           </motion.p>
           <motion.div
             className={`mt-16 flex text--${theme} items-center gap-x-8`}
             style={isLarge ? { y: yLinks } : {}}
           >
-            <a className="summary-link" href="/resume.pdf" download>
-              Resume
+            <a
+              className="summary-link"
+              href={language === "en" ? "/resume_en.pdf" : "/resume_en.pdf"} // TODO: update resume link.
+              download
+            >
+              {language === "en" ? "Resume" : "简历"}
             </a>
             <button
               className="icon"

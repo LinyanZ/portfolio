@@ -71,9 +71,9 @@ html {
   font-size: calc(
     144px - max(0px, (144 - 64) * (1024px - 100vw) / (1024 - 400))
   );
-  line-height: calc(
+  /* line-height: calc(
     160px - max(0px, (160 - 90) * (1024px - 100vw) / (1024 - 400))
-  );
+  ); */
   margin-bottom: calc(
     16px - max(0px, (16 - 8) * (1024px - 100vw) / (1024 - 400))
   );

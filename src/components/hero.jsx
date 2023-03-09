@@ -1,5 +1,6 @@
 import { useTheme } from "../contexts/themeContext";
 import { motion } from "framer-motion";
+import { useLanguage } from "../contexts/languageContext";
 
 const AnimatedLetters = ({ text, delay, ...props }) => {
   return (
@@ -22,6 +23,7 @@ const AnimatedLetters = ({ text, delay, ...props }) => {
 
 export default function Hero() {
   const [theme] = useTheme();
+  const [language] = useLanguage();
 
   return (
     <>
@@ -30,12 +32,12 @@ export default function Hero() {
       >
         <div className="relative top-[-5vh]">
           <AnimatedLetters className="hero-text font-extralight" delay={3.5}>
-            Hi, I'm
+            {language === "en" ? "Hi, I'm" : "嗨，"}
           </AnimatedLetters>
         </div>
         <div className="relative top-[-7vh]">
           <AnimatedLetters className="hero-text font-medium" delay={0.1 + 3.5}>
-            Linyan Zhu
+            {language === "en" ? "Linyan Zhu" : "我是朱临砚"}
           </AnimatedLetters>
         </div>
         <div className="relative top-[-6vh]">
@@ -43,7 +45,9 @@ export default function Hero() {
             className="short-description font-light"
             delay={0.8 + 3.5}
           >
-            A Full-stack / Software Developer
+            {language === "en"
+              ? "A Full-stack / Software Developer"
+              : "一个全栈 / 软件开发程序猿"}
           </AnimatedLetters>
         </div>
       </section>
