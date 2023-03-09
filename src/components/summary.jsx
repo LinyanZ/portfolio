@@ -86,7 +86,13 @@ export default function Summary() {
             style={isLarge ? { y: yP } : {}}
           >
             {language === "en" ? (
-              "About Me"
+              <>
+                Hi, I'm Linyan, an <b className="font-semibold">MIT</b> student
+                at the <b className="font-semibold">University of Melbourne</b>.
+                I'm a full-stack web developer / software developer who is
+                passionate to create <b className="font-semibold">beautiful</b>{" "}
+                and <b className="font-semibold">innovative</b> applications.
+              </>
             ) : (
               <>
                 哈喽，我是临砚，一个在
