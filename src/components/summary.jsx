@@ -110,7 +110,11 @@ export default function Summary() {
           >
             <a
               className="summary-link"
-              href={language === "en" ? "/resume_en.pdf" : "/resume_en.pdf"} // TODO: update resume link.
+              href={
+                language === "en"
+                  ? "/Linyan Zhu Resume.pdf"
+                  : "/朱临砚 简历.pdf"
+              } // TODO: update resume link.
               download
             >
               {language === "en" ? "Resume" : "简历"}
