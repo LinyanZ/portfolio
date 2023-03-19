@@ -15,7 +15,6 @@
         "Docker",
         "AWS"
       ],
-      "externalLink": "http://3.27.77.149:5001/",
       "githubLink": "https://github.com/LinyanZ/surveyCreator",
       "details": [
         {
@@ -37,12 +36,6 @@
           "content": [
             "This website is open for registration, although there is no difference between a guest visitor and a registered user at the moment. However, only an administrator can create surveys and view all the submissions made by others. Relevant routes are protected and the users would be redirected if they are not authenticated.",
             "The authentication and authorization are achieved using JWT tokens, which are stored in httpOnly cookies to prevent potential attacks."
-          ]
-        },
-        {
-          "title": "Deployment",
-          "content": [
-            "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
           ]
         }
       ]
@@ -97,7 +90,6 @@
       "summary": "A website that displays regional information for Melbourne. A Map-Reduce processing is used to group the data into different statistical area levels.",
       "videoUrl": "./videos/dataVisualizer.mp4",
       "youtubeUrl": "iRAcW1rMhYU",
-      "externalLink": "http://3.27.77.149:443/",
       "githubLink": "https://github.com/LinyanZ/dataVisualizer",
       "tags": [
         "React.js",
@@ -121,12 +113,6 @@
             "Each document in the database contains an arbitrary value and an SA (statistical area) code which represents its geolocation, such as \"209041430\". An SA2 (SA level 2) code comprises 9 digits (\"209041430\"), denotes a finer-grained area. A legitimate SA3 code (\"20904\") can be created using the first five digits of any SA2 code, which covers a broader area on the map. A legitimate SA4 code (\"209\") can be created using the first three digits of any SA2 code, which covers an even wider area.",
             "During the Map process, each document emits all three levels of its SA code (\"209041430\" => \"209041430\", \"20904\", \"209\"), then during the Reduce process, all documents are grouped by a certain SA level according to a given query.",
             "The \"Min\", \"Max\", \"Sum\", \"Average\", and \"Count\" is calculated during the Reduce process."
-          ]
-        },
-        {
-          "title": "Deployment",
-          "content": [
-            "This project is dockerized using docker-compose, which is then deployed on an AWS EC2 instance."
           ]
         }
       ]
@@ -166,7 +152,6 @@
         "Docker",
         "AWS"
       ],
-      "externalLink": "http://3.27.77.149:5001/",
       "githubLink": "https://github.com/LinyanZ/surveyCreator",
       "details": [
         {
@@ -188,12 +173,6 @@
           "content": [
             "本网站开放注册，尽管目前访客与注册用户之间并没有任何区别（两者都能浏览并提交所有的问卷）。但是，只有网站管理者可以创建新的问卷并查看所有的提交数据。相关的页面已被保护所以未授权的用户会被重定向回首页。",
             "身份的验证与授权是通过JWT令牌实现的。为确保网站不会受到 XSS 攻击，本网站使用了 httpOnly 的 cookies 来储存令牌。"
-          ]
-        },
-        {
-          "title": "部署",
-          "content": [
-            "本项目已被容器化，并通过 docker-compose 部署在了一个 AWS EC2 实例上."
           ]
         }
       ]
@@ -248,7 +227,6 @@
       "summary": "一个显示墨尔本区域数据的网站。通过 Map-Reduce 的处理将原始数据分组到了不同的统计区域级别。",
       "videoUrl": "./videos/dataVisualizer.mp4",
       "youtubeUrl": "iRAcW1rMhYU",
-      "externalLink": "http://3.27.77.149:443/",
       "githubLink": "https://github.com/LinyanZ/dataVisualizer",
       "tags": [
         "React.js",
@@ -272,12 +250,6 @@
             "数据库中的每个文档都包含一个随机生成的值和一个代表其地理位置的 SA（统计区域）代码，例如“209041430”。一个 SA2（第二级统计区域）代码由9位数字组成（\"209041430\"），表示一个较小范围的区域。一个有效的 SA3 代码 (\"20904\") 可以使用任何 SA2 代码的前五位数字创建，它覆盖了地图上一个更广阔的区域。一个有效的 SA4 码（\"209\"）可以用任意 SA2 码的前三位数字组成，覆盖区域会更广。",
             "在 Map 过程中，每个文档会映射其所有三个级别的 SA 代码（\"209041430\" => \"209041430\", \"20904\", \"209\"），然后在 Reduce 过程中，所有文档会根据查询语句按特定的 SA 级别分组。",
             "一个区域的最小值、最大值、总和、均值以及数据数量会在 Reduce 的过程中被计算出来。"
-          ]
-        },
-        {
-          "title": "部署",
-          "content": [
-            "本项目已被容器化，并通过 docker-compose 部署在了一个 AWS EC2 实例上."
           ]
         }
       ]
