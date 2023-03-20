@@ -22,7 +22,7 @@
     {
       "id": "re",
       "title": "Path Tracer",
-      "summary": "An multi-threaded offline path tracer written in C++ using OpenMP/OpenMPI.",
+      "summary": "A multi-threaded offline path tracer written in C++ using OpenMP/OpenMPI.",
       "imageUrl": "./images/renderer.png",
       "tags": ["C++", "OpenMP/OpenMPI"],
       "details": [
