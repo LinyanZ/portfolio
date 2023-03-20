@@ -176,7 +176,7 @@
     {
       "id": "re",
       "title": "路径追踪渲染器",
-      "summary": "一个多线程的离线的路径追踪渲染器，使用 C++ 和 OpenMP/OpenMPI 编写。",
+      "summary": "一个多线程的离线路径追踪渲染器，使用 C++ 和 OpenMP/OpenMPI 编写。",
       "imageUrl": "./images/renderer.png",
       "tags": ["C++", "OpenMP/OpenMPI"],
       "details": [
