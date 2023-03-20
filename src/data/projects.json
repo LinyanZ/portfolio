@@ -1,6 +1,42 @@
 {
   "en": [
     {
+      "id": "tps",
+      "title": "Third Person Shooter",
+      "summary": "A third person shooter game made using Unity and Blender. The above video contains all the \"good\" parts of this game. You can find the full walk-through here: https://youtu.be/IdROkSJjZoo",
+      "videoUrl": "./videos/thirdPersonShooterGame.mp4",
+      "youtubeUrl": "73mukJxvZWE",
+      "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
+      "tags": ["Unity", "C#", "Blender", "Shader"],
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "A university project that achieved nearly full marks on the gameplay and graphics aspects.",
+            "This was a group project. Most of the game logics including camera, movements, weapon system, health system, AI, shaders and particles are written by myself. No third-party libraries are used in this project.",
+            "The actual code for this project is hidden on purpose as this is one of my university assignments. The report, however, is made public through the link above to showcase my understanding. Only the relevant parts (my parts) are kept in the report. It explains this project in great details."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "re",
+      "title": "Path Tracer",
+      "summary": "An multi-threaded offline path tracer written in C++ using OpenMP/OpenMPI.",
+      "imageUrl": "./images/renderer.png",
+      "tags": ["C++", "OpenMP/OpenMPI"],
+      "details": [
+        {
+          "title": "About This Project",
+          "content": [
+            "This project is part of a free online course called GAMES101, given by Lingqi Yan (available at https://www.bilibili.com/video/BV1X7411F744).",
+            "In order to produce physically accurate renders, this application simulates how light travels across the scene and bounces off objects using the Monte-Carlo approach and the Russian Roulette method. In addition, BVH acceleration is used by the application to increase render efficiency.",
+            "By allocating the render of each pixel to a different thread using OpenMP, the original program can be easily transformed into a multi-threaded variant. On top of that, this program utilises OpenMPI to implement the Master-Slave pattern. Each slave process is given a specific area of the image to render, and the master process gathers the results before writing them into the output file."
+          ]
+        }
+      ]
+    },
+    {
       "id": "sc",
       "title": "Survey Creator",
       "summary": "A website that helps you to create and publish custom surveys. Use \"admin\" for both username and password to log in as an administrator, create your own surveys and view the submission data.",
@@ -36,25 +72,6 @@
           "content": [
             "This website is open for registration, although there is no difference between a guest visitor and a registered user at the moment. However, only an administrator can create surveys and view all the submissions made by others. Relevant routes are protected and the users would be redirected if they are not authenticated.",
             "The authentication and authorization are achieved using JWT tokens, which are stored in httpOnly cookies to prevent potential attacks."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "tps",
-      "title": "Third Person Shooter",
-      "summary": "A third person shooter game made using Unity and Blender. The above video contains all the \"good\" parts of this game. You can find the full walk-through here: https://youtu.be/IdROkSJjZoo",
-      "videoUrl": "./videos/thirdPersonShooterGame.mp4",
-      "youtubeUrl": "73mukJxvZWE",
-      "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
-      "tags": ["Unity", "C#", "Blender", "Shader"],
-      "details": [
-        {
-          "title": "About This Project",
-          "content": [
-            "A university project that achieved nearly full marks on the gameplay and graphics aspects.",
-            "This was a group project. Most of the game logics including camera, movements, weapon system, health system, AI, shaders and particles are written by myself. No third-party libraries are used in this project.",
-            "The actual code for this project is hidden on purpose as this is one of my university assignments. The report, however, is made public through the link above to showcase my understanding. Only the relevant parts (my parts) are kept in the report. It explains this project in great details."
           ]
         }
       ]
@@ -138,6 +155,42 @@
   ],
   "zh": [
     {
+      "id": "tps",
+      "title": "第三人称射击游戏",
+      "summary": "一个用 Unity 以及 Blender 制作的第三人称射击游戏。上面的视频包括了所有“精彩”的部分。您可以在这里观看完整的游戏流程：https://youtu.be/IdROkSJjZoo",
+      "videoUrl": "./videos/thirdPersonShooterGame.mp4",
+      "youtubeUrl": "73mukJxvZWE",
+      "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
+      "tags": ["Unity", "C#", "Blender", "Shader"],
+      "details": [
+        {
+          "title": "项目简介",
+          "content": [
+            "这是我大学中的一个项目，在游戏玩法以及画面的层面上取得了近乎满分。",
+            "这是一个小组项目。绝大多数游戏的逻辑（包括摄像机、人物移动、武器系统、健康系统、AI、着色器以及粒子效果）都由我自己完成。本项目没有使用任何的第三方库。",
+            "由于这是一个大学的作业，我有意隐藏了游戏的源码。但我公开了（我负责的部分的）项目报告以展示我对游戏开发的理解，您可以通过上面的 Github 链接浏览此报告。它非常详细的解释了本项目中有意思的部分。"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "re",
+      "title": "路径追踪渲染器",
+      "summary": "一个多线程的离线的路径追踪渲染器，使用 C++ 和 OpenMP/OpenMPI 编写。",
+      "imageUrl": "./images/renderer.png",
+      "tags": ["C++", "OpenMP/OpenMPI"],
+      "details": [
+        {
+          "title": "项目简介",
+          "content": [
+            "跟随B站闫令琪老师的GAMES101课程（https://www.bilibili.com/video/BV1X7411F744/）编写的路径追踪渲染器，并使用 OpenMP/OpenMPI 拓展成了多线程的程序。",
+            "该程序通过蒙特卡罗方法以及俄罗斯轮盘赌的算法模拟光线在场景中的多次反射，从而实现物理正确的渲染结果（如全局光照、环境光遮蔽、软阴影等）。该程序使用了 BVH 加速以提高渲染效率。",
+            "原程序可以轻松的被 OpenMP 拓展为多线程模式，将每一块像素的渲染工作分发给不同的线程即可。在此基础上，此程序还通过 OpenMPI 实现了多进程的 Master-Slave 模式。图片的不同区域被分配给了各个 Slave 进程进行渲染，渲染结果将由 Master 进程收集并写入到文件中。"
+          ]
+        }
+      ]
+    },
+    {
       "id": "sc",
       "title": "问卷编辑器",
       "summary": "一个帮助你创建并发布调查问卷的网站。用 \"admin\" 作为用户名和密码登录以创建你自己的问卷并查看所有提交结果。",
@@ -173,25 +226,6 @@
           "content": [
             "本网站开放注册，尽管目前访客与注册用户之间并没有任何区别（两者都能浏览并提交所有的问卷）。但是，只有网站管理者可以创建新的问卷并查看所有的提交数据。相关的页面已被保护所以未授权的用户会被重定向回首页。",
             "身份的验证与授权是通过JWT令牌实现的。为确保网站不会受到 XSS 攻击，本网站使用了 httpOnly 的 cookies 来储存令牌。"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "tps",
-      "title": "第三人称射击游戏",
-      "summary": "一个用 Unity 以及 Blender 制作的第三人称射击游戏。上面的视频包括了所有“精彩”的部分。您可以在这里观看完整的游戏流程：https://youtu.be/IdROkSJjZoo",
-      "videoUrl": "./videos/thirdPersonShooterGame.mp4",
-      "youtubeUrl": "73mukJxvZWE",
-      "githubLink": "https://github.com/LinyanZ/thirdPersonShooter",
-      "tags": ["Unity", "C#", "Blender", "Shader"],
-      "details": [
-        {
-          "title": "项目简介",
-          "content": [
-            "这是我大学中的一个项目，在游戏玩法以及画面的层面上取得了近乎满分。",
-            "这是一个小组项目。绝大多数游戏的逻辑（包括摄像机、人物移动、武器系统、健康系统、AI、着色器以及粒子效果）都由我自己完成。本项目没有使用任何的第三方库。",
-            "由于这是一个大学的作业，我有意隐藏了游戏的源码。但我公开了（我负责的部分的）项目报告以展示我对游戏开发的理解，您可以通过上面的 Github 链接浏览此报告。它非常详细的解释了本项目中有意思的部分。"
           ]
         }
       ]
