@@ -89,18 +89,22 @@ export default function Summary() {
               <>
                 Hi, I'm Linyan, an <b className="font-semibold">MIT</b> student
                 at the <b className="font-semibold">University of Melbourne</b>.
-                I'm a full-stack web developer / software developer who is
-                passionate to create <b className="font-semibold">beautiful</b>{" "}
-                and <b className="font-semibold">innovative</b> applications.
+                I'm a software developer who loves {" "}
+                <b className="font-semibold">GAMES</b> and possesses {" "}
+                <b className="font-semibold">SOLID</b> programming skills. I enjoy {" "}
+                <b className="font-semibold">TACKLING CHALLENGES</b> in game development 
+                and learning cutting-edge technologies to create{" "}
+                <b className="font-semibold">VISUALLY STUNNING</b> works.
               </>
             ) : (
               <>
                 哈喽，我是临砚，一个在
                 <b className="font-semibold">墨尔本大学</b>上学的
-                <b className="font-semibold">IT硕士</b>
-                学生。我是一个全栈Web应用开发 / 软件开发程序猿，热衷于创造
-                <b className="font-semibold">出色</b>的，
-                <b className="font-semibold">创新</b>的应用程序。
+                <b className="font-semibold">IT硕士</b>学生。我是一位
+                <b className="font-semibold">热爱游戏</b>的软件开发者，拥有
+                <b className="font-semibold">扎实</b>的编程技能。我在游戏开发过程中喜欢
+                <b className="font-semibold">解决挑战</b>，学习前沿的技术制作
+                <b className="font-semibold">视觉精美</b>的作品。
               </>
             )}
           </motion.p>

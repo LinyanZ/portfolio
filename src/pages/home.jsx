@@ -26,7 +26,7 @@ function Home() {
 
   return (
     <>
-      <LoadingScreen />
+      {/* <LoadingScreen /> */}
       <Hero />
       <Projects projects={language === "en" ? projects.en : projects.zh} />
       <Summary />

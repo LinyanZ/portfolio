@@ -31,23 +31,23 @@ export default function Hero() {
         className={`max-width-container vertical-center hero-section text--${theme}`}
       >
         <div className="relative top-[-5vh]">
-          <AnimatedLetters className="hero-text font-extralight" delay={3.5}>
+          <AnimatedLetters className="hero-text font-extralight" delay={3.0}>
             {language === "en" ? "Hi, I'm" : "嗨，"}
           </AnimatedLetters>
         </div>
         <div className="relative top-[-7vh]">
-          <AnimatedLetters className="hero-text font-medium" delay={0.1 + 3.5}>
+          <AnimatedLetters className="hero-text font-medium" delay={0.1 + 3.0}>
             {language === "en" ? "Linyan Zhu" : "我是朱临砚"}
           </AnimatedLetters>
         </div>
         <div className="relative top-[-6vh]">
           <AnimatedLetters
             className="short-description font-light"
-            delay={0.8 + 3.5}
+            delay={0.8 + 3.0}
           >
             {language === "en"
-              ? "A Full-stack / Software Developer"
-              : "一个全栈 / 软件开发程序猿"}
+              ? "A Gamer Who Can Write Codes"
+              : "一个喜欢玩游戏的程序猿"}
           </AnimatedLetters>
         </div>
       </section>
