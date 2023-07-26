@@ -5,14 +5,14 @@
       "title": "PBR Renderer",
       "summary": "A toy renderer built with DirectX12.",
       "videoUrl": "./videos/pbr.mp4",
-      "tags": ["C++", "DirectX12", "PBR", "Image-Based Lighting", "SSAO", "Tone-Mapping"],
+      "tags": ["C++", "DirectX12", "PBR", "Forward Rendering", "Deferred Rendering", "Image-Based Lighting", "SSAO", "FXAA", "Tone-Mapping"],
       "details": [
         {
           "title": "About This Project",
           "content": [
             "A personal project to apply my newfound knowledge while learning DirectX12 graphic API.",
-            "Currently supports physically-based rendering using the Microfacet Model, with Image-Based Lighting following Epic's split-sum approximation.",
-            "This project also incorporates common post-processing techniques such as Screen-Space Ambient Occlusion and Tone mapping to improve the visuals."
+            "Currently supports physically-based rendering using the Microfacet Model in both forward rendering and deferred rendering modes. Additionally, it incorporates Image-Based Lighting following Epic's split-sum approximation.",
+            "This project also supports Screen-Space Ambient Occlusion and common post-processing techniques such as FXAA and Tone mapping to improve the visuals."
           ]
         }
       ]
@@ -176,14 +176,14 @@
       "title": "PBR 渲染器",
       "summary": "一个用 DirectX12 驱动的玩具渲染器。",
       "videoUrl": "./videos/pbr.mp4",
-      "tags": ["C++", "DirectX12", "PBR", "Image-Based Lighting", "SSAO", "Tone-Mapping"],
+      "tags": ["C++", "DirectX12", "PBR", "Forward Rendering", "Deferred Rendering", "Image-Based Lighting", "SSAO", "FXAA", "Tone-Mapping"],
       "details": [
         {
           "title": "项目简介",
           "content": [
             "一个在我学习 DirectX12 图形 API 的过程中尝试的个人项目。",
-            "该项目目前支持使用微表面模型（Microfacet Model）进行基于物理的渲染，并采用了 Epic 的 Split-Sum Approximation 实现了基于图像的光照技术（Image-Based Lighting）。",
-            "该项目还使用了常见的后期处理技术，如屏幕空间环境光遮蔽（SSAO）及色调映射（Tone-Mapping）。"
+            "该项目目前支持前向渲染以及延迟渲染模式，使用微表面模型（Microfacet Model）进行基于物理的渲染，并采用了 Epic 的 Split-Sum Approximation 实现了基于图像的光照技术（Image-Based Lighting）。",
+            "该项目使用了屏幕空间环境光遮蔽（SSAO），以及常见的后期处理技术如快速近似抗锯齿（FXAA）和色调映射（Tone-Mapping）。"
           ]
         }
       ]
